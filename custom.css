@@ -3,6 +3,7 @@ h1, h2, h3, h4, h5, h6 {
     font-style: normal;
     font-weight: 300;
     line-height: 1.4em;
+    color: #070E08;
 }
 h7, p, body {
     font-family: minion-pro, serif;
@@ -10,12 +11,14 @@ h7, p, body {
     font-weight: 400;
     line-height: 1.6em;
     letter-spacing: .02em;
+    color: #070E08;
     text-indent: 0em;
 }
 h8 {  
     font-family: century-gothic, sans-serif;
     font-weight: 700;
     font-style: normal;
+    color: #070E08;
 }
 h9 {
     font-family: century-gothic, sans-serif;
@@ -23,6 +26,7 @@ h9 {
     font-style: normal;
     line-height: 1.8em;
     letter-spacing: .02em;
+    color: #070E08;
 }
 /* 
 bold italic: 
