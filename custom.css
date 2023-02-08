@@ -1,12 +1,12 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: rig-shaded-light-face, sans-serif;
+    font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 300;
     line-height: 1.4em;
     color: #070E08;
 }
 h7, p, body {
-    font-family: minion-pro, serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.6em;
@@ -15,35 +15,20 @@ h7, p, body {
     text-indent: 0em;
 }
 h8 {  
-    font-family: century-gothic, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     font-style: normal;
     color: #070E08;
 }
 h9 {
-    font-family: century-gothic, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1.8em;
     letter-spacing: .02em;
     color: #070E08;
 }
-/* 
-bold italic: 
-font-family: century-gothic, sans-serif;
 
-font-weight: 700;
-
-font-style: italic;
-
-italic:
-font-family: century-gothic, sans-serif;
-
-font-weight: 400;
-
-font-style: italic;
-
-*/
 @media (min-width: 576px) {
       h1 {font-size: 6.5rem;}
       h2 {font-size: 4.2rem;}
@@ -84,14 +69,14 @@ p, body {font-size: 1.1rem;}
 */
 
 .navbar-brand {
-    font-family: rig-shaded-light-face, sans-serif;
+    font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 300;
     font-size: 2rem;
     color: #17B890 !important;
 }
 .navbar {
-    font-family: rig-shaded-light-face, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
