@@ -1,49 +1,30 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: rig-shaded-light-face, sans-serif;
+    font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 300;
     line-height: 1.4em;
-    color: #070E08;
 }
 h7, p, body {
-    font-family: minion-pro, serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.6em;
     letter-spacing: .02em;
-    color: #070E08;
     text-indent: 0em;
 }
 h8 {  
-    font-family: century-gothic, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: #070E08;
 }
 h9 {
-    font-family: century-gothic, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
     line-height: 1.8em;
     letter-spacing: .02em;
-    color: #070E08;
 }
-/* 
-bold italic: 
-font-family: century-gothic, sans-serif;
 
-font-weight: 700;
-
-font-style: italic;
-
-italic:
-font-family: century-gothic, sans-serif;
-
-font-weight: 400;
-
-font-style: italic;
-
-*/
 @media (min-width: 576px) {
       h1 {font-size: 6.5rem;}
       h2 {font-size: 4.2rem;}
@@ -74,27 +55,23 @@ font-style: italic;
     h9 {font-size: 1.3rem;}
       p, body {font-size: 1.1rem;}
   }
- /*
-h1 {font-size: 6.5rem;}
-h2 {font-size: 4.2rem;}
-h3 {font-size: 2.8rem;}
-h4 {font-size: 1.6rem;}
-h7 {font-size: 1.5rem;}
-p, body {font-size: 1.1rem;}
-*/
 
 .navbar-brand {
-    font-family: rig-shaded-light-face, sans-serif;
+    font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 300;
     font-size: 2rem;
-    color: #17B890 !important;
+    color: #E58AB3 !important;
 }
-.navbar {
-    font-family: rig-shaded-light-face, sans-serif;
+.navbar-text {
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
+	color: #E58AB3 !important;
+}
+.navbar-custom {
+	background-color: #972156;
 }
 div.vspace1em {
     clear: both;
@@ -105,11 +82,11 @@ div.vspace3em {
     clear: both;
     height: 3em;
 }
-div.graydiv {
-    background-color: #3f4050;
+div.rosediv {
+    background-color: #BC0758;
 }
-div.lightgreendiv {
-    background-color: #dee5e5;
+div.orangediv {
+    background-color: #D7893B;
 }
 img {
     object-fit: contain;
@@ -126,9 +103,10 @@ img.img-case-study {
 }
 footer {
     text-align: center;
+	background-color: #24336B;
 }
 .footer h3,p {
-    color: black;
+    color: #80ACB3;
 }
 .greenheader {
     color: #17B890;
@@ -138,6 +116,12 @@ footer {
 }
 #blacktext {
     color: black;
+}
+#lightpinktext {
+	color: #FB9DC7;
+}
+#lightbluetext{
+	color: #80ACB3;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #3f4050 !important;
