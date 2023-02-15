@@ -1,66 +1,66 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Yeseva One', serif;
     font-style: normal;
-    font-weight: 300;
-    line-height: 1.4em;
+    font-weight: 400;
+    /*line-height: 1.4em;*/
 }
 h7, p, body {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.6em;
+    /*line-height: 1.6em;
     letter-spacing: .02em;
-    text-indent: 0em;
+    text-indent: 0em;*/
 }
-h8 {  
+h8, h9 {
     font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 200;
     font-style: normal;
+    /*line-height: 1.8em;
+    letter-spacing: .02em;*/
 }
-h9 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.8em;
-    letter-spacing: .02em;
-}
-
 @media (min-width: 576px) {
-      h1 {font-size: 6.5rem;}
-      h2 {font-size: 4.2rem;}
-      h3 {font-size: 2.0rem;}
-      h4 {font-size: 1.6rem;}
-      h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.5rem;}
-     h9 {font-size: 1.4rem;}
-      p, body {font-size: 1.3rem;}
+    h1 {font-size: 6.5rem;}
+    h2 {font-size: 4.2rem;}
+    h3 {font-size: 1.9rem;}
+    h4 {font-size: 1.6rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+    p, body {font-size: 1.1rem;}
   }
 @media (min-width: 768px) {
-      h1 {font-size: 6.5rem;}
-      h2 {font-size: 4.2rem;}
-      h3 {font-size: 2.6rem;}
-      h4 {font-size: 1.6rem;}
-      h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.5rem;}
-    h9 {font-size: 1.3rem;}
-      p, body {font-size: 1.1rem;}
+    h1 {font-size: 6.5rem;}
+    h2 {font-size: 4.2rem;}
+    h3 {font-size: 2.0rem;}
+    h4 {font-size: 1.6rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+    p, body {font-size: 1.1rem;}
   }
 @media (min-width: 992px) {
-      h1 {font-size: 6.5rem;}
-      h2 {font-size: 4.2rem;}
-      h3 {font-size: 2.6rem;}
-      h4 {font-size: 1.63rem;}
-      h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.5rem;}
-    h9 {font-size: 1.3rem;}
-      p, body {font-size: 1.1rem;}
+    h1 {font-size: 6.5rem;}
+    h2 {font-size: 4.2rem;}
+    h3 {font-size: 2.0rem;}
+    h4 {font-size: 1.6rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+    p, body {font-size: 1.1rem;}
   }
 
 .navbar-brand {
     font-family: 'Yeseva One', serif;
     font-style: normal;
-    font-weight: 300;
-    font-size: 2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
     color: #E58AB3 !important;
 }
 .navbar-text {
@@ -73,11 +73,14 @@ h9 {
 .navbar-custom {
 	background-color: #972156;
 }
+div.vspacehalfem {
+    clear: both;
+    height: .5em;
+}
 div.vspace1em {
     clear: both;
     height: 1em;
 }
-
 div.vspace3em {
     clear: both;
     height: 3em;
@@ -87,6 +90,15 @@ div.rosediv {
 }
 div.orangediv {
     background-color: #D7893B;
+}
+div.creamdiv {
+	background-color: #FFF5EA;
+}
+div.reddiv{
+	background-color: #9B1D20;
+}
+div.purplediv{
+	background-color: #5E2A61;
 }
 img {
     object-fit: contain;
@@ -108,20 +120,32 @@ footer {
 .footer h3,p {
     color: #80ACB3;
 }
-.greenheader {
-    color: #17B890;
-}
 #whitetext {
     color: #FFFFFF;
 }
 #blacktext {
-    color: black;
+    color: #0D0304;
 }
 #lightpinktext {
 	color: #FB9DC7;
 }
 #lightbluetext{
 	color: #80ACB3;
+}
+#paleyellowtext{
+	color: #FEFADC;
+}
+#redtext{
+	color: #9B1D20;
+}
+#bluetext{
+	color: #3A5F78;
+}
+#orangetext{
+	color: #ECAB32;
+}
+#lavendertext{
+	color: #D2AFD4;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #3f4050 !important;
