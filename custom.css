@@ -73,6 +73,15 @@ h8, h9 {
 .navbar-custom {
 	background-color: #972156;
 }
+.dropdown-item:hover {
+	background-color: #BC0758 !important;
+}
+.dropdown-divider {
+	border-top: 1px solid #E58AB3 !important;
+}
+.dropdown-menu {
+	background-color: #972156;
+}
 div.vspacehalfem {
     clear: both;
     height: .5em;
@@ -100,6 +109,9 @@ div.reddiv{
 div.purplediv{
 	background-color: #5E2A61;
 }
+div.whitediv{
+	background-color: #f9f9f9;
+}
 img {
     object-fit: contain;
     width: 100%;
@@ -121,10 +133,13 @@ footer {
     color: #80ACB3;
 }
 #whitetext {
-    color: #FFFFFF;
+    color: #F9f9f9;
 }
 #blacktext {
     color: #0D0304;
+}
+#navbartext {
+	color: #E58AB3;
 }
 #lightpinktext {
 	color: #FB9DC7;
@@ -166,13 +181,14 @@ footer {
 		background-position: 50% 0;
 	}
 }
-.hero h2,h7 {
+/*.hero > h2,h7 {
     margin-left: 5%;
     margin-right: 5%;
 }
 .hero .btn-primary {
     margin-left: 5%;
 }
+*/
 .carousel-control-prev-icon !important{ 
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2317B890' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); }
  
