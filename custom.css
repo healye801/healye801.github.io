@@ -19,10 +19,22 @@ h8, h9 {
     /*line-height: 1.8em;
     letter-spacing: .02em;*/
 }
+@media (min-width: 100px) {
+    h1 {font-size: 4.0rem;}
+    h2 {font-size: 3.5rem;}
+    h3 {font-size: 2.1rem;}
+    h4 {font-size: 1.6rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+    p, body {font-size: 1.1rem;}
+  }
 @media (min-width: 576px) {
-    h1 {font-size: 6.5rem;}
-    h2 {font-size: 4.2rem;}
-    h3 {font-size: 1.9rem;}
+    h1 {font-size: 4.0rem;}
+    h2 {font-size: 3.5rem;}
+    h3 {font-size: 2.1rem;}
     h4 {font-size: 1.6rem;}
 	h5 {font-size: 1.6rem;}
 	h6 {font-size: 1.6rem;}
@@ -33,7 +45,7 @@ h8, h9 {
   }
 @media (min-width: 768px) {
     h1 {font-size: 6.5rem;}
-    h2 {font-size: 4.2rem;}
+    h2 {font-size: 3.8rem;}
     h3 {font-size: 2.0rem;}
     h4 {font-size: 1.6rem;}
 	h5 {font-size: 1.6rem;}
@@ -45,7 +57,7 @@ h8, h9 {
   }
 @media (min-width: 992px) {
     h1 {font-size: 6.5rem;}
-    h2 {font-size: 4.2rem;}
+    h2 {font-size: 3.8rem;}
     h3 {font-size: 2.0rem;}
     h4 {font-size: 1.6rem;}
 	h5 {font-size: 1.6rem;}
