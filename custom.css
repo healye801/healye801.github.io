@@ -102,6 +102,10 @@ div.vspace1em {
     clear: both;
     height: 1em;
 }
+div.vspace2em {
+    clear: both;
+    height: 2em;
+}
 div.vspace3em {
     clear: both;
     height: 3em;
