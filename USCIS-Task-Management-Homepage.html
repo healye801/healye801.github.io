@@ -108,7 +108,7 @@
 		<div class="vspace3em col-12 whitediv"></div>
         <div class="col-md-3 d-none d-md-block whitediv"></div>
         <div class="col-xs-12 col-md-6 whitediv">
-            <img class="img-responsive" src="Images/USCIS-PDF-Editor/interface-shot.png" alt="High fidelity directory and booking screens">
+            <img class="img-responsive" src="Images/USCIS-Homepage-Table/interface-shot.png" alt="High fidelity interface of a large table">
         </div>
         <div class="col-md-3 d-none d-md-block whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
@@ -120,8 +120,7 @@
         <div class="col-md-7 col-xs-12 whitediv">
             <h6 id="blacktext">Broken Windows: The old design broke when viewports sized down even to tablet size.</h6>
             <div class="vspace1em col-12"></div>
-			<p id="blacktext">The old design was certainly not mobile-first -- or mobile-friendly, for that matter.  All the information on the page is contained within a large table with tens if not hundreds of rows.  The user could choose up to seven columns of data points to view at a single time, and the rest of the columns were hidden from view.  Virtually no USCIS employees use their smartphones to view the page, but the table broke even at tablet sizes.  Some of our users do use smaller laptops to do their work in the field, and most officers are adamant that they need the flexibility to resize their windows.</p>
-			<p id="blacktext">The table pulls from a dataset with over 25 different data categories -- all information that can help agents distinguish between cases, understand which cases are high-priority, and scan to determine their pertinent tasks.  In the old design, the user used a drag-and-drop modal to choose which 7 columns to display at a time.  If another category became relevant, the user needed to open the modal, find the right column, and axe one of the existing columns to make room in the table.</p>
+			<p id="blacktext">The old design was certainly not mobile-first -- or even mobile-friendly, for that matter.  All the information on the page is contained within a large table with tens if not hundreds of rows.  The user could choose up to seven columns of data points to view at a single time, and the rest of the columns were hidden from view.  Virtually no USCIS employees use their smartphones to view the page, but the table broke even at tablet sizes.  Some of our users do use smaller laptops to do their work in the field, and most officers are adamant that they need the flexibility to resize their windows.</p>
 			<p id="blacktext">Some users were frustrated enough with this table that they devised workarounds to avoid encountering it.  This homepage couldn't be less homey.</p>
         </div>
         <!-- next section -->
@@ -132,9 +131,37 @@
             <h3 id="blacktext">Solution</h3>
         </div>
         <div class="col-md-7 col-xs-12 whitediv">
-			<h6 id="blacktext">Table Pages, Collapsible Panels, and Toolbars: Enhancements add horizontal real estate and reveal formerly hidden information.</h6>
+			<h6 id="blacktext">Collapsible Panels, Toolbars and Breakpoints: Enhancements add horizontal real estate, flexibility, and responsiveness.</h6>
 			<div class="vspace1em col-12"></div>
-            <p id="blacktext">Flexible</p>
+            <p id="blacktext">The new design needed to be responsive and spacious, while maintaining the same information density.  To accomplish this, we made several improvements.  First, We made the existing left side panel -- a list of folders and filters to apply to the table -- collapsible.  This allows users to take advantage of precious horizontal space if they so choose.</p>
+			<p id="blacktext">Second, we put in the work to make sure the table functioned at every relevant screen size.  We mocked up designs for every breakpoint from large monitors to small tablets, based off of data collected from our users.  Though mobile design was not within the scope for this project (as our users are generally not authorized and have no need to access the site on mobile devices), we think our enhancements would make mobile design feasible in the future if that need ever arises.</p>
+			<p id="blacktext">Finally, we consolidated row-based action items into a toolbar.  This cleans up the UI, consolidates functionality into the existing row checkboxes, and opens up avenues to scale the design to mobile sizes in the future.</p>
+        </div>
+		<div class="vspace3em col-12 whitediv"></div>
+		<div class="vspace3em col-12 whitediv"></div>
+        <div class="vspace3em col-12 whitediv"></div>
+		<div class="col-md-1 col-xs-12 whitediv"></div>
+        <div class="col-md-4 col-xs-12 whitediv">
+            <h3 id="blacktext">Problem #2</h3>
+        </div>
+        <div class="col-md-7 col-xs-12 whitediv">
+            <h6 id="blacktext">Hidden Information: Users have to choose between columns and reload the table to review hidden columns.</h6>
+            <div class="vspace1em col-12"></div>
+			<p id="blacktext">The table pulls from a dataset with over 25 different data categories -- all information that can help agents distinguish between cases, understand which cases are high-priority, and scan to determine their pertinent tasks.  In the old design, the user used a drag-and-drop modal to choose which 7 columns to display at a time.  If another category became relevant, the user needed to open the modal, find the right column, and axe one of the existing columns to make room in the table.</p>
+			<p id="blacktext">Tables are notoriously difficult to design responsively.  In this case, information is hidden in order to keep the table at a reasonable size.  But the page still isn't responsive -- columns often overlap when the viewport sizes down.</p>
+        </div>
+        <!-- next section -->
+		<div class="vspace3em col-12 whitediv"></div>
+        <div class="vspace3em col-12 whitediv"></div>
+		<div class="col-md-1 col-xs-12 whitediv"></div>
+        <div class="col-md-4 col-xs-12 whitediv">
+            <h3 id="blacktext">Solution</h3>
+        </div>
+        <div class="col-md-7 col-xs-12 whitediv">
+			<h6 id="blacktext">Column Pages: One feature adds responsiveness and reduces hidden information.</h6>
+			<div class="vspace1em col-12"></div>
+			<p id="blacktext">Users should not have to reload the homepage every time they want to see a piece of data hidden from the table.  We changed the way columns are displayed in the table.  Rather than have users choose which columns of data are loaded, we added table "pages" that allow users to page through all the data.  To accomplish this, we needed to carefully design a new UI, since the tables have to have row pages as well.  Some crucial columns are locked and always visible regardless of column page, including the control checkbox and user ID numbers.  Users are able to determine the rank order of each column so they can customize their first page to suit their workflow.  The ranking UI is as similar as possible to the old column-ranking flow to minimize confusion in the transition.</p>
+			<p id="blacktext">With these changes, the design now scales down easily to tablet sizes without resorting to hidden information.  Rather than cram columns into a smaller space or hide even more information from the user, the table simply reduces the number of columns per page and increases the number of pages.  Because users can rank columns according to importance, most users will never have to click through all the pages of columns.</p>
         </div>
 		<div class="vspace3em col-12 whitediv"></div>
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
@@ -144,14 +171,14 @@
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-md-1 col-xs-12 whitediv"></div>
+		<!--<div class="col-md-1 col-xs-12 whitediv"></div>
         <div class="col-md-4 col-xs-12 whitediv">
-            <h3 id="blacktext">Problem #2</h3>
+            <h3 id="blacktext">Problem #3</h3>
         </div>
         <div class="col-md-7 col-xs-12 whitediv">
             <h6 id="blacktext">Eclectic Icons: Badges, icons, and warnings were scattered between several columns.</h6>
 			<div class="vspace1em col-12"></div>
-			<p id="blacktext">In the old table, warning and information icons could appear in any of three columns.  Each icon had been added at different times </p>
+			<p id="blacktext">In the old table, warning and information icons could appear in any of three columns.  Each icon had been added at different times, and the solution to each new scenario was to create a new column for the new badge.  Badges and icons could be all different colors, and some icon images seemed to have little to do with the associated warning.  Most icons had tooltips; but tooltip text was not standardized in any way.</p>
         </div>
         <div class="vspace3em col-12 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
@@ -160,12 +187,13 @@
             <h3 id="blacktext">Solution</h3>
         </div>
         <div class="col-md-7 col-xs-12 whitediv">
-            <h6 id="blacktext">Consolidated and Monochromatic: We done fixed it</h6>
+            <h6 id="blacktext">Consolidated and Monochromatic: We created a clean, standardized system for icons.</h6>
 			<div class="vspace1em col-12"></div>
             <div class="vspace1em col-12"></div>
-            <p id="blacktext">all in one place</p>
+            <p id="blacktext">In our new design, icons for badges and warnings are all placed in one column.  This column is always visible in the table, reflecting the importance of these distinctions.  The user has only one place to look for special cases, rather than having to check several columns to find out important information about their cases.  The badges are all one color, and we removed icons from the folder column because the folder is inherently different from the rest of the badges.  The only exception to the no-extraneous-icons rule is for notifications -- we determined that the notification bell is important enough that it should be designated with the recognizable bell icon, which is used elsewhere in the system UI.</p>
+			<p id="blacktext">Each icon has an associated tooltip, and a popover... </p>
         </div>
-		<div class="vspace3em col-12 whitediv"></div>
+		<div class="vspace3em col-12 whitediv"></div>-->
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
         <div class="col-xs-12 col-lg-8 mx-auto whitediv">
             <img class="img-responsive" src="/Images/USCIS-PDF-Editor/ai-tags-flow.png" alt="Low-fidelity screens">
@@ -173,50 +201,6 @@
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
         <div class="vspace3em col-12 whitediv"></div>
-		<div class="col-md-1 col-xs-12 whitediv"></div>
-        <div class="col-md-4 col-xs-12 whitediv">
-            <h3 id="blacktext">Problem #3</h3>
-        </div>
-        <div class="col-md-7 col-xs-12 whitediv">
-            <h6 id="blacktext">Unorganized </h6>
-			<div class="vspace1em col-12"></div>
-			<p id="blacktext">Visual Noise</p>
-        </div>
-        <div class="vspace3em col-12 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-md-1 col-xs-12 whitediv"></div>
-        <div class="col-md-4 col-xs-12 whitediv">
-            <h3 id="blacktext">Solution</h3>
-        </div>
-        <div class="col-md-7 col-xs-12 whitediv">
-            <h6 id="blacktext">nice nice nice</h6>
-            <div class="vspace1em col-12"></div>
-            <p id="blacktext">is nice</p>
-		</div>
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
-            <img class="img-responsive" src="/Images/USCIS-PDF-Editor/navigation-system-and-metadata.png" alt="Low-fidelity screens">
-        </div>
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-md-5 col-xs-12 whitediv"></div>
-		<div class="col-md-7 col-xs-12 whitediv">
-			<p id="blacktext">Overall improvements please</p>
-		</div>	
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
-            <img class="img-responsive" src="/Images/USCIS-PDF-Editor/filters.png" alt="Low-fidelity screens">
-        </div>
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="col-md-5 col-xs-12 whitediv"></div>
-		<div class="col-md-7 col-xs-12 whitediv">
-			<p id="blacktext">Other overall improvements</p>
-        </div>
-		<div class="vspace3em col-12 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
         <div class="vspace3em col-12 creamdiv"></div>
 		<div class="vspace3em col-12 creamdiv"></div>
 		<div class="col-md-1 col-xs-12 creamdiv" data-aos="fade-up" data-aos-once="true"></div>
@@ -224,7 +208,8 @@
             <h3 id="blacktext">Key Takeaways</h3>
         </div>
         <div class="col-md-7 col-xs-12 creamdiv">
-            <p id="blacktext">Importance of mobile-friendly design, allowing flexibility for different users.  Future steps: different system for officers, usability testing, etc.</p>
+            <p id="blacktext">This project demonstrated the importance of mobile-friendly design from the get-go.  We struggled to add responsiveness to the existing system, rather than enjoying a movile-first design with repsponsiveness baked in.  Even for something as complicated as this table, responsive design is possible.  Leading this time through challenging iterations was very rewarding for me, and we reached our proposal only after much problem solving.  We also had to keep flexibility at the top of our mind, as this homepage serves a wide range of users with all different workflows.  Finally, the technical scope of the project was challenging, and pushed me to find creative solutions.  We couldn't add load time to the plodding page, and could only enhance rather than redesign the page.Future steps: different system for officers, usability testing, etc.</p>
+			<p id="blacktext">Though my time at USCIS ended in February 2023, this project is still underway.  Next, our proposal needs to undergo usability testing to ensure the structural changes to the table work well for users.  Then, development of the enhancements can begin.  Future states of the design might include a separate table design specific to supervisors -- their workflow differs greatly form most officers, and this current system is not geared towards their administrative and staffing duties.  While our proposal greatly improves responsiveness, more drastic changes would need to be implemented to make this a truly mobile-friendly design.</p>
         </div>
         <div class="vspace3em col-12 creamdiv"></div>
 		<div class="vspace3em col-12 creamdiv"></div>
