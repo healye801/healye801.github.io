@@ -133,11 +133,27 @@
         <div class="col-md-7 col-xs-12 whitediv">
 			<h6 id="blacktext">Collapsible Panels, Toolbars and Breakpoints: Enhancements add horizontal real estate, flexibility, and responsiveness.</h6>
 			<div class="vspace1em col-12"></div>
-            <p id="blacktext">The new design needed to be responsive and spacious, while maintaining the same information density.  To accomplish this, we made several improvements.  First, We made the existing left side panel -- a list of folders and filters to apply to the table -- collapsible.  This allows users to take advantage of precious horizontal space if they so choose.</p>
-			<p id="blacktext">Second, we put in the work to make sure the table functioned at every relevant screen size.  We mocked up designs for every breakpoint from large monitors to small tablets, based off of data collected from our users.  Though mobile design was not within the scope for this project (as our users are generally not authorized and have no need to access the site on mobile devices), we think our enhancements would make mobile design feasible in the future if that need ever arises.</p>
-			<p id="blacktext">Finally, we consolidated row-based action items into a toolbar.  This cleans up the UI, consolidates functionality into the existing row checkboxes, and opens up avenues to scale the design to mobile sizes in the future.</p>
+            <p id="blacktext">The new design needed to be responsive and spacious, while maintaining the same information density.  To accomplish this, we made several improvements.  First, we made the existing left side panel -- a list of folders and filters to apply to the table -- collapsible.  This allows users to take advantage of precious horizontal space if they so choose.</p>
+		</div>
+        <div class="vspace3em col-12 whitediv"></div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
+        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
+            <img class="img-responsive" src="/Images/USCIS-Homepage-Table/expanding-collapsing-panel.png" alt="Interface screenshots showing the expanding and collapsible panel controls.">
         </div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
+		<div class="vspace3em col-12 whitediv"></div>
+		<div class="col-md-5 col-xs-12 whitediv"></div>
+        <div class="col-md-7 col-xs-12 whitediv">
+			<p id="blacktext">Second, we put in the work to make sure the table functioned at every relevant screen size.  We mocked up designs for every breakpoint from large monitors to small tablets, based off of data collected from our users.  Though mobile design was not within the scope for this project (as our users are generally not authorized and have no need to access the site on mobile devices), we think our enhancements would make mobile design feasible in the future if that need ever arises.</p>
+			<p id="blacktext">Finally, we consolidated row-based action items into a toolbar.  In the previous design, actions were in a menu dropdown in a table column, in a folder column specific to folder actions, and a bulk actions button at the top of the table.  In the new design, all actions are held within the toolbar, including bulk and folder actions.  This cleans up the UI, consolidates functionality into the existing row checkboxes, and opens up avenues to scale the design to mobile sizes in the future.</p>
+        </div>
+		 <div class="vspace3em col-12 whitediv"></div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
+        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
+            <img class="img-responsive" src="/Images/USCIS-Homepage-Table/actions-toolbar.png" alt="Interface screenshots showing the toolbar and checkbox controls -- Select rows using checkboxes to reveal the actions menu and perform actions.">
+        </div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
         <div class="vspace3em col-12 whitediv"></div>
 		<div class="col-md-1 col-xs-12 whitediv"></div>
@@ -145,7 +161,7 @@
             <h3 id="blacktext">Problem #2</h3>
         </div>
         <div class="col-md-7 col-xs-12 whitediv">
-            <h6 id="blacktext">Hidden Information: Users have to choose between columns and reload the table to review hidden columns.</h6>
+            <h6 id="blacktext">Hidden Information: Users have to choose between columns, then reload the table to review hidden columns.</h6>
             <div class="vspace1em col-12"></div>
 			<p id="blacktext">The table pulls from a dataset with over 25 different data categories -- all information that can help agents distinguish between cases, understand which cases are high-priority, and scan to determine their pertinent tasks.  In the old design, the user used a drag-and-drop modal to choose which 7 columns to display at a time.  If another category became relevant, the user needed to open the modal, find the right column, and axe one of the existing columns to make room in the table.</p>
 			<p id="blacktext">Tables are notoriously difficult to design responsively.  In this case, information is hidden in order to keep the table at a reasonable size.  But the page still isn't responsive -- columns often overlap when the viewport sizes down.</p>
@@ -161,16 +177,27 @@
 			<h6 id="blacktext">Column Pages: One feature adds responsiveness and reduces hidden information.</h6>
 			<div class="vspace1em col-12"></div>
 			<p id="blacktext">Users should not have to reload the homepage every time they want to see a piece of data hidden from the table.  We changed the way columns are displayed in the table.  Rather than have users choose which columns of data are loaded, we added table "pages" that allow users to page through all the data.  To accomplish this, we needed to carefully design a new UI, since the tables have to have row pages as well.  Some crucial columns are locked and always visible regardless of column page, including the control checkbox and user ID numbers.  Users are able to determine the rank order of each column so they can customize their first page to suit their workflow.  The ranking UI is as similar as possible to the old column-ranking flow to minimize confusion in the transition.</p>
+		</div>
+		<div class="vspace3em col-12 whitediv"></div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
+        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
+            <img class="img-responsive" src="/Images/USCIS-Homepage-Table/column-pagination.png" alt="Interface screenshots showing the table column pagination controls -- Users “flip” to the next page of columns using the arrows or clicking the corresponding circle buttons.">
+        </div>
+		<div class="col-xs-12 col-lg-2 whitediv"></div>
+		<div class="vspace3em col-12 whitediv"></div>
+        <div class="vspace3em col-12 whitediv"></div>
+		<div class="col-md-5 col-xs-12 whitediv"></div>
+        <div class="col-md-7 col-xs-12 whitediv">
 			<p id="blacktext">With these changes, the design now scales down easily to tablet sizes without resorting to hidden information.  Rather than cram columns into a smaller space or hide even more information from the user, the table simply reduces the number of columns per page and increases the number of pages.  Because users can rank columns according to importance, most users will never have to click through all the pages of columns.</p>
         </div>
 		<div class="vspace3em col-12 whitediv"></div>
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
         <div class="col-xs-12 col-lg-8 mx-auto whitediv">
-            <img class="img-responsive" src="/Images/USCIS-PDF-Editor/new-components.png" alt="Low-fidelity screens">
+            <img class="img-responsive" src="/Images/USCIS-Homepage-Table/column-reordering.png" alt="Interface screenshots showing the table reordering controls -- Users drag-and-drop or use arrow buttons to order columns.  The first three columns are locked so rows can always be identified.">
         </div>
 		<div class="col-xs-12 col-lg-2 whitediv"></div>
 		<div class="vspace3em col-12 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
+        <div class="vspace3em col-12 whitediv"></div>
 		<!--<div class="col-md-1 col-xs-12 whitediv"></div>
         <div class="col-md-4 col-xs-12 whitediv">
             <h3 id="blacktext">Problem #3</h3>
@@ -194,13 +221,6 @@
 			<p id="blacktext">Each icon has an associated tooltip, and a popover... </p>
         </div>
 		<div class="vspace3em col-12 whitediv"></div>-->
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-        <div class="col-xs-12 col-lg-8 mx-auto whitediv">
-            <img class="img-responsive" src="/Images/USCIS-PDF-Editor/ai-tags-flow.png" alt="Low-fidelity screens">
-        </div>
-		<div class="col-xs-12 col-lg-2 whitediv"></div>
-		<div class="vspace3em col-12 whitediv"></div>
-        <div class="vspace3em col-12 whitediv"></div>
         <div class="vspace3em col-12 creamdiv"></div>
 		<div class="vspace3em col-12 creamdiv"></div>
 		<div class="col-md-1 col-xs-12 creamdiv" data-aos="fade-up" data-aos-once="true"></div>
