@@ -73,6 +73,35 @@ h8, h9 {
     font-style: normal;
     font-weight: 400;
     font-size: 1.5rem;
+    color: #80ACB3 !important;
+}
+.navbar-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+	color: #80ACB3 !important;
+}
+.navbar-custom {
+	background-color: #24336B;
+}
+.dropdown-item:hover {
+	background-color: #5E2A61 !important;
+	color: #D2AFD4 !important;
+}
+.dropdown-divider {
+	border-top: 1px solid #80ACB3 !important;
+}
+.dropdown-menu {
+	background-color: #24336B;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/*
+.navbar-brand {
+    font-family: 'Yeseva One', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
     color: #E58AB3 !important;
 }
 .navbar-text {
@@ -94,6 +123,7 @@ h8, h9 {
 .dropdown-menu {
 	background-color: #972156;
 }
+*/
 div.vspacehalfem {
     clear: both;
     height: .5em;
@@ -128,16 +158,22 @@ div.purplediv{
 div.whitediv{
 	background-color: #f9f9f9;
 }
+div.bluediv{
+	background-color: #24336B;
+}
+div.graydiv{
+	background-color: #eaebf0;
+}
 img {
     object-fit: contain;
     width: 100%;
-    padding: 5% 2% 5% 2%;
+    /*padding: 5% 2% 5% 2%;*/
 }
-img.img-case-study {
+/*img.img-case-study {
     object-fit: contain;
     width: 100%;
     padding: 3% 2% 3% 2%;
-}
+}*/
 #workgrid {
     overflow: hidden;
 }
@@ -151,11 +187,23 @@ footer {
 #whitetext {
     color: #F9f9f9;
 }
+#rosetext {
+	color: #BC0758;
+}
+#navytext {
+	color:#24336B;
+}
 #blacktext {
     color: #0D0304;
 }
+#graytext {
+	color: #4d4e46;
+}
+#lightgraytext {
+	color: #6e6f67;
+}
 #navbartext {
-	color: #E58AB3;
+	color: #80ACB3;
 }
 #lightpinktext {
 	color: #FB9DC7;
@@ -179,14 +227,14 @@ footer {
 	color: #D2AFD4;
 }
 .btn-primary, .btn-primary:visited {
-    background-color: #972156 !important;
+    background-color: #24336B !important;
 	font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
-	color: #FADBDC !important;
+	color: #f9f9f9 !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
-	border-radius: 0.1rem !important;
+	border-radius: 0.2rem !important;
 }
 /*.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #972156 !important;
@@ -200,11 +248,11 @@ footer {
 }
 */
 .btn-primary:hover, .btn-primary:active {
-    background-color: #BC0758 !important;
+    background-color: #5E2A61 !important;
 	font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
-	color: #FADBDC !important;
+	color: #D2AFD4 !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
 	border-radius: 0.1rem !important;
