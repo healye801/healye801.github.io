@@ -273,7 +273,7 @@ footer {
 	color: #80ACB3 !important;
 }
 .hero {
-	background-position: 0% 0%;
+	background-position: 0% 0% !important;
 	background-repeat: no-repeat;
 	background-size: cover;
   /* needed to prevent janky scrolling in Safari*/
@@ -292,15 +292,13 @@ footer {
 .hero-text {
   text-align: left;
   position: absolute;
-  top: 10%;
-  left: 10%;
+  top: 10% !important;
+  left: 10% !important;
   bottom: 10%;
   right: 10%;
 }
 
-.hero-icon {
-	align-content: left;
-}
+
 
 }
 /*
