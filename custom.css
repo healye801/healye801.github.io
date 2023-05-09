@@ -281,7 +281,7 @@ footer {
   /*//100% height of the viewport */
 	height: 110vh;
 	overflow: hidden;
-	position: relative;
+	position: relative !important;
 	width: 100%;
 	
 	/*@media screen and (min-width:640px) {
