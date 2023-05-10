@@ -68,16 +68,16 @@ h8, h9 {
     p, body {font-size: 1.1rem;}
   }
 @media (min-width: 1400px) {
-    h1 {font-size: 12rem;}
-    h2 {font-size: 6rem;}
+    h1 {font-size: 8rem;}
+    h2 {font-size: 5rem;}
     h3 {font-size: 4rem;}
     h4 {font-size: 3rem;}
 	h5 {font-size: 3rem;}
-	h6 {font-size: 3rem;}
-    h7 {font-size: 2.5rem;}
-    h8 {font-size: 1.5rem;}
-    h9 {font-size: 1rem;}
-    p, body {font-size: 2rem;}
+	h6 {font-size: 2.3rem;}
+    h7 {font-size: 2.2rem;}
+    h8 {font-size: 1.3rem;}
+    h9 {font-size: 1.3rem;}
+    p, body {font-size: 1.5rem;}
   }
 
 .navbar-brand {
