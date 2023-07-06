@@ -89,58 +89,34 @@ h7, h10 {
     font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 1.5rem;
-    color: #80ACB3 !important;
+    font-size: 2rem;
+    color: #658162 !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 1.2rem;
-	color: #80ACB3 !important;
+    font-size: 1.5rem;
+	color: #658162 !important;
+}
+.navbar-nav {
+	font-size: 1.2rem;
+	color: #658162 !important;
 }
 .navbar-custom {
-	background-color: #24336B;
+	background-color: #0a2243;
 }
 .dropdown-item:hover {
 	background-color: #5E2A61 !important;
 	color: #D2AFD4 !important;
 }
 .dropdown-divider {
-	border-top: 1px solid #80ACB3 !important;
+	border-top: 1px solid #658162 !important;
 }
 .dropdown-menu {
-	background-color: #24336B;
+	background-color: #0a2243;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-/*
-.navbar-brand {
-    font-family: 'Yeseva One', serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: #E58AB3 !important;
-}
-.navbar-text {
-    font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.2rem;
-	color: #E58AB3 !important;
-}
-.navbar-custom {
-	background-color: #972156;
-}
-.dropdown-item:hover {
-	background-color: #BC0758 !important;
-}
-.dropdown-divider {
-	border-top: 1px solid #E58AB3 !important;
-}
-.dropdown-menu {
-	background-color: #972156;
-}
-*/
+
 div.vspacehalfem {
     clear: both;
     height: .5em;
@@ -157,29 +133,57 @@ div.vspace3em {
     clear: both;
     height: 3em;
 }
-div.rosediv {
-    background-color: #BC0758;
+div.mutedgreendiv {
+	background-color: #33422B;
 }
-div.orangediv {
-    background-color: #D7893B;
+div.mutedbluegreendiv {
+	background-color: #3C4F46;
 }
-div.creamdiv {
-	background-color: #FFF5EA;
+div.yellowdiv {
+	background-color: #f7ce16;
+}
+div.brightbluediv{
+	background-color: #2A5D88;
 }
 div.reddiv{
-	background-color: #9B1D20;
+	background-color: #B23D1B;
+}
+div.blackdiv {
+    background-color: #141A18;
+}
+div.whitediv {
+    background-color: #FFFFFF;
 }
 div.purplediv{
-	background-color: #5E2A61;
+	background-color: #625079;
 }
-div.whitediv{
-	background-color: #f9f9f9;
+div.graydiv {
+	background-color: #212F28;
 }
-div.bluediv{
-	background-color: #24336B;
+div.navydiv {
+	background-color:#0a2243;
 }
-div.graydiv{
-	background-color: #eaebf0;
+div.orangediv{
+	background-color: #E3920D;
+}
+div.limegreendiv{
+	background-color: #72912F;
+}
+div.forestgreendiv{
+	background-color: #122900
+}
+div.rosediv {
+	background-color: #BC0758;
+}
+div.lightmutedgreendiv {
+	background-color: #658162;
+}
+div.paleyellowdiv{
+	background-color: #FEFADC;
+}
+div.creamdiv {
+	/*background-color: #e6efef;*/
+	background-color: #f2f2f2;
 }
 img {
     object-fit: contain;
@@ -196,55 +200,73 @@ img {
 }
 footer {
     text-align: center;
-	background-color: #24336B;
+	background-color: #0a2243;
 }
 .footer h3,p {
-    color: #80ACB3;
+    color: #658162;
+}
+#mutedgreentext {
+	color: #33422B;
+}
+#mutedbluegreentext {
+	color: #3C4F46;
+}
+#yellowtext {
+	color: #f7ce16;
+}
+#mediumbluetext{
+	color: #2A5D88;
+}
+#redtext{
+	color: #B23D1B;
+}
+#blacktext {
+    color: #141A18;
 }
 #whitetext {
-    color: #F9f9f9;
+    color: #FFFFFF;
+}
+#purpletext{
+	color: #625079;
+}
+#graytext {
+	color: #212F28;
+}
+#navytext {
+	color:#0a2243;
+}
+#orangetext{
+	color: #E3920D;
+}
+#limegreentext{
+	color: #72912F;
+}
+#forestgreentext{
+	color: #122900;
 }
 #rosetext {
 	color: #BC0758;
 }
-#navytext {
-	color:#24336B;
-}
-#blacktext {
-    color: #0D0304;
-}
-#graytext {
-	color: #4d4e46;
-}
-#lightgraytext {
-	color: #6e6f67;
+#lightmutedgreentext {
+	color: #658162;
 }
 #navbartext {
-	color: #80ACB3;
+	color: #658162;
 }
 #lightpinktext {
 	color: #FB9DC7;
 }
-#lightbluetext{
-	color: #80ACB3;
-}
 #paleyellowtext{
 	color: #FEFADC;
 }
-#redtext{
-	color: #9B1D20;
+#creamtext{
+	color: #e6efef;
 }
-#bluetext{
-	color: #3A5F78;
-}
-#orangetext{
-	color: #ECAB32;
-}
-#lavendertext{
-	color: #D2AFD4;
+#lightestgraytext {
+	color: #b7e6e1;
 }
 .btn-primary, .btn-primary:visited {
-    background-color: #24336B !important;
+    background-color: #0a2243 !important;
 	font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
