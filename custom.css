@@ -20,8 +20,8 @@ h7, h10 {
     letter-spacing: .02em;*/
 }
 @media (min-width: 100px) {
-    h1 {font-size: 4.0rem;}
-    h2 {font-size: 3.0rem;}
+    h1 {font-size: 5.0rem;}
+    h2 {font-size: 2.1rem;}
     h3 {font-size: 2.1rem;}
     h4 {font-size: 2.1rem;}
 	h5 {font-size: 1.6rem;}
@@ -33,7 +33,7 @@ h7, h10 {
     p, body {font-size: 1.1rem;}
   }
 @media (min-width: 576px) {
-    h1 {font-size: 4.0rem;}
+    h1 {font-size: 6.0rem;}
     h2 {font-size: 3.5rem;}
     h3 {font-size: 2.1rem;}
     h4 {font-size: 2.1rem;}
@@ -59,7 +59,7 @@ h7, h10 {
     p, body {font-size: 1.1rem;}
   }
 @media (min-width: 992px) {
-    h1 {font-size: 6rem;}
+    h1 {font-size: 6.5rem;}
     h2 {font-size: 3.8rem;}
     h3 {font-size: 2.0rem;}
     h4 {font-size: 2.0rem;}
@@ -106,7 +106,7 @@ h7, h10 {
 	background-color: #0a2243;
 }
 .dropdown-item:hover {
-	background-color: #5E2A61 !important;
+	background-color: #625079 !important;
 	color: #D2AFD4 !important;
 }
 .dropdown-divider {
@@ -287,7 +287,7 @@ footer {
 }
 */
 .btn-primary:hover, .btn-primary:active {
-    background-color: #5E2A61 !important;
+    background-color: #625079 !important;
 	font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
