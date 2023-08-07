@@ -90,17 +90,17 @@ h7, h10 {
     font-style: normal;
     font-weight: 400;
     font-size: 2rem;
-    color: #658162 !important;
+    color: #698963 !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-size: 1.5rem;
-	color: #658162 !important;
+	color: #698963 !important;
 }
 .navbar-nav {
 	font-size: 1.2rem;
-	color: #658162 !important;
+	color: #698963 !important;
 }
 .navbar-custom {
 	background-color: #0a2243;
@@ -110,7 +110,7 @@ h7, h10 {
 	color: #D2AFD4 !important;
 }
 .dropdown-divider {
-	border-top: 1px solid #658162 !important;
+	border-top: 1px solid #698963 !important;
 }
 .dropdown-menu {
 	background-color: #0a2243;
@@ -203,7 +203,7 @@ footer {
 	background-color: #0a2243;
 }
 .footer h3,p {
-    color: #658162;
+    color: #698963;
 }
 #mutedgreentext {
 	color: #33422B;
@@ -251,7 +251,7 @@ footer {
 	color: #698963;
 }
 #navbartext {
-	color: #658162;
+	color: #698963;
 }
 #lightpinktext {
 	color: #FB9DC7;
