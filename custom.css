@@ -133,32 +133,15 @@ div.vspace3em {
     clear: both;
     height: 3em;
 }
-div.mutedgreendiv {
-	background-color: #33422B;
-}
-div.mutedbluegreendiv {
-	background-color: #A3C761;
-}
-div.yellowdiv {
-	background-color: #f7ce16;
-}
-div.brightbluediv{
-	background-color: #2A5D88;
-}
+
 div.reddiv{
 	background-color: #B23D1B;
-}
-div.blackdiv {
-    background-color: #141A18;
 }
 div.whitediv {
     background-color: #FFFFFF;
 }
 div.purplediv{
 	background-color: #625079;
-}
-div.graydiv {
-	background-color: #212F28;
 }
 div.navydiv {
 	background-color:#0a2243;
@@ -169,17 +152,8 @@ div.orangediv{
 div.limegreendiv{
 	background-color: #72912F;
 }
-div.forestgreendiv{
-	background-color: #2C5B3D;
-}
-div.rosediv {
-	background-color: #BC0758;
-}
 div.lightmutedgreendiv {
 	background-color: #9AB842;
-}
-div.paleyellowdiv{
-	background-color: #FEFADC;
 }
 div.creamdiv {
 	/*background-color: #f2f2f2;*/
@@ -202,20 +176,14 @@ footer {
     text-align: center;
 	background-color: #0a2243;
 }
-.footer h3,p {
-    color: #9AB842;
-}
-#mutedgreentext {
-	color: #33422B;
-}
-#mutedbluegreentext {
-	color: #A5CC6B;
+.footer h4,p {
+    color: #A5CC6B;
 }
 #yellowtext {
 	color: #f7ce16;
 }
-#mediumbluetext{
-	color: #2A5D88;
+#palegreentext {
+	color: #A5CC6B;
 }
 #redtext{
 	color: #B23D1B;
@@ -229,9 +197,6 @@ footer {
 #purpletext{
 	color: #625079;
 }
-#graytext {
-	color: #212F28;
-}
 #navytext {
 	color:#0a2243;
 }
@@ -241,23 +206,11 @@ footer {
 #limegreentext{
 	color: #72912F;
 }
-#forestgreentext{
-	color: #122900;
-}
-#rosetext {
-	color: #BC0758;
-}
 #lightmutedgreentext {
 	color: #9AB842;
 }
 #navbartext {
 	color: #9AB842;
-}
-#lightpinktext {
-	color: #FB9DC7;
-}
-#paleyellowtext{
-	color: #FEFADC;
 }
 #creamtext{
 	color: #FFFAF0;
