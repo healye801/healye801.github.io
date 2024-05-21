@@ -19,87 +19,51 @@ h7, h10 {
     /*line-height: 1.8em;
     letter-spacing: .02em;*/
 }
-@media (min-width: 100px) {
-    h1 {font-size: 5.0rem;}
-    h2 {font-size: 2.1rem;}
-    h3 {font-size: 2.1rem;}
-    h4 {font-size: 2.1rem;}
-	h5 {font-size: 1.6rem;}
-	h6 {font-size: 1.6rem;}
-    h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.0rem;}
-    h9 {font-size: .9rem;}
-	h10 {font-size: 1.1rem;}
-    p, body {font-size: 1.1rem;}
-  }
-@media (min-width: 576px) {
-    h1 {font-size: 6.0rem;}
-    h2 {font-size: 3.5rem;}
-    h3 {font-size: 2.1rem;}
-    h4 {font-size: 2.1rem;}
-	h5 {font-size: 1.6rem;}
-	h6 {font-size: 1.6rem;}
-    h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.0rem;}
-    h9 {font-size: .9rem;}
-	h10 {font-size: 1.1rem;}
-    p, body {font-size: 1.1rem;}
-  }
-@media (min-width: 768px) {
-    h1 {font-size: 6.5rem;}
-    h2 {font-size: 3.8rem;}
-    h3 {font-size: 2.0rem;}
-    h4 {font-size: 1.6rem;}
-	h5 {font-size: 1.6rem;}
-	h6 {font-size: 1.6rem;}
-    h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.0rem;}
-    h9 {font-size: .9rem;}
-	h10 {font-size:1.1rem;}
-    p, body {font-size: 1.1rem;}
-  }
-@media (min-width: 992px) {
-    h1 {font-size: 6.5rem;}
-    h2 {font-size: 3.8rem;}
-    h3 {font-size: 2.0rem;}
-    h4 {font-size: 2.0rem;}
-	h5 {font-size: 1.6rem;}
-	h6 {font-size: 1.6rem;}
-    h7 {font-size: 1.5rem;}
-    h8 {font-size: 1.0rem;}
-    h9 {font-size: .9rem;}
-	h10 {font-size: 1.1rem;}
-    p, body {font-size: 1.1rem;}
-  }
-@media (min-width: 1400px) {
-    h1 {font-size: 8rem;}
-    h2 {font-size: 5rem;}
-    h3 {font-size: 4rem;}
-    h4 {font-size: 3.5rem;}
-	h5 {font-size: 3rem;}
-	h6 {font-size: 2.3rem;}
-    h7 {font-size: 2.2rem;}
-    h8 {font-size: 1.3rem;}
-    h9 {font-size: 1.0rem;}
-	h10 {font-size: 1.5rem;}
-    p, body {font-size: 1.5rem;}
-  }
-
+h1 {
+	font-size: 6.4rem;
+}
+h2 {
+	font-size: 4rem;
+}
+h3 {
+	font-size: 3.19rem;
+}
+h4 {
+	font-size: 2.25rem;
+}
+h5 {
+	font-size: 1.63rem;
+}
+h6 {
+	font-size: 1.31rem;
+}
+h7 {
+	font-size: 1.63rem;
+}
+h8 {
+	font-size: 1.31rem;
+}
+h9 {
+	font-size: 1.63rem;
+}
+h10 {
+	font-size: 1.31rem;
+}
 .navbar-brand {
     font-family: 'Yeseva One', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 2.25rem;
     color: #A5CC6B !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
-    font-size: 1.5rem;
+    font-size: 1.63rem;
 	color: #A5CC6B !important;
 }
 .navbar-nav {
-	font-size: 1.2rem;
+	font-size: 1.31rem;
 	color: #A5CC6B !important;
 }
 .navbar-custom {
@@ -279,8 +243,72 @@ footer {
 }
 
 
-
-
+/*@media (min-width: 100px) {
+    h1 {font-size: 5.0rem;}
+    h2 {font-size: 2.1rem;}
+    h3 {font-size: 2.1rem;}
+    h4 {font-size: 2.1rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+	h10 {font-size: 1.1rem;}
+    p, body {font-size: 1.1rem;}
+  }
+@media (min-width: 576px) {
+    h1 {font-size: 6.0rem;}
+    h2 {font-size: 3.5rem;}
+    h3 {font-size: 2.1rem;}
+    h4 {font-size: 2.1rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+	h10 {font-size: 1.1rem;}
+    p, body {font-size: 1.1rem;}
+  }
+@media (min-width: 768px) {
+    h1 {font-size: 6.5rem;}
+    h2 {font-size: 3.8rem;}
+    h3 {font-size: 2.0rem;}
+    h4 {font-size: 1.6rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+	h10 {font-size:1.1rem;}
+    p, body {font-size: 1.1rem;}
+  }
+@media (min-width: 992px) {
+    h1 {font-size: 6.5rem;}
+    h2 {font-size: 3.8rem;}
+    h3 {font-size: 2.0rem;}
+    h4 {font-size: 2.0rem;}
+	h5 {font-size: 1.6rem;}
+	h6 {font-size: 1.6rem;}
+    h7 {font-size: 1.5rem;}
+    h8 {font-size: 1.0rem;}
+    h9 {font-size: .9rem;}
+	h10 {font-size: 1.1rem;}
+    p, body {font-size: 1.1rem;}
+  }
+@media (min-width: 1400px) {
+    h1 {font-size: 8rem;}
+    h2 {font-size: 5rem;}
+    h3 {font-size: 4rem;}
+    h4 {font-size: 3.5rem;}
+	h5 {font-size: 3rem;}
+	h6 {font-size: 2.3rem;}
+    h7 {font-size: 2.2rem;}
+    h8 {font-size: 1.3rem;}
+    h9 {font-size: 1.0rem;}
+	h10 {font-size: 1.5rem;}
+    p, body {font-size: 1.5rem;}
+  }
+*/
 /*
 .carousel-control-prev-icon !important{ 
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2317B890' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); }
