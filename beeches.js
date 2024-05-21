@@ -7,8 +7,8 @@ y = 0;
 l = 0;
 let img;
 function preload() {
-	img = loadImage('beech_leaf_1.png');
-	img2 = loadImage('beech_leaf_2.png');
+	img = loadImage('Images/beech_leaf_1.png');
+	img2 = loadImage('Images/beech_leaf_2.png');
 	imagebank = [img,img2];
 }
 
