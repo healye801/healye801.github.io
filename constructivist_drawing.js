@@ -1,5 +1,6 @@
 function setup() {
-	createCanvas(500, 500);
+	var constructivistCanvas = createCanvas(500, 500);
+	constructivistCanvas.parent('constructivist-sketch-container');
 	background(0,0,5);
 	fill(0, 0, 35);
 	noStroke();
