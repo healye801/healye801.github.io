@@ -14,7 +14,7 @@ function preload() {
 
 function setup() {
 	var beechCanvas = createCanvas(400, 400);
-	beechCanvas.parent('beeches-sketch-container');
+	beechCanvas.parent('beeches-sketch-containers');
 	bgr = random(rval);
 	bgg = random(gval);
 	bgb = random(bval);
