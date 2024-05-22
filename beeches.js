@@ -13,7 +13,8 @@ function preload() {
 }
 
 function setup() {
-	createCanvas(400, 400);
+	var beechCanvas = createCanvas(400, 400);
+	beechCanvas.parent('beeches-sketch-container');
 	bgr = random(rval);
 	bgg = random(gval);
 	bgb = random(bval);
