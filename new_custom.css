@@ -34,7 +34,7 @@ h5 {
 	font-size: 1.63rem;
 }
 h6 {
-	font-size: 1.31rem;
+	font-size: 1.5rem;
 }
 h7 {
 	font-size: 1.63rem;
@@ -53,17 +53,17 @@ h10 {
 	font-weight: 400;
 	font-style: normal;
     font-size: 2.25rem;
-    color: #A5CC6B !important;
+    color: #ffffff !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-size: 1.63rem;
-	color: #A5CC6B !important;
+	color: #ffffff !important;
 }
 .navbar-nav {
 	font-size: 1.31rem;
-	color: #A5CC6B !important;
+	color: #ffffff !important;
 }
 .navbar-custom {
 	background-color: #0a2243;
@@ -73,7 +73,7 @@ h10 {
 	color: #D2AFD4 !important;
 }
 .dropdown-divider {
-	border-top: 1px solid #A5CC6B !important;
+	border-top: 1px solid #ffffff !important;
 }
 .dropdown-menu {
 	background-color: #0a2243;
@@ -173,7 +173,7 @@ footer {
 	color: #9AB842;
 }
 #navbartext {
-	color: #9AB842;
+	color: #ffffff;
 }
 #creamtext{
 	color: #FFFAF0;
@@ -186,7 +186,8 @@ footer {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
-	color: #FFFAF0 !important;
+	font-size: 1.63rem;
+	color: #FFFFFF !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
 	border-radius: 0.2rem !important;
@@ -196,6 +197,7 @@ footer {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
+	font-size: 1.63rem;
 	color: #D2AFD4 !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
