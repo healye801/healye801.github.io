@@ -135,20 +135,20 @@ var sketch2 = function(p) {
 
 		p.push();
 		//contact emma
-			p.textAlign(p.CENTER,p.CENTER);
+			p.textAlign(p.CENTER,p.BOTTOM);
 			p.fill('white');
 			p.textFont(p.gfont);
-			p.textSize(100);
+			p.textSize(p.windowWidth/9);
 			p.text('contact emma',p.windowWidth/2,p.windowHeight/2);
 		p.pop();
 		
 		p.push();
 		//reach out to emmahealy2021@u.northwestern.edu
-			p.textAlign(p.CENTER,p.CENTER);
+			p.textAlign(p.CENTER,p.BOTTOM);
 			p.fill('white');
 			p.textFont(p.efont);
-			p.textSize(20);
-			p.text('Reach out to emmahealy2021@u.northwestern.edu',p.windowWidth/2,100+p.windowHeight/2);
+			p.textSize(9+p.windowWidth/40);
+			p.text('Reach out to emmahealy2021@u.northwestern.edu',p.windowWidth/2,p.windowHeight*11/20);
 		p.pop();
 	}
 };
