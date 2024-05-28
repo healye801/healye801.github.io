@@ -28,6 +28,7 @@ var sketch1 = function(p) {
 	}
 
 	p.draw = function() {
+		p.resizeCanvas(p.windowWidth, p.windowHeight);
 		p.background(p.bgr,p.bgg,p.bgb);
 		
 		p.push();
