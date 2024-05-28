@@ -1,0 +1,231 @@
+h1, h2, h3, h4, h5, {
+    font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+p, body, h8, h9 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    /*line-height: 1.6em;
+    letter-spacing: .02em;
+    text-indent: 0em;*/
+}
+h6, h7, h10 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /*line-height: 1.8em;
+    letter-spacing: .02em;*/
+}
+h1 {
+	font-size: 6.4rem;
+}
+h2 {
+	font-size: 4rem;
+}
+h3 {
+	font-size: 3.19rem;
+}
+h4 {
+	font-size: 2.25rem;
+}
+h5 {
+	font-size: 1.63rem;
+}
+h6 {
+	font-size: 1.31rem;
+}
+h7 {
+	font-size: 1.63rem;
+}
+h8 {
+	font-size: 1.0rem;
+}
+h9 {
+	font-size: 0.9rem;
+}
+h10 {
+	font-size: 1.31rem;
+}
+.navbar-brand {
+    font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+    font-size: 2.25rem;
+    color: #A5CC6B !important;
+}
+.navbar-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-size: 1.63rem;
+	color: #A5CC6B !important;
+}
+.navbar-nav {
+	font-size: 1.31rem;
+	color: #A5CC6B !important;
+}
+.navbar-custom {
+	background-color: #0a2243;
+}
+.dropdown-item:hover {
+	background-color: #625079 !important;
+	color: #D2AFD4 !important;
+}
+.dropdown-divider {
+	border-top: 1px solid #A5CC6B !important;
+}
+.dropdown-menu {
+	background-color: #0a2243;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.vspacehalfem {
+    clear: both;
+    height: .5em;
+}
+div.vspace1em {
+    clear: both;
+    height: 1em;
+}
+div.vspace2em {
+    clear: both;
+    height: 2em;
+}
+div.vspace3em {
+    clear: both;
+    height: 3em;
+}
+
+div.reddiv{
+	background-color: #B23D1B;
+}
+div.whitediv {
+    background-color: #FFFFFF;
+}
+div.purplediv{
+	background-color: #625079;
+}
+div.navydiv {
+	background-color:#0a2243;
+}
+div.orangediv{
+	background-color: #E3920D;
+}
+div.limegreendiv{
+	background-color: #72912F;
+}
+div.lightmutedgreendiv {
+	background-color: #9AB842;
+}
+div.creamdiv {
+	/*background-color: #f2f2f2;*/
+	background-color: #FFFAF0;
+}
+img {
+    object-fit: contain;
+    width: 100%;
+    /*padding: 5% 2% 5% 2%;*/
+}
+/*img.img-case-study {
+    object-fit: contain;
+    width: 100%;
+    padding: 3% 2% 3% 2%;
+}*/
+#workgrid {
+    overflow: hidden;
+}
+footer {
+    text-align: center;
+	background-color: #0a2243;
+}
+.footer h4,p {
+    color: #A5CC6B;
+}
+#yellowtext {
+	color: #f7ce16;
+}
+#palegreentext {
+	color: #A5CC6B;
+}
+#redtext{
+	color: #B23D1B;
+}
+#blacktext {
+    color: #141A18;
+}
+#whitetext {
+    color: #FFFFFF;
+}
+#purpletext{
+	color: #625079;
+}
+#navytext {
+	color:#0a2243;
+}
+#orangetext{
+	color: #E3920D;
+}
+#limegreentext{
+	color: #72912F;
+}
+#lightmutedgreentext {
+	color: #9AB842;
+}
+#navbartext {
+	color: #9AB842;
+}
+#creamtext{
+	color: #FFFAF0;
+}
+#lightestgraytext {
+	color: #b7e6e1;
+}
+.btn-primary, .btn-primary:visited {
+    background-color: #0a2243 !important;
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: #FFFAF0 !important;
+	margin: 0rem !important;
+	padding: 0.35rem 1.5rem !important;
+	border-radius: 0.2rem !important;
+}
+.btn-primary:hover, .btn-primary:active {
+    background-color: #625079 !important;
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: #D2AFD4 !important;
+	margin: 0rem !important;
+	padding: 0.35rem 1.5rem !important;
+	border-radius: 0.1rem !important;
+}
+.link-primary {
+	color: #E3920D !important;
+}
+.hero {
+	background-position: 0% 0% !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+  /* needed to prevent janky scrolling in Safari*/
+  backface-visibility: hidden;
+  /*//100% height of the viewport */
+	height: 110vh;
+	overflow: hidden;
+	position: relative !important;
+	width: 100%;
+	
+	@media screen and (min-width:640px) {
+		background-position: 50% 0;
+	}
+}
+
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 10% !important;
+  left: 10% !important;
+  /*bottom: 10%;
+  right: 10%;*/
+}
