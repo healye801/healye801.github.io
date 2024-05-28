@@ -1,9 +1,12 @@
-h1, h2, h3, h4, h5, {
-    font-family: "UnifrakturMaguntia", cursive;
-	font-weight: 400;
-	font-style: normal;
+p, body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    /*line-height: 1.6em;
+    letter-spacing: .02em;
+    text-indent: 0em;*/
 }
-p, body, h8, h9 {
+h8, h9 {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -19,18 +22,33 @@ h6, h7, h10 {
     letter-spacing: .02em;*/
 }
 h1 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 6.4rem;
 }
 h2 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 4rem;
 }
 h3 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 3.19rem;
 }
 h4 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 2.25rem;
 }
 h5 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 1.63rem;
 }
 h6 {
@@ -139,7 +157,7 @@ footer {
     text-align: center;
 	background-color: #0a2243;
 }
-.footer h4,p {
+.footer h4, h8 {
     color: #ffffff;
 }
 #yellowtext {
@@ -222,7 +240,6 @@ footer {
 		background-position: 50% 0;
 	}
 }
-
 .hero-text {
   text-align: left;
   position: absolute;
