@@ -4,9 +4,8 @@ var sketch1 = function(p) {
 	p.bval = [103,155];
 
 	p.preload = function() {
-		p.efont = p.loadFont('Josefin_Sans/JosefinSans-VariableFont_wght.ttf');
-		p.gfont = p.loadFont('UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf');
-		
+		p.efont = p.loadFont('Fonts/JosefinSans-Regular.ttf');
+		p.gfont = p.loadFont('Fonts/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf');
 	}
 
 	p.setup = function() {
@@ -83,9 +82,8 @@ var sketch2 = function(p) {
 	p.bval = [103,155];
 
 	p.preload = function() {
-		p.efont = p.loadFont('Josefin_Sans/JosefinSans-VariableFont_wght.ttf');
-		p.gfont = p.loadFont('UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf');
-		
+		p.efont = p.loadFont('Fonts/JosefinSans-Regular.ttf');
+		p.gfont = p.loadFont('Fonts/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf');
 	}
 
 	p.setup = function() {
@@ -145,10 +143,11 @@ var sketch2 = function(p) {
 		p.push();
 		//reach out to emmahealy2021@u.northwestern.edu
 			p.textAlign(p.CENTER,p.BOTTOM);
+			p.textStyle(BOLD);
 			p.fill('white');
-			p.textFont(p.efont);
-			p.textSize(9+p.windowWidth/40);
-			p.text('Reach out to emmahealy2021@u.northwestern.edu',p.windowWidth/2,p.windowHeight*11/20);
+			p.textFont(p.efont,20,600);
+			p.textSize(9+p.windowWidth/46);
+			p.text('Reach out to emmahealy2021@u.northwestern.edu',p.windowWidth/2,p.windowHeight*12/20);
 		p.pop();
 	}
 };
