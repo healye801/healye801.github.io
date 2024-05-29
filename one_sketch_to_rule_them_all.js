@@ -73,6 +73,19 @@ var sketch1 = function(p) {
 			p.rotate(1.3);
 			p.text('G',0,0);
 		p.pop();
+		
+		p.push();
+			//postage stamp
+			p.translate(p.windowWidth*18/20,p.windowHeight-p.windowWidth*2/20);
+			p.textAlign(p.CENTER,p.CENTER);
+			p.fill('white');
+			p.textFont(p.efont);
+			p.textSize(6+p.windowWidth/50);
+			p.text('EMMA',0,0);
+			p.textSize(5+p.windowWidth/50);
+			p.text('GRACE',0,5+p.windowWidth/50);
+			p.text('HEALY',0,10+p.windowWidth*2/50);
+		p.pop();
 	}
 	};
 
