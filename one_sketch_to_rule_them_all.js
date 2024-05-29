@@ -146,7 +146,7 @@ var sketch2 = function(p) {
 			p.textStyle(BOLD);
 			p.fill('white');
 			p.textFont(p.efont,20,600);
-			p.textSize(14+p.windowWidth/95);
+			p.textSize(13+p.windowWidth/95);
 			p.text('Reach out to emmahealy2021@u.northwestern.edu',p.windowWidth/2,p.windowHeight*23/40);
 		p.pop();
 	}
