@@ -70,7 +70,7 @@ h10 {
     font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
-    font-size: 2.25rem;
+    font-size: 2.3rem;
     color: #ffffff !important;
 }
 .navbar-text {
@@ -80,10 +80,13 @@ h10 {
 	color: #ffffff !important;
 }
 .navbar-nav {
-	font-size: 1.31rem;
+	font-size: 1.2rem;
 	color: #ffffff !important;
 }
 .navbar-custom {
+
+}
+.navbar-custom-bg {
 	background-color: #0a2243;
 }
 .dropdown-item:hover {
@@ -91,7 +94,7 @@ h10 {
 	color: #D2AFD4 !important;
 }
 .dropdown-divider {
-	border-top: 1px solid #ffffff !important;
+	border-top: 1px solid #625079 !important;
 }
 .dropdown-menu {
 	background-color: #0a2243;
@@ -208,6 +211,7 @@ footer {
 	color: #FFFFFF !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
+	border-color: #FFFFFF;
 	border-radius: 0.2rem !important;
 }
 .btn-primary:hover, .btn-primary:active {
@@ -219,10 +223,22 @@ footer {
 	color: #D2AFD4 !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
+	border-color: #625079;
 	border-radius: 0.1rem !important;
 }
 .link-primary {
 	color: #EB7B67 !important;
+}
+.button-link {
+	color: #EB7B67 !important;
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+	/*text-decoration: underline;*/
+	cursor: pointer;
 }
 .hero {
 	background-position: 0% 0% !important;

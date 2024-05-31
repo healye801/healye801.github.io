@@ -2,6 +2,7 @@ var sketch1 = function(p) {
 	p.rval = [55,235];
 	p.gval = [74,123];
 	p.bval = [103,155];
+	p.introt = -0.8;
 
 	p.preload = function() {
 		p.efont = p.loadFont('Fonts/JosefinSans-Regular.ttf');
@@ -22,6 +23,8 @@ var sketch1 = function(p) {
 		p.accentb = p.random(p.bval);
 		p.fill(p.accentr,p.accentg,p.accentb);
 		p.noStroke();
+		
+		//p.window.onscroll(p.onscr);
 	}
 
 	p.draw = function() {
@@ -64,6 +67,21 @@ var sketch1 = function(p) {
 		p.pop();
 
 		p.push();
+		//initial e
+			p.translate(p.windowWidth/2,p.windowHeight/2);
+			p.fill('#ffffff');
+			p.rotate(p.introt);
+			p.ellipse(0,-p.windowHeight/2,125,125);
+			p.textAlign(p.CENTER,p.CENTER);
+			p.fill(p.bgr,p.bgg,p.bgb);
+			p.strokeWeight(5);
+			p.stroke(p.color(p.bgr,p.bgg,p.bgb));
+			p.textFont(p.efont);
+			p.textSize(175);
+			p.text('e',0,-p.windowHeight*56/100);
+		p.pop();
+		
+		p.push();
 		//inital G
 			p.textAlign(p.CENTER,p.CENTER);
 			p.fill('white');
@@ -87,7 +105,15 @@ var sketch1 = function(p) {
 			p.text('HEALY',0,10+p.windowWidth*2/50);
 		p.pop();
 	}
+	
+	//p.moveClock = function() {
+	//p.window.onscroll
+	p.onscro = function() {
+		p.introt = p.introt+p.abs(p.onwheel.deltaY/100);
+		p.function.draw();
+		//p.rotate(p.introt);
 	};
+}
 
 var sketch2 = function(p) {
   	p.rval = [55,235];
