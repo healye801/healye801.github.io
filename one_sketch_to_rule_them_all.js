@@ -67,28 +67,12 @@ var sketch1 = function(p) {
 		p.pop();
 
 		p.push();
-		//initial e
-			p.translate(p.windowWidth/2,p.windowHeight/2);
-			p.fill('#ffffff');
-			p.rotate(p.introt);
-			p.ellipse(0,-p.windowHeight/2,125,125);
-			p.textAlign(p.CENTER,p.CENTER);
-			p.fill(p.bgr,p.bgg,p.bgb);
-			p.strokeWeight(5);
-			p.stroke(p.color(p.bgr,p.bgg,p.bgb));
-			p.textFont(p.efont);
-			p.textSize(175);
-			p.text('e',0,-p.windowHeight*56/100);
-		p.pop();
-		
-		p.push();
 		//inital G
 			p.textAlign(p.CENTER,p.CENTER);
 			p.fill('white');
 			p.textFont(p.gfont);
 			p.textSize(400);
 			p.translate(p.windowWidth/2,p.windowHeight/2);
-			p.rotate(1.3);
 			p.text('G',0,0);
 		p.pop();
 		
