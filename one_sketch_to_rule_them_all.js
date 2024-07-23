@@ -92,7 +92,7 @@ var sketch1 = function(p) {
 			p.fill('white');
 			p.textFont(p.efont);
 			p.textSize(6+p.windowWidth/25);
-			p.text('Artist',45+p.windowWidth/60*26,30+p.windowHeight/18);
+			p.text('More',45+p.windowWidth/60*26,30+p.windowHeight/18);
 		p.pop();
 	}
 	
