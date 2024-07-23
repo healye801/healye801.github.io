@@ -68,25 +68,31 @@ var sketch1 = function(p) {
 
 		p.push();
 		//inital G
-			p.textAlign(p.CENTER,p.CENTER);
+			p.textAlign(p.LEFT,p.CENTER);
 			p.fill('white');
 			p.textFont(p.gfont);
-			p.textSize(400);
-			p.translate(p.windowWidth/2,p.windowHeight/2);
+			p.textSize(windowHeight/4);
+			p.translate(p.windowWidth/8,p.windowHeight/3);
 			p.text('G',0,0);
 		p.pop();
 		
 		p.push();
 			//postage stamp
-			p.translate(p.windowWidth*18/20,p.windowHeight-p.windowWidth*2/20);
-			p.textAlign(p.CENTER,p.CENTER);
+			p.translate(p.windowWidth/8,p.windowHeight/6*3);
+			p.textAlign(p.LEFT,p.CENTER);
 			p.fill('white');
 			p.textFont(p.efont);
-			p.textSize(6+p.windowWidth/50);
-			p.text('EMMA',0,0);
-			p.textSize(5+p.windowWidth/50);
-			p.text('GRACE',0,5+p.windowWidth/50);
-			p.text('HEALY',0,10+p.windowWidth*2/50);
+			p.textSize(6+p.windowWidth/25);
+			p.text('Emma Grace Healy',0,0);
+			p.text('Product Designer',0,30+p.windowHeight/18);
+			p.fill(255,255,255,150);
+			p.textFont(p.gfont);
+			p.textSize(6+p.windowWidth/13);
+			p.text('and',55+p.windowWidth/30*9,23+p.windowHeight/18);
+			p.fill('white');
+			p.textFont(p.efont);
+			p.textSize(6+p.windowWidth/25);
+			p.text('Artist',45+p.windowWidth/60*26,30+p.windowHeight/18);
 		p.pop();
 	}
 	
