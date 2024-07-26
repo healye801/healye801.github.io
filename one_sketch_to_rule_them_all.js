@@ -84,15 +84,15 @@ var sketch1 = function(p) {
 			p.textFont(p.efont);
 			p.textSize(6+p.windowWidth/25);
 			p.text('Emma Grace Healy',0,0);
-			p.text('Product Designer',0,30+p.windowHeight/18);
-			p.fill(255,255,255,150);
-			p.textFont(p.gfont);
-			p.textSize(6+p.windowWidth/13);
-			p.text('and',55+p.windowWidth/30*9,23+p.windowHeight/18);
-			p.fill('white');
-			p.textFont(p.efont);
-			p.textSize(6+p.windowWidth/25);
-			p.text('More',45+p.windowWidth/60*26,30+p.windowHeight/18);
+			p.text('Product Designer, etc.',0,30+p.windowHeight/18);
+			//p.fill(255,255,255,150);
+			//p.textFont(p.gfont);
+			//p.textSize(6+p.windowWidth/13);
+			//p.text('and',55+p.windowWidth/30*9,23+p.windowHeight/18);
+			//p.fill('white');
+			//p.textFont(p.efont);
+			//p.textSize(6+p.windowWidth/25);
+			//p.text('More',45+p.windowWidth/60*26,30+p.windowHeight/18);
 		p.pop();
 	}
 	
