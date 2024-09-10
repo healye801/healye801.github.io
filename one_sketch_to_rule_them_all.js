@@ -32,16 +32,6 @@ var sketch1 = function(p) {
 		p.background(p.bgr,p.bgg,p.bgb);
 		
 		p.push();
-			//create ellipses
-			p.translate(p.windowWidth/2,p.windowHeight*6/10);
-			p.rotate(-0.3);
-			p.fill(255,255,255,50);
-			p.ellipse(0,0,p.windowWidth*9/10,p.windowHeight*13/10);
-			p.fill(p.bgr,p.bgg,p.bgb);
-			p.ellipse(0,0,p.windowWidth*6/10,p.windowHeight);
-		p.pop();
-
-		p.push();
 			//create foreground
 			p.beginShape();
 
@@ -58,33 +48,44 @@ var sketch1 = function(p) {
 			p.fill(p.bgr,p.bgg,p.bgb);
 			p.beginShape();
 
-			p.vertex(p.windowWidth/2,p.windowHeight);
-			p.vertex(p.windowWidth,p.windowHeight*21/40);
-			p.vertex(p.windowWidth,p.windowHeight*22/40);
-			p.vertex(p.windowWidth*6/10,p.windowHeight);
+			//p.vertex(p.windowWidth/2,p.windowHeight);
+			//p.vertex(p.windowWidth,p.windowHeight*21/40);
+			//p.vertex(p.windowWidth,p.windowHeight*22/40);
+			//p.vertex(p.windowWidth*6/10,p.windowHeight);
 
 			p.endShape(p.CLOSE);
 		p.pop();
+		
+		p.push();
+			//create ellipses
+			p.translate(p.windowWidth/2,p.windowHeight/2);
+			p.rotate(-0.3);
+			p.fill(255,255,255,50);
+			p.ellipse(0,0,p.windowWidth*9/10,p.windowHeight*13/10);
+			p.fill(p.bgr,p.bgg,p.bgb);
+			p.ellipse(0,0,p.windowWidth*6/10,p.windowHeight);
+		p.pop();
+
 
 		p.push();
 		//inital G
-			p.textAlign(p.LEFT,p.CENTER);
+			p.textAlign(p.CENTER,p.CENTER);
 			p.fill('white');
 			p.textFont(p.gfont);
 			p.textSize(windowHeight/4);
-			p.translate(p.windowWidth/8,p.windowHeight/3);
+			p.translate(p.windowWidth/2,p.windowHeight/3);
 			p.text('G',0,0);
 		p.pop();
 		
 		p.push();
 			//postage stamp
-			p.translate(p.windowWidth/8,p.windowHeight/6*3);
-			p.textAlign(p.LEFT,p.CENTER);
+			p.translate(p.windowWidth/2,p.windowHeight/6*3);
+			p.textAlign(p.CENTER,p.CENTER);
 			p.fill('white');
 			p.textFont(p.efont);
-			p.textSize(6+p.windowWidth/25);
+			p.textSize(6+p.windowWidth/30);
 			p.text('Emma Grace Healy',0,0);
-			p.text('Product Designer, etc.',0,30+p.windowHeight/18);
+			p.text('Product Designer / Creative Dabbler',0,30+p.windowHeight/18);
 			//p.fill(255,255,255,150);
 			//p.textFont(p.gfont);
 			//p.textSize(6+p.windowWidth/13);
