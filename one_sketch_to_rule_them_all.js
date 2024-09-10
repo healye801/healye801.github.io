@@ -58,10 +58,10 @@ var sketch1 = function(p) {
 			p.fill(p.bgr,p.bgg,p.bgb);
 			p.beginShape();
 
-			p.vertex(p.windowWidth/2,p.windowHeight);
-			p.vertex(p.windowWidth,p.windowHeight*21/40);
-			p.vertex(p.windowWidth,p.windowHeight*22/40);
-			p.vertex(p.windowWidth*6/10,p.windowHeight);
+			//p.vertex(p.windowWidth/2,p.windowHeight);
+			//p.vertex(p.windowWidth,p.windowHeight*21/40);
+			//p.vertex(p.windowWidth,p.windowHeight*22/40);
+			//p.vertex(p.windowWidth*6/10,p.windowHeight);
 
 			p.endShape(p.CLOSE);
 		p.pop();
@@ -82,9 +82,9 @@ var sketch1 = function(p) {
 			p.textAlign(p.LEFT,p.CENTER);
 			p.fill('white');
 			p.textFont(p.efont);
-			p.textSize(6+p.windowWidth/25);
+			p.textSize(6+p.windowWidth/30);
 			p.text('Emma Grace Healy',0,0);
-			p.text('Product Designer, etc.',0,30+p.windowHeight/18);
+			p.text('Product Designer / Creative Dabbler',0,30+p.windowHeight/18);
 			//p.fill(255,255,255,150);
 			//p.textFont(p.gfont);
 			//p.textSize(6+p.windowWidth/13);
