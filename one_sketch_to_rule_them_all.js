@@ -72,20 +72,21 @@ var sketch1 = function(p) {
 			p.textAlign(p.CENTER,p.CENTER);
 			p.fill('white');
 			p.textFont(p.gfont);
-			p.textSize(windowHeight/4);
-			p.translate(p.windowWidth/2,p.windowHeight/3);
+			p.textSize(windowHeight/2.5);
+			p.translate(p.windowWidth/2,p.windowHeight/2);
+			//p.translate(p.windowWidth/2,p.windowHeight/3);
 			p.text('G',0,0);
 		p.pop();
 		
 		p.push();
 			//postage stamp
-			p.translate(p.windowWidth/2,p.windowHeight/6*3);
-			p.textAlign(p.CENTER,p.CENTER);
-			p.fill('white');
-			p.textFont(p.efont);
-			p.textSize(6+p.windowWidth/30);
-			p.text('Emma Grace Healy',0,0);
-			p.text('Product Designer / Creative Dabbler',0,30+p.windowHeight/18);
+			//p.translate(p.windowWidth/2,p.windowHeight/6*3);
+			//p.textAlign(p.CENTER,p.CENTER);
+			//p.fill('white');
+			//p.textFont(p.efont);
+			//p.textSize(6+p.windowWidth/30);
+			//p.text('Emma Grace Healy',0,0);
+			//p.text('Product Designer / Creative Dabbler',0,30+p.windowHeight/18);
 			//p.fill(255,255,255,150);
 			//p.textFont(p.gfont);
 			//p.textSize(6+p.windowWidth/13);
@@ -99,7 +100,7 @@ var sketch1 = function(p) {
 	
 	//p.moveClock = function() {
 	//p.window.onscroll
-	p.onscro = function() {
+	p.onscroll = function() {
 		p.introt = p.introt+p.abs(p.onwheel.deltaY/100);
 		p.function.draw();
 		//p.rotate(p.introt);
