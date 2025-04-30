@@ -1,14 +1,12 @@
 p, body {
-    font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    /*line-height: 1.6em;
-    letter-spacing: .02em;
-    text-indent: 0em;*/
+  font-family: "Source Sans 3", sans-serif;
+  /*font-optical-sizing: auto;*/
+  font-weight: 400;
+  font-style: normal;
 }
 h8, h9 {
     font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
+    font-style: regular;
     font-weight: 300;
     /*line-height: 1.6em;
     letter-spacing: .02em;
@@ -17,7 +15,7 @@ h8, h9 {
 h6, h7, h10 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
-    font-style: normal;
+    font-style: italic;
     /*line-height: 1.8em;
     letter-spacing: .02em;*/
 }
@@ -87,7 +85,7 @@ h10 {
 
 }
 .navbar-custom-bg {
-	background-color: #0a2243;
+	background-color: #0A2243;
 }
 .dropdown-item:hover {
 	background-color: #625079 !important;
@@ -118,14 +116,11 @@ div.vspace3em {
     height: 3em;
 }
 
-div.reddiv{
-	background-color: #B23D1B;
-}
 div.whitediv {
-    background-color: #FFFFFF;
+    background-color: #FFFAF0;
 }
-div.purplediv{
-	background-color: #625079;
+div.reddiv{
+	background-color: #EB4A67;
 }
 div.navydiv {
 	background-color:#0a2243;
@@ -133,15 +128,11 @@ div.navydiv {
 div.orangediv{
 	background-color: #E3920D;
 }
-div.limegreendiv{
-	background-color: #72912F;
+div.bluediv{
+	background-color: #133E79;
 }
-div.lightmutedgreendiv {
-	background-color: #9AB842;
-}
-div.creamdiv {
-	/*background-color: #f2f2f2;*/
-	background-color: #FFFAF0;
+div.greendiv {
+	background-color: #377B67;
 }
 img {
     object-fit: contain;
@@ -153,9 +144,6 @@ img {
     width: 100%;
     padding: 3% 2% 3% 2%;
 }*/
-#workgrid {
-    overflow: hidden;
-}
 footer {
     text-align: center;
 	background-color: #0a2243;
@@ -163,14 +151,11 @@ footer {
 .footer h4, h8 {
     color: #ffffff;
 }
-#yellowtext {
-	color: #f7ce16;
-}
-#palegreentext {
-	color: #A5CC6B;
+#greentext {
+	color: #377B67;
 }
 #redtext{
-	color: #B23D1B;
+	color: #EB4A67;
 }
 #blacktext {
     color: #141A18;
@@ -178,29 +163,23 @@ footer {
 #whitetext {
     color: #FFFFFF;
 }
-#purpletext{
-	color: #625079;
-}
 #navytext {
 	color:#0a2243;
 }
 #orangetext{
 	color: #E3920D;
 }
-#limegreentext{
-	color: #72912F;
-}
-#lightmutedgreentext {
-	color: #9AB842;
-}
-#navbartext {
-	color: #ffffff;
+#bluetext{
+	color: #133E79;
 }
 #creamtext{
 	color: #FFFAF0;
 }
+#navbartext {
+	color: #ffffff;
+}
 #lightestgraytext {
-	color: #b7e6e1;
+	color: #FFFAF0;
 }
 .btn-primary, .btn-primary:visited {
     background-color: #0a2243 !important;
@@ -227,10 +206,10 @@ footer {
 	border-radius: 0.1rem !important;
 }
 .link-primary {
-	color: #EB7B67 !important;
+	color: #E3920D !important;
 }
 .button-link {
-	color: #EB7B67 !important;
+	color: #E3920D !important;
 	background: none!important;
 	border: none;
 	padding: 0!important;
@@ -240,22 +219,7 @@ footer {
 	/*text-decoration: underline;*/
 	cursor: pointer;
 }
-.hero {
-	background-position: 0% 0% !important;
-	background-repeat: no-repeat;
-	background-size: cover;
-  /* needed to prevent janky scrolling in Safari*/
-  backface-visibility: hidden;
-  /*//100% height of the viewport */
-	height: 100vh;
-	overflow: hidden;
-	position: relative !important;
-	width: 100%;
-	
-	@media screen and (min-width:640px) {
-		background-position: 50% 0;
-	}
-}
+
 .hero-text {
   text-align: left;
   position: absolute;
