@@ -18,7 +18,7 @@ h1 {
 	font-style: normal;
 	font-size: 6.4rem;
 }
-.notaheaderh1 p {
+.ornamentation p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
@@ -54,7 +54,7 @@ h4 {
 	font-style: normal;
 	font-size: 2.25rem;
 }
-.notaheaderh4 p {
+.ornamentation2 p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
@@ -75,7 +75,7 @@ h5 {
 h6 {
 	font-size: 1.5rem;
 }
-.notaheaderh6 p {
+.highlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: italic;
@@ -182,9 +182,13 @@ img {
 footer {
     text-align: center;
 	background-color: #0a2243;
+	color: #FFFFFF;
 }
-.footer h4, h8 {
+.footer h4, p {
     color: #ffffff;
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+	font-size: 1.0rem;
 }
 #greentext {
 	color: #377B67;
