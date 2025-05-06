@@ -221,11 +221,8 @@ a:hover {
 }
 .blockquote {
     display: block;
-	/*background-color: #0A2243;*/
 	border-radius: .01rem;
-	height: 30vw;
-	padding: 1rem;
-	background-size: 33vw;
+	background-size: cover;
 	background: url(Images/blockquote-image.png)"
 }
 .blockquote h6 {
@@ -237,14 +234,15 @@ a:hover {
 	text-transform: uppercase;
 	font-size: 1rem; 
 	letter-spacing: 3px;
+	padding-top: 1rem;
 }
 .blockquote p{
 	color: #ffffff;
 	text-align: center;
-	margin-top: 8vw;
 	font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 300;
+	padding: 3rem;
 }
 section {
 	padding: 0rem;
