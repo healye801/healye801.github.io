@@ -18,7 +18,19 @@ h1 {
 	font-style: normal;
 	font-size: 6.4rem;
 }
+.ornamentation p {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 6.4rem;
+}
 h2 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 4rem;
+}
+.notaheaderh2 p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
@@ -30,7 +42,19 @@ h3 {
 	font-style: normal;
 	font-size: 3.19rem;
 }
+.notaheaderh3 p {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 3.19rem;
+}
 h4 {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2.25rem;
+}
+.ornamentation2 p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
@@ -42,7 +66,19 @@ h5 {
 	font-style: normal;
 	font-size: 1.63rem;
 }
+.notaheaderh5 p {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.63rem;
+}
 h6 {
+	font-size: 1.5rem;
+}
+.highlight p {
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
 	font-size: 1.5rem;
 }
 h7 {
@@ -57,6 +93,7 @@ h9 {
 h10 {
 	font-size: 1.31rem;
 }
+
 .navbar-brand {
     font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
@@ -145,9 +182,13 @@ img {
 footer {
     text-align: center;
 	background-color: #0a2243;
+	color: #FFFFFF;
 }
-.footer h4, h8 {
+.footer h4, p {
     color: #ffffff;
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+	font-size: 1.0rem;
 }
 #greentext {
 	color: #377B67;
@@ -160,6 +201,9 @@ footer {
 }
 #whitetext {
     color: #FFFFFF;
+}
+.whitetext {
+	color: #FFFFFF;
 }
 #navytext {
 	color:#0a2243;
