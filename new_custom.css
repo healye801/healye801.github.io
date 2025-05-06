@@ -1,6 +1,5 @@
 p, body {
   font-family: "Source Sans 3", sans-serif;
-  /*font-optical-sizing: auto;*/
   font-weight: 400;
   font-style: normal;
 }
@@ -8,16 +7,11 @@ h8, h9 {
     font-family: 'Josefin Sans', sans-serif;
     font-style: regular;
     font-weight: 300;
-    /*line-height: 1.6em;
-    letter-spacing: .02em;
-    text-indent: 0em;*/
 }
 h6, h7, h10 {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: italic;
-    /*line-height: 1.8em;
-    letter-spacing: .02em;*/
 }
 h1 {
 	font-family: "UnifrakturMaguntia", cursive;
@@ -70,19 +64,25 @@ h10 {
 	font-style: normal;
     font-size: 2.3rem;
     color: #ffffff !important;
+	text-decoration: none !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-size: 1.63rem;
 	color: #ffffff !important;
+	text-decoration: none !important;
 }
 .navbar-nav {
 	font-size: 1.2rem;
 	color: #ffffff !important;
+	text-decoration: none !important;
 }
-.navbar-custom {
-
+.nav-item {
+	text-decoration: none !important;
+}
+.nav-link {
+	text-decoration: none !important;
 }
 .navbar-custom-bg {
 	background-color: #0A2243;
@@ -90,6 +90,7 @@ h10 {
 .dropdown-item:hover {
 	background-color: #625079 !important;
 	color: #D2AFD4 !important;
+	text-decoration: none !important;
 }
 .dropdown-divider {
 	border-top: 1px solid #625079 !important;
@@ -98,7 +99,6 @@ h10 {
 	background-color: #0a2243;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 div.vspacehalfem {
     clear: both;
     height: .5em;
@@ -115,7 +115,6 @@ div.vspace3em {
     clear: both;
     height: 3em;
 }
-
 div.whitediv {
     background-color: #FFFAF0;
 }
@@ -205,21 +204,14 @@ footer {
 	border-color: #625079;
 	border-radius: 0.1rem !important;
 }
-.link-primary {
-	color: #E3920D !important;
+a {
+	color: #b7e6e1;
+	text-decoration: underline;
 }
-.button-link {
-	color: #E3920D !important;
-	background: none!important;
-	border: none;
-	padding: 0!important;
-	font-family: 'Josefin Sans', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-	/*text-decoration: underline;*/
-	cursor: pointer;
+a:hover {
+	color: #E3920D;
+	text-decoration: underline;
 }
-
 .hero-text {
   text-align: left;
   position: absolute;
