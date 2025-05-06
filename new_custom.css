@@ -17,6 +17,7 @@ h1 {
 	font-weight: 400;
 	font-style: normal;
 	font-size: 6.4rem;
+	text-transform: lowercase;
 }
 .ornamentation p {
 	font-family: "UnifrakturMaguntia", cursive;
@@ -59,6 +60,7 @@ h4 {
 	font-weight: 400;
 	font-style: normal;
 	font-size: 2.25rem;
+	text-transform: lowercase;
 }
 h5 {
 	font-family: "UnifrakturMaguntia", cursive;
@@ -101,6 +103,7 @@ h10 {
     font-size: 2.3rem;
     color: #ffffff !important;
 	text-decoration: none !important;
+	text-transform: lowercase !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
@@ -108,6 +111,7 @@ h10 {
     font-size: 1.63rem;
 	color: #ffffff !important;
 	text-decoration: none !important;
+	text-transform: uppercase !important;
 }
 .navbar-nav {
 	font-size: 1.2rem;
@@ -116,9 +120,11 @@ h10 {
 }
 .nav-item {
 	text-decoration: none !important;
+	text-transform: uppercase !important;
 }
 .nav-link {
 	text-decoration: none !important;
+	text-transform: uppercase !important;
 }
 .navbar-custom-bg {
 	background-color: #0A2243;
