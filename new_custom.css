@@ -189,10 +189,10 @@ footer {
     text-align: center;
 	background-color: #0a2243;
 	color: #FFFFFF;
-}
-.footer h4, p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
+}
+.footer h4, p {
 	font-size: 1.0rem;
 }
 #greentext {
