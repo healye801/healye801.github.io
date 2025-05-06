@@ -25,6 +25,13 @@ h1 {
 	font-style: normal;
 	font-size: 6.4rem;
 }
+.ornamentation3 p {
+	font-family: "UnifrakturMaguntia", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 17vw;
+	text-align: center;
+}
 h2 {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
@@ -291,6 +298,7 @@ a:hover {
 	font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: 300;
+	font-size: 1.2rem;
 	padding: 3rem;
 }
 section {
