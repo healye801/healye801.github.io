@@ -25,6 +25,37 @@
     <meta name="theme-color" content="#ffffff">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+    <script>
+    var correctPassword = "bauhaus"; // Change this to your password
+    var attempts = 0;
+    var maxAttempts = 3; // Optional: limit attempts (or remove this line if not needed)
+    
+    while (true) {
+        var userInput = prompt("This page is password protected. Please enter the password:");
+        
+        // If user clicks "Cancel"
+        if (userInput === null) {
+            document.body.innerHTML = "<h1>Access Cancelled</h1><p>You exited the prompt.</p>";
+            break;
+        }
+        
+        // If password is correct
+        if (userInput === correctPassword) {
+            break; // Allow access to the page content
+        }
+        
+        attempts++;
+        if (attempts >= maxAttempts) {
+            document.body.innerHTML = `<div style="text-align: center; margin-top: 100px; font-family: sans-serif; color: #b00020;">
+                <h1 style="font-size: 2.5em;">Access Denied</h1>
+                <p style="font-size: 1.2em;">Too many incorrect attempts. If you believe this is a mistake, please contact me.</p>
+                </div>`;
+            break; // Exit the loop after showing access denied message
+        }
+        
+        alert("Incorrect password. Please try again.");
+    }
+</script>
 </head>
 <header>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-custom-bg">
