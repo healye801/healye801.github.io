@@ -83,6 +83,12 @@ h10 {
     font-style: italic;
 	font-size: 1.5rem;
 }
+.lowlight p {
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+	font-size: .9rem;
+}
 .navbar-brand {
     font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
