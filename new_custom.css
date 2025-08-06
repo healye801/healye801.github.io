@@ -259,6 +259,14 @@ a:hover {
 	color: #E3920D;
 	text-decoration: underline;
 }
+.secondary-link {
+  color: #17498F;
+  text-decoration: underline;
+}
+.secondary-link:hover {
+	color: #E3920D;
+	text-decoration: underline;
+}
 .hero-text {
   text-align: left;
   position: absolute;
