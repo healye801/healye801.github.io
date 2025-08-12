@@ -173,6 +173,10 @@ img {
     width: 100%;
     /*padding: 5% 2% 5% 2%;*/
 }
+img.img-fluid.quote{
+	max-width: 15%;
+	height: auto;
+}
 /*img.img-case-study {
     object-fit: contain;
     width: 100%;
