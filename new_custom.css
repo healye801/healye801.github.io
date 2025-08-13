@@ -173,9 +173,14 @@ img {
     width: 100%;
     /*padding: 5% 2% 5% 2%;*/
 }
-img.img-fluid.quote{
+img.img-fluid.quote {
 	max-width: 15%;
 	height: auto;
+}
+img.img-fluid.unquote {
+	max-width: 15%;
+	height: auto;
+	float: right;
 }
 /*img.img-case-study {
     object-fit: contain;
