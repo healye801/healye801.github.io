@@ -178,10 +178,13 @@
             <p>I conducted a comprehensive usability audit that uncovered four critical issues that would severely impact the user experience during high-volume training sessions:</p>
             <h5>Broken Loading Feedback</h5>
             <p>The chatbot relied on a browser loading bar at the top of the screen to indicate processing, but this was far removed from the input area where users' attention was focused. This violated a core conversational UI principle: users need immediate acknowledgment of their input within the conversation thread to maintain the natural turn-taking flow they expect from chat interfaces. With increasing user loads potentially causing longer response times, users had no clear indication their question was being processed.</p>
+            <div class="vspace1em"></div>
             <h5>Inaccessible Submit States</h5>
             <p>Users could submit questions via Enter key or clicking a submit button. While both methods were temporarily disabled during processing, the submit button never visually indicated this state change, failing WCAG accessibility standards. This created an inaccessible and frustrating experience for users who could click repeatedly with no feedback—a critical flaw in conversational interfaces where clear action confirmation is essential.</p>
+            <div class="vspace1em"></div>
             <h5>Unclear Conversation Boundaries</h5>
             <p>After users marked their interview complete, the conversation ended and no more questions could be submitted. However, the submit button remained visually active and functional, leading users to attempt interactions that couldn't work. This violated the conversational design principle that system capabilities should always be clearly communicated to users.</p>
+            <div class="vspace1em"></div>
             <h5>Missing Export Functionality</h5>
             <p>The chatbot lacked a crucial feature for the training context—transcript export. This missing conversation archiving capability meant trainers had no way to capture or evaluate the interview sessions, breaking the connection between the conversational experience and the broader training workflow.</p>
         </div>
@@ -200,12 +203,16 @@
             <p>I applied conversational UI best practices to redesign the interface with four key improvements:</p>
             <h5>Enhanced Loading States</h5>
             <p>I designed contextual loading indicators positioned directly within the conversation thread, following the principle that users need immediate acknowledgment of their input to maintain conversational flow. The new loading states included subtle animations and clear messaging that set appropriate expectations for response times—critical for preventing the "dead air" problem that breaks user engagement in chat interfaces.</p>
+            <div class="vspace1em"></div>
             <h5>Accessible Submit Button Design</h5>
             <p>I redesigned the submit button with proper accessibility states, including visual disabled states and appropriate ARIA labels. The solution implemented a clear three-state pattern (idle, loading, disabled) that follows WCAG guidelines while providing crucial feedback to all users. This addresses the fundamental requirement in conversational interfaces that every user action must receive clear confirmation.</p>
+            <div class="vspace1em"></div>
             <h5>Clear Conversation Boundaries</h5>
             <p>I created a distinct end-state design that clearly communicates when the conversation has concluded. The interface now transitions to a read-only mode that maintains conversation history while preventing new inputs—following the conversational design principle that system capabilities should always be transparent to users.</p>
+            <div class="vspace1em"></div>
             <h5>Export Functionality</h5>
             <p>I designed an intuitive export feature that integrates seamlessly into the conversation flow, following patterns users recognize from messaging platforms. The export includes conversation metadata and structured formatting to support trainer evaluation workflows while maintaining the conversational context.</p>
+            <div class="vspace1em"></div>
             <h5>Additional Improvements:</h5>
             <ul>
                 <li>Added strategic white space after conversations to improve scrolling flexibility</li>
@@ -226,11 +233,11 @@
         </div>
         <div class="col-md-7 col-xs-12">
             <p>The redesigned chatbot successfully supported the nationwide training initiative, providing a smooth and accessible experience for all 3,000 learners. The improvements addressed critical scalability concerns while establishing a strong foundation for conversational interface best practices.</p>
+            <p>Key achievements:</p>
         </div>
         <div class="col-md-1 col-xs-12"></div>
         <div class="col-md-4 col-xs-12"></div>
         <div class="col-md-7 col-xs-12 highlight">
-            <h5>Key Achievements:</h5>
             <p id="redtext">01.</p>
         </div>
         <div class="col-md-1 col-xs-12"></div>
