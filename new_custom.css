@@ -2,6 +2,7 @@ p, body {
 	font-family: "Source Sans 3", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	font-size: 1.1rem;
 }
 h1, h2 {
 	font-family: "UnifrakturMaguntia", cursive;
@@ -31,7 +32,7 @@ h4 {
 	font-size: 1.5rem;
 }
 h8 {
-	font-size: 1.0rem;
+	font-size: 1.1rem;
 }
 h9 {
 	font-size: 0.9rem;
@@ -82,6 +83,12 @@ h10 {
     font-weight: 400;
     font-style: italic;
 	font-size: 1.5rem;
+}
+.midlight p {
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+	font-size: 1.3rem;
 }
 .lowlight p {
 	font-family: 'Josefin Sans', sans-serif;
@@ -195,7 +202,7 @@ footer {
     font-weight: 300;
 }
 .footer p {
-	font-size: 1.0rem;
+	font-size: 1.1rem;
 }
 .footerhighlight p {
 	font-size: 2.25rem;
@@ -297,7 +304,7 @@ a:hover {
 	font-style: normal;
     font-weight: 300;
 	text-transform: uppercase;
-	font-size: 1rem; 
+	font-size: 1.1rem; 
 	letter-spacing: 3px;
 	padding-top: 1rem;
 }
