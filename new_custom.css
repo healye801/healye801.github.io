@@ -175,6 +175,9 @@ div.bluediv{
 div.greendiv {
 	background-color: #377B67;
 }
+.orangeborder {
+	border-color: #E3920D !important;
+}
 img {
     object-fit: contain;
     width: 100%;
