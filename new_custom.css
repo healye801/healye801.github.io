@@ -60,24 +60,6 @@ h10 {
 	font-size: 17vw;
 	text-align: center;
 }
-.notaheaderh2 p {
-	font-family: "UnifrakturMaguntia", cursive;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 4rem;
-}
-.notaheaderh3 p {
-	font-family: "UnifrakturMaguntia", cursive;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 3.19rem;
-}
-.notaheaderh5 p {
-	font-family: "UnifrakturMaguntia", cursive;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 1.63rem;
-}
 .highlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
@@ -87,14 +69,14 @@ h10 {
 .midlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
 	font-size: 1.3rem;
 }
 .lowlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     font-style: normal;
-	font-size: .9rem;
+	font-size: 1.05rem;
 }
 .navbar-brand {
     font-family: "UnifrakturMaguntia", cursive;
