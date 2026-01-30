@@ -140,7 +140,7 @@ div.vspace3em {
     height: 3em;
 }
 div.whitediv {
-    background-color: #FFFAF0;
+    background-color: #FFFDF7;
 }
 div.reddiv{
 	background-color: #EB4A67;
@@ -309,4 +309,7 @@ section {
 	padding: 0rem;
 	margin: 0rem;
 	overflow: auto;
+}
+.small-img {
+	max-width: 30%;
 }
