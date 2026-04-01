@@ -40,7 +40,6 @@ h6 {
 h7 {
 	font-size: 1.1rem;
 }
-
 .ornamentation p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
@@ -313,4 +312,10 @@ section {
 }
 .small-img {
 	max-width: 30%;
+}
+.drop-shadow {
+	/*box-shadow: 10px 10px 15px #E3920D; */
+	filter: drop-shadow(-1px 1px 4px #f8f0e3);
+	/*filter: drop-shadow(1px -1px 2px #f8f0e3) drop-shadow(-15px 15px #E3920D); */
+
 }
