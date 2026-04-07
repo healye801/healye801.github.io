@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Scaling Accessibility Practices</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="new_custom.css">
+    <!-- <link rel="stylesheet" type="text/js" href="animate.js"> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yeseva One">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Yeseva+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16x16.png">
+    <link rel="manifest" href="Images/site.webmanifest">
+    <link rel="mask-icon" href="Images/safari-pinned-tab.svg" color="#17b890">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var correctPassword = "bauhaus"; // Change this to your password
+                var attempts = 0;
+                var maxAttempts = 3; // Optional: limit attempts (or remove this line if not needed)
+
+                while (true) {
+                    var userInput = prompt("This page is password protected. Please enter the password:");
+
+                    // If user clicks "Cancel"
+                    if (userInput === null) {
+                        document.body.innerHTML = `<div style="text-align: center; margin-top: 100px; color: #b00020;">
+                            <h1>Access Request Cancelled</h1>
+                            <p style="font-size: 1.2em;">You exited the prompt.  <a href="index.html">Back to the homepage</a></p>
+                            </div>`;
+                        break;
+                    }
+
+                    // If password is correct
+                    if (userInput === correctPassword) {
+                        break; // Allow access to the page content
+                    }
+
+                    attempts++;
+                    if (attempts >= maxAttempts) {
+                        document.body.innerHTML = `<div style="text-align: center; margin-top: 100px; color: #b00020;">
+                            <h1>Access Denied</h1>
+                            <p style="font-size: 1.2em;">Too many incorrect attempts. If you believe this is a mistake, please contact me at emmahealy2021@u.northwestern.edu <br> <a href="index.html">Back to the homepage</a></p>
+                            </div>`;
+                        break; // Exit the loop after showing access denied message
+                    }
+
+                    alert("Incorrect password. Please try again.");
+                }
+            });
+   </script>
+</head>
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-custom-bg" data-mdb-navbar-init>
+	  <a class="navbar-brand ml-3" href="index.html">Emma Healy</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav">
+	  <li class="nav-item active">
+		  <a class="nav-link px-3" href="index.html">Design</a>	
+	  </li>
+		  <li class="nav-item">
+			<a class="nav-link px-3" href="About.html">About</a>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
+</header>
+<!--hero image
+<section class="hero">
+    <!--<div class="col-12 vspace3em"></div>
+    <div class="interface">
+         <img src="/Images/training-team/Hero%20Image.png" alt="Rendering of a Learning Management System homepage">
+	</div>
+</section>-->
+<main style="background-color: #FFFDF7" class="container-fluid">
+<!--white space-->
+    <div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+	</div>
+<!--title block-->
+    <div class="row mx-4">
+        <div class="col-xs-12 vspace1em"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true" data-aos-delay="300">
+            <h3>Scaling Accessibility Practices Across a Lean Product Program</h3>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-12 vspace1em"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true" data-aos-delay="300">
+            <p>I drew on my background as a certified Trusted Tester to build cross-team accessibility knowledge from the ground up—running hands-on workshops, piloting dev-mode annotation workflows, and contributing to shared component documentation to reduce repeated failures and foster a culture of proactive accessibility.</p>
+            <p>Images shown are illustrative representations of my design process and do not include actual product screenshots or wireframes due to confidentiality.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <!--set one-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-3 col-md-4 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Role:</p>
+                <div class="midlight">
+                    <p>Accessibility Expert &amp; Product Designer</p>
+                </div>
+            </div>
+            <div class="d-xl-none col-lg-1 col-md-1 col-xs-12"></div>
+            <div class="d-xs-block d-md-none col-12 vspace1em"></div>
+            <div class="col-lg-4 col-md-5 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Team:</p>
+                <div class="midlight">
+                    <p>Cross-functional program with 10 Lean product teams</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <!--set two-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-3 col-md-4 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Tools:</p>
+                <div class="midlight">
+                    <p>ANDI, Figma Dev Mode, Github Pages, screen readers</p>
+                </div>
+            </div>
+            <div class="d-xl-none col-lg-1 col-md-1 col-xs-12"></div>
+            <div class="d-xs-block d-md-none col-12 vspace1em"></div>
+            <div class="col-lg-4 col-md-5 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Skills:</p>
+                <div class="midlight">
+                    <p>Section 508 / WCAG Compliance, strategic thinking, accessibility testing, workshop facilitation, cross-team enablement</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <!--set three-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-8 col-md-10 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Timeline:</p>
+                <div class="midlight">
+                    <p>2025 - 2026</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <div class="col-12 vspace1em"></div>
+    </div>
+<!--challenge-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h4>Challenge</h4>
+            <p>Our program consisted of 12 Lean product teams, each with a dedicated product designer, PM, and development team working on a single application within a larger suite of case management tools. While the structure kept teams nimble and focused, it created a critical gap in shared knowledge: <strong>accessibility</strong>.</p>
+            <p>The suite was regularly subjected to Section 508 compliance audits, and it was regularly failing. The problem wasn't that teams were careless—it was that accessibility experience varied enormously from team to team, and there were <strong>no centralized or shared guidelines</strong>. When an audit surfaced issues, a team would triage and patch them in isolation, but that knowledge stayed siloed. The same mistakes surfaced again and again across different applications and audit cycles.</p>
+            <p>Making the challenge more visible was the performance of our sister organization, <strong>Org B</strong>, which shared the same Section 508 audit framework and had a markedly better compliance track record than our organization, <strong>Org A</strong>. Understanding why meant looking at how they were structured—and what we'd have to do differently to get there.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--insight-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12 "></div>
+        <div class="col-xl-6 col-md-8 col-xs-12 ">
+            <h4>Insight</h4>
+            <p>Before joining this program, I had worked as a Trusted Tester at Org B, which operated on a fundamentally different model. There, designers worked on a centralized, internal agency team—ten designers who were tapped by individual PMs and developers across projects as needed. In that structure, I had served as the dedicated accessibility reviewer for all ten designers' work.</p>
+            <p>I completed <strong>50+ hours of accessibility training</strong> and passed a formal exam to become a certified Trusted Tester—a role that gave me the expertise and authority to evaluate designs and interfaces against the same standards that official auditors use. In a centralized model, that depth of specialization made sense: I could dedicate significant time and attention to accessibility review because it was a defined part of my role.</p>
+            <p>But that model wasn't transferable. Our 12-team program was structured to keep individual teams lean and responsive. There was no central design pool to consolidate review through—and creating one would undermine the agility the structure was designed to protect. Essentially, the challenge wasn't knowledge, but distribution of knowledge.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12 "></div>
+        <div class="vspace3em col-12 "></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--key findings-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h4>Key findings</h4>
+            <p><strong>Highly variable baseline knowledge across teams:</strong></p>
+            <p>Some designers had prior experience with WCAG or accessibility testing tools; others had none. Without a shared starting point, each team developed its own interpretation of compliance requirements—leading to inconsistent implementations across the application suite.</p>
+            <p><strong>Reactive compliance culture:</strong></p>
+            <p>Accessibility was treated as a remediation task triggered by audit failures, not a design and development consideration from the start. Teams had no structured way to evaluate accessibility during sprints before the auditor did.</p>
+            <p><strong>Siloed knowledge:</strong></p>
+            <p>When a team fixed an audit finding, that solution stayed with that team. There was no mechanism to broadcast what had been learned to the other 11 teams who might face the same issue in the next cycle.</p>
+            <p><strong>Handoff gaps between design and development:</strong></p>
+            <p>Designers who did think carefully about accessibility came up with individual, non-standard ways to communicate ARIA labels, focus behavior, or role assignments to developers, using a hodge-podge of Teams messages, Jira comments, and Figma comments.</p>
+            <p><strong>Design system coverage was surface-level:</strong></p>
+            <p>The existing shared library addressed color contrast and basic visual compliance, but did not document interaction behavior, keyboard navigation, live region handling, or the ARIA attributes required for correct screen reader behavior.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--approach-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div> 
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Approach</h4>
+            <p>Rather than trying to replicate the centralized reviewer model that worked at the sister organization, I designed a program to <strong>build distributed expertise across all 12 teams</strong>—equipping individual designers and developers with the knowledge, tools, and documentation to test and design accessibly from the start of every sprint, not just when an audit was looming.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--accessibility workshops-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div> 
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h5>Accessibility workshops</h5>
+            <p>I led a series of hands-on workshops for designers across the program, using the same evaluation tools that Section 508 auditors use in the field. While the existing component library already covered fundamentals like color contrast, the workshops went significantly deeper:</p>
+            <ul>
+                <li><strong>Page hierarchy and heading structure:</strong> How to build logical reading and navigation order for screen reader users</li>
+                <li><strong>Programmatic labels:</strong> Associating form fields, inputs, and interactive elements with meaningful labels that assistive technologies can parse</li>
+                <li><strong>ARIA labels and landmark roles:</strong> When and how to apply ARIA attributes correctly, and when to rely on native HTML semantics instead</li>
+                <li><strong>Dynamic content:</strong> Managing live regions, status messages, and state changes so they're announced appropriately by screen readers</li>
+            </ul>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-md-4 col-xs-12"></div>
+        <img class="col-md-4 col-xs-12 img-fluid drop-shadow" src="Images/training-team/tech%20tutorial.png" alt="In-app training module" data-aos="fade-up" data-aos-once="true">
+        <div class="col-md-4 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div> 
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <p>Each session was practical and tool-forward—participants tested live pages using ANDI and WAVE, identified real issues in their own applications, and left with a concrete checklist they could apply immediately in their next design review.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--figma dev mode-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h5>Figma Dev Mode accessibility pilot</h5>
+            <p>A persistent gap between design and development was that accessibility intent rarely survived the handoff. Designers might understand the required ARIA label for a component, but without a structured way to communicate that to developers, it often got lost or misinterpreted in implementation.</p>
+            <p>I led a pilot program using Figma Dev Mode to close that gap. By embedding accessibility annotations—including ARIA labels, roles, and relevant HTML attributes—directly into code snippets within the design file, developers received clear, actionable specifications alongside visual designs rather than in a separate document that might be overlooked. The pilot tested whether this approach could improve implementation accuracy and reduce accessibility-related rework.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--storybook accessibility documentation-->
+    <div class="row  mx-4">
+        <div class="vspace3em col-12 "></div>
+        <div class="col-xl-3 col-md-2 col-xs-12 "></div>
+        <div class="col-xl-6 col-md-8 col-xs-12 ">
+            <h5>Storybook accessibility documentation</h5>
+            <p>The final piece was making accessibility knowledge persistent and reusable across teams. I collaborated with developers to <strong>write accessibility content and code snippets</strong> directly into Storybook component documentation, covering both the Ruby and React implementations in the shared component library.</p>
+            <p>For each component, this included guidance on correct ARIA attributes, expected keyboard interaction patterns, screen reader behavior, and code examples implementing those requirements in both languages. Rather than requiring designers or developers to rediscover the correct implementation each time, the answers were built into the tools they were already using.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12 "></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--impact-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Impact</h4>
+            <p>This work addressed accessibility at the structural level—not just the symptom of repeated audit failures, but the underlying conditions that made those failures inevitable. By distributing knowledge and embedding accessibility into the tools and workflows teams already use, the program reduced the dependency on post-audit remediation and built the foundation for proactive, sustained compliance.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--key achievements-->
+    <div class="row mx-4">
+         <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Key Achievements</h4>
+            <div class="highlight">
+                <p id="redtext">01.</p>
+            </div>
+            <p><strong>Delivered accessibility workshops</strong> that introduced 12 product teams to auditor-grade testing tools and techniques—building a consistent, shared baseline of accessibility knowledge across the program for the first time</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">02.</p>
+            </div>
+            <p><strong>Piloted a scalable design-to-dev handoff model</strong> using Figma Dev Mode to embed ARIA labels and accessibility annotations directly in code snippets, reducing handoff gaps that had contributed to repeated implementation failures</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">03.</p>
+            </div>
+            <p><strong>Contributed lasting documentation</strong> to shared Storybook component libraries in both Ruby and React, giving all teams persistent, implementation-ready accessibility guidance for every shared component</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">04.</p>
+            </div>
+            <p><strong>Shifted the program's accessibility culture</strong> from reactive remediation toward proactive design practice, enabling teams to catch and address issues within their own sprint cycle rather than waiting for external audit cycles to surface them</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--wrapup-->
+    <div class="row mx-4">
+        <div class="col-xl-2 col-md-1 col-xs-12"></div>
+        <div class="col-xl-8 col-md-10 col-xs-12">
+            <h6>This project demonstrated my ability to adapt specialized expertise to an organizational context where direct application wasn't possible, design scalable knowledge-transfer programs, and create durable artifacts that outlast any single initiative.</h6>
+        </div>
+        <div class="col-xl-2 col-md-1 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--next story-->
+    <div class="row d-flex align-items-center">
+		<div class="vspace1em col-12"></div>
+		<div class="col-md-1 col-xs-12"></div>
+        <div class="col-md-3 d-md-block d-none">
+            <img class="rounded-lg" src="Images/pdf-management-thumbnail.png" alt="A PDF editor interface" data-aos="fade-up" data-aos-once="true">
+        </div>
+        <div class="col-md-7 col-xs-12">
+            <h5>Looking for more product design?</h5>
+            <p>Continue reading about the <a class="secondary-link" href="Training-Team.html">Enterprise Training &amp; Enablement Initiative</a> I led to build a new LMS from the ground up.</p>
+        </div>
+        <div class="col-md-1 col-xs-12"></div>
+		<div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+		<div class="vspace3em col-12"></div>
+    </div>
+<!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</main>
+<footer class="container-fluid">
+    <div class="row mx-4">
+        <div class="col-12 footerhighlight">
+            <div class="vspace1em"></div>
+			<div class="vspacehalfem"></div>
+            <p>emma healy</p>
+        </div>
+		<div class="col-12 footertext">
+            <p>emmahealy2021@u.northwestern.edu </p>
+			<p>&copy; Emma Healy 2024</p>
+			<div class="vspacehalfem"></div>
+        </div>
+    </div>
+</footer>
+</html>
