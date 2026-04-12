@@ -258,21 +258,24 @@
         <div class="col-xl-3 col-md-2 col-xs-12"></div>
         <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
             <h5>Figma Dev Mode accessibility pilot</h5>
-            <p>A persistent gap between design and development was that accessibility intent rarely survived the handoff. Designers might understand the required ARIA label for a component, but without a structured way to communicate that to developers, it often got lost or misinterpreted in implementation.</p>
-            <p>I led a pilot program using Figma Dev Mode to close that gap. By embedding accessibility annotations—including ARIA labels, roles, and relevant HTML attributes—directly into code snippets within the design file, developers received clear, actionable specifications alongside visual designs rather than in a separate document that might be overlooked. The pilot tested whether this approach could improve implementation accuracy and reduce accessibility-related rework.</p>
+            <p>A persistent gap between design and development was that accessibility intent rarely survived the handoff. Designers might understand the required ARIA label for a component, but without a structured way to communicate that to developers, it often got lost or misinterpreted in implementation—contributing to the inconsistent implementations and audit failures we'd seen across teams.</p>
+            <p>I led a pilot program using Figma Dev Mode to close that gap. By embedding accessibility annotations—including ARIA attributes, component states, and semantic expectations—directly into code snippets within the design file, developers received clear, actionable specifications alongside visual designs rather than in a separate document that might be overlooked.</p>
+            <p>The pilot improved clarity and alignment between design and development. But it also surfaced a critical limitation: Dev Mode could communicate accessibility intent, but it had no way to validate accessibility in real, functional components. Our audits evaluate live behaviors—keyboard interaction, focus management, screen reader support—governed by Section 508. A design specification, however detailed, cannot stand in for a tested, working implementation.</p>
         </div>
         <div class="col-xl-3 col-md-2 col-xs-12"></div>
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
-<!--storybook accessibility documentation-->
+<!--storybook component library-->
     <div class="row  mx-4">
         <div class="vspace3em col-12 "></div>
         <div class="col-xl-3 col-md-2 col-xs-12 "></div>
         <div class="col-xl-6 col-md-8 col-xs-12 ">
-            <h5>Storybook accessibility documentation</h5>
-            <p>The final piece was making accessibility knowledge persistent and reusable across teams. I collaborated with developers to <strong>write accessibility content and code snippets</strong> directly into Storybook component documentation, covering both the Ruby and React implementations in the shared component library.</p>
-            <p>For each component, this included guidance on correct ARIA attributes, expected keyboard interaction patterns, screen reader behavior, and code examples implementing those requirements in both languages. Rather than requiring designers or developers to rediscover the correct implementation each time, the answers were built into the tools they were already using.</p>
+            <h5>Storybook component library</h5>
+            <p>The Dev Mode pilot pointed us toward where the real leverage was: <strong>accessible, reusable components built and validated in code.</strong> We shifted our strategy and invested in building a centralized component library in Storybook—a move that required careful stakeholder management before it could begin.</p>
+            <p>Many developers were initially reluctant to invest in what looked like documentation overhead, especially across multiple frontend frameworks. To address this, we reframed Storybook not as a documentation exercise but as a scalable mechanism for improving compliance and eliminating repeated audit findings. By demonstrating how shared, accessible components could prevent defects upstream and reduce duplicated effort across 12 teams, we were able to secure buy-in.</p>
+            <p>We scoped the initial investment deliberately: a focused pilot covering five high-frequency components—buttons, cards, dropdowns, and input fields. For each, we paired design documentation with production-ready code examples in both React and Ruby on Rails, ensuring that accessibility requirements were consistent regardless of which team was implementing or which framework they were working in.</p>
+            <p>By anchoring accessibility in reusable, testable components—rather than one-off fixes or design-only annotations—we established a more sustainable foundation for improving audit performance and scaling consistent practices across all 12 product teams.</p>
         </div>
         <div class="col-xl-3 col-md-2 col-xs-12 "></div>
         <div class="vspace3em col-12"></div>
