@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Scaling a Training Chatbot</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="new_custom.css">
+    <!-- <link rel="stylesheet" type="text/js" href="animate.js"> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yeseva One">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Yeseva+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16x16.png">
+    <link rel="manifest" href="Images/site.webmanifest">
+    <link rel="mask-icon" href="Images/safari-pinned-tab.svg" color="#17b890">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var correctPassword = "bauhaus"; // Change this to your password
+                var attempts = 0;
+                var maxAttempts = 3; // Optional: limit attempts (or remove this line if not needed)
+
+                while (true) {
+                    var userInput = prompt("This page is password protected. Please enter the password:");
+
+                    // If user clicks "Cancel"
+                    if (userInput === null) {
+                        document.body.innerHTML = `<div style="text-align: center; margin-top: 100px; color: #b00020;">
+                            <h1>Access Request Cancelled</h1>
+                            <p style="font-size: 1.2em;">You exited the prompt.  <a href="index.html">Back to the homepage</a></p>
+                            </div>`;
+                        break;
+                    }
+
+                    // If password is correct
+                    if (userInput === correctPassword) {
+                        break; // Allow access to the page content
+                    }
+
+                    attempts++;
+                    if (attempts >= maxAttempts) {
+                        document.body.innerHTML = `<div style="text-align: center; margin-top: 100px; color: #b00020;">
+                            <h1>Access Denied</h1>
+                            <p style="font-size: 1.2em;">Too many incorrect attempts. If you believe this is a mistake, please contact me at emmahealy2021@u.northwestern.edu <br> <a href="index.html">Back to the homepage</a></p>
+                            </div>`;
+                        break; // Exit the loop after showing access denied message
+                    }
+
+                    alert("Incorrect password. Please try again.");
+                }
+            });
+   </script>
+</head>
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-custom-bg" data-mdb-navbar-init>
+	  <a class="navbar-brand ml-3" href="index.html">Emma Healy</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav">
+	  <li class="nav-item active">
+		  <a class="nav-link px-3" href="index.html">Design</a>	
+	  </li>
+		  <li class="nav-item">
+			<a class="nav-link px-3" href="About.html">About</a>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
+</header>
+<!--hero image
+<section class="hero">
+    <!--<div class="col-12 vspace3em"></div>
+    <div class="interface">
+         <img src="/Images/training-team/Hero%20Image.png" alt="Rendering of a Learning Management System homepage">
+	</div>
+</section>-->
+<main style="background-color: #FFFDF7" class="container-fluid">
+<!--white space-->
+    <div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+        <div class="col-12 vspace3em"></div>
+	</div>
+<!--title block-->
+    <div class="row mx-4">
+        <div class="col-xs-12 vspace1em"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true" data-aos-delay="300">
+            <h3>Scaling an AI Training Chatbot Across a Government Agency</h3>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-12 vspace1em"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true" data-aos-delay="300">
+            <p>I picked up an unfunded internal proof-of-concept powered by Claude and redesigned it for agency-wide deployment—introducing a five-level difficulty system that taught employees to conduct investigative interviews, including testing their ability to detect deception, while optimizing the product to run at scale within cost and performance constraints.</p>
+            <p>Images shown are illustrative representations of my design process and do not include actual product screenshots or wireframes due to confidentiality.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <!--set one-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-3 col-md-4 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Role:</p>
+                <div class="midlight">
+                    <p>Product Designer</p>
+                </div>
+            </div>
+            <div class="d-xl-none col-lg-1 col-md-1 col-xs-12"></div>
+            <div class="d-xs-block d-md-none col-12 vspace1em"></div>
+            <div class="col-lg-4 col-md-5 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Contributions:</p>
+                <div class="midlight">
+                    <p>Conversation UX &amp; onboarding flow, admin configuration interface, end-to-end product design</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <!--set two-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-3 col-md-4 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Tools:</p>
+                <div class="midlight">
+                    <p>Figma, Claude API</p>
+                </div>
+            </div>
+            <div class="d-xl-none col-lg-1 col-md-1 col-xs-12"></div>
+            <div class="d-xs-block d-md-none col-12 vspace1em"></div>
+            <div class="col-lg-4 col-md-5 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Skills:</p>
+                <div class="midlight">
+                    <p>AI UX design, conversational design, difficulty system design, cost optimization, stakeholder management</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <!--set three-->
+        <div class="col-12 vspace3em"></div>
+            <div class="col-xl-3 col-lg-2 col-md-1 col-xs-12"></div>
+            <div class="col-lg-8 col-md-10 col-xs-12" data-aos="fade-up" data-aos-once="true">
+                <p>Timeline:</p>
+                <div class="midlight">
+                    <p>2024 – 2025</p>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-xs-12"></div>
+        <div class="col-12 vspace1em"></div>
+    </div>
+<!--challenge-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h4>Challenge</h4>
+            <p>An internal team at a government agency had built a Claude Opus-powered chatbot to support employee training—then lost their funding before it ever reached users. The project was shelved, but the work wasn't without value. When the agency developed a new, more targeted mandatory training program, we picked up where that team had left off and took on the challenge of adapting their proof-of-concept for a completely different context and scale.</p>
+            <p>The original tool could answer questions about agency procedures, guide users through exercises, and sustain a coherent conversation. But it had been built as if all employees were the same. Deploying it agency-wide meant reaching 2,000 employees across a wide spectrum of experience: new hires encountering agency systems and terminology for the first time, and seasoned staff who already understood the fundamentals and needed depth, not orientation.</p>
+            <p>A single prompt and a single interface couldn't serve both groups. But <strong>rigid role-gating wasn't the answer either</strong>—employees needed the flexibility to enter training where it made sense for them and progress when they were ready, not when a system decided they were. Scaling the tool without solving for that flexibility wasn't scaling—it was broadcasting the same experience to 2,000 people and hoping it landed.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--insight-->
+    <div class="row mx-4">
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Insight</h4>
+            <p>The inherited proof-of-concept used a single system prompt regardless of who was asking. The training it had been designed to support was <strong>investigative interview technique</strong>—teaching employees to extract complex information from a subject who may be reluctant, evasive, or dishonest. That's an inherently graduated skill, and a flat prompt architecture couldn't reflect that gradient.</p>
+            <p>But the challenge wasn't just about calibrating depth for different experience levels. Stakeholders wanted the upper levels of the training to actively test employees' ability to detect deception—which meant the chatbot itself needed to lie, convincingly and consistently. That was a design and technical problem that the original team had never attempted to solve.</p>
+            <p>The obvious fix—assigning separate experiences to separate role types—had a critical flaw. Experience doesn't map cleanly to job title. A new hire with a relevant background might need less scaffolding than a long-tenured employee working in an unfamiliar domain. Rigid role gating would have created new mismatches while solving the old ones. The right solution wasn't to sort people into buckets—it was to <strong>let people place themselves, and move when they were ready</strong>.</p>
+            <p>Solving for this meant rethinking the product at every layer: how difficulty was structured across levels, how the model was instructed to behave at each one, what kinds of falsehoods it could produce reliably, and—underneath all of it—whether the system could run at the token volume that 2,000 concurrent users would demand.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--key findings-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h4>Key findings</h4>
+            <p><strong>No experience signal in the system:</strong></p>
+            <p>The inherited proof-of-concept had no mechanism to communicate a user's experience level to the model. Every session started from the same blank slate, regardless of tenure or prior familiarity with investigative interview technique.</p>
+            <p><strong>Difficulty wasn't designed—it was absent:</strong></p>
+            <p>The original tool had no mechanism for graduated challenge. Stakeholders needed the upper levels to actively test employees' ability to detect deception, but the MVP had never attempted to make the chatbot behave as an evasive or dishonest interviewee.</p>
+            <p><strong>Deception was harder than expected:</strong></p>
+            <p>Early testing revealed that lying convincingly and consistently was a significant technical challenge. Fabricating locations, named groups, and complex historical or social concepts produced inconsistencies that broke immersion. Numerical and temporal deception—randomized dates and figures—proved far more reliable and harder for employees to catch without deliberate cross-referencing.</p>
+            <p><strong>The inherited prompts were too costly to scale:</strong></p>
+            <p>The defunct pilot team's prompts had been designed without deployment at scale in mind. At the token volume required to support 2,000 employees through a multi-day training, the original architecture was prohibitively expensive and too slow to deliver a usable experience.</p>
+            <p><strong>No admin configuration layer:</strong></p>
+            <p>There was no interface for training program owners to structure levels, configure progression, or monitor completion across the workforce—any operational change required going back to engineering.</p>
+            <p><strong>Conversation UX lacked scaffolding:</strong></p>
+            <p>New users had no guidance on how to approach the interview exercise or use the tool effectively. Without structured entry points, employees at the lower levels struggled to get started—undermining the value of the difficulty gradient.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--approach-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Approach</h4>
+            <p>Rather than patching the inherited proof-of-concept, I redesigned the product from the conversation surface down to the configuration layer—replacing the flat, one-size-fits-all experience with a <strong>structured level system that gave employees agency over their own entry point and pace</strong>.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--leveled conversation design-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h5>Leveled conversation design</h5>
+            <p>I designed a progression system across five levels, each with its own prompt architecture governing how the chatbot behaved as an interview subject. The training goal was specific: teach employees to conduct effective investigative interviews and extract complex information from a reluctant or uncooperative interviewee. The levels mapped directly to that skill curve.</p>
+            <p>At Level 1, the chatbot was instructed to be fully forthcoming and truthful—a cooperative subject who answered questions completely and volunteered relevant detail. This gave new employees a low-stakes environment to practice basic interview technique without the added challenge of resistance. By Level 5, the chatbot was instructed to be evasive, answer only in yes or no responses, and actively lie. Experienced employees working at the upper levels were being tested not just on their ability to gather information, but on their ability to <strong>spot falsehoods and surface inconsistencies</strong> across a conversation.</p>
+            <p>No one was locked into their starting level. Beginners who felt ready could advance; anyone could revisit earlier levels for reference or practice. The system gave experienced employees a faster path in without closing that path to anyone else.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--designing deception-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h5>Designing deception that could scale</h5>
+            <p>Getting the upper levels right required significant testing. Stakeholders wanted the chatbot to lie convincingly—but designing falsehoods that held up across a full investigative interview turned out to be technically and conceptually difficult in ways we hadn't anticipated.</p>
+            <p>Certain categories of information were extremely hard to fabricate consistently. Locations, named groups, and complex human concepts or historical events resisted clean deception: the model would produce contradictions, break internal consistency, or generate falsehoods so implausible they immediately signaled dishonesty rather than simulating it. A chatbot that lies badly doesn't test interview skill—it just teaches employees to spot obvious errors.</p>
+            <p>Where deception worked well was in <strong>numerical and temporal data</strong>. Introducing noise and randomness to dates, figures, and statistics produced falsehoods that were plausible, internally consistent, and genuinely challenging to catch without careful cross-referencing—exactly the kind of inconsistency a skilled interviewer should be trained to surface. We scoped the deception mechanics around what the model could do reliably, and worked with stakeholders to calibrate what kinds of falsehoods were worth testing for.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--cost, performance, scaling-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h5>Cost, performance, and scaling constraints</h5>
+            <p>The defunct pilot team's prompts had been built without scale in mind. At the token volume required to run 2,000 employees through a multi-day training, the original prompt architecture was prohibitively expensive and too slow to deliver a usable experience. Before we could deploy, we had to make the product financially and technically viable.</p>
+            <p>We worked through this on three fronts. First, we <strong>negotiated with stakeholders on class sizes</strong>—structuring concurrent user cohorts in a way that spread load without compromising the training timeline. Second, we systematically <strong>reduced token usage</strong> by stripping redundancy from the prompts and tightening context windows, finding the minimum viable complexity at each level that preserved the behavioral fidelity the training required. Third, we addressed the user experience of latency directly: rather than leaving employees staring at a blank screen during longer responses, we implemented <strong>live streaming output</strong> so responses appeared word by word as they generated—making the wait feel like part of a natural conversation rather than a system delay.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--admin config text-->
+    <div class="row mx-4">
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h5>Admin configuration interface</h5>
+            <p>I designed an admin layer inside the CMS that allowed training program owners to manage level structures, configure content sequencing per level, and monitor completion across the workforce—without engineering involvement. The interface surfaced usage and progress data by level and cohort, giving program owners visibility into where employees were concentrating and where they were getting stuck, so they could intervene or adjust content before issues compounded at scale.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--end-to-end experience-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h5>End-to-end experience design</h5>
+            <p>I mapped and redesigned the full user journey from level selection through exercise completion—including how employees were introduced to the tool, how they chose their starting level, how exercises were structured within each level's conversation flow, how progress was surfaced, and how the experience guided users toward advancement when they were ready. Level 1 included scaffolded entry points: suggested opening questions, a brief orientation to the tool's capabilities, and explicit framing of what each level involved. Higher levels offered a more direct entry that respected experienced employees' time—and prepared them for an interviewee who wouldn't make it easy.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--impact-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Impact</h4>
+            <p>The redesigned product was deployed as the primary delivery mechanism for a mandatory multi-day training program. The leveled progression system allowed a single tool to serve the full range of the agency's workforce—giving experienced employees a faster path in while keeping that path open to everyone.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--key achievements-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h4>Key Achievements</h4>
+            <div class="highlight">
+                <p id="redtext">01.</p>
+            </div>
+            <p><strong>2,000 employees</strong> completed mandatory multi-day investigative interview training through the tool over three months—the first time an AI-powered training product had been deployed at this scale within the agency.</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">02.</p>
+            </div>
+            <p>Designed a <strong>five-level difficulty system</strong> that ranged from a fully cooperative interview subject at Level 1 to an evasive, deceptive interviewee at Level 5—giving employees a self-directed path through a skill curve that matched their experience, with the freedom to advance when ready.</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">03.</p>
+            </div>
+            <p>Solved a <strong>novel deception design problem</strong> through iterative testing—identifying that numerical and temporal fabrications produced reliable, plausible falsehoods that genuinely tested employees' ability to spot inconsistencies, while complex conceptual or geographic deception broke down under scrutiny.</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">04.</p>
+            </div>
+            <p>Reduced costs and improved performance to make the product viable at scale—negotiating cohort sizes with stakeholders, stripping prompt redundancy without sacrificing behavioral fidelity, and implementing <strong>live streaming output</strong> so response latency felt like natural conversation rather than system delay.</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <div class="highlight">
+                <p id="redtext">05.</p>
+            </div>
+            <p>Delivered an <strong>admin configuration layer</strong> and a reusable set of leveled conversation UX patterns that gave training program owners operational independence and established a foundation for future AI-powered training programs within the agency.</p>
+        </div>
+        <div class="vspacehalfem col-12"></div>
+        <div class="vspace3em col-12"></div>
+<!--block quote no little guy
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-12"></div>
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12 highlight">
+            <img class="img-fluid quote" src="Images/open%20quote.png" alt="Open quotation mark" data-aos="fade-up" data-aos-once="true">
+            <div class="vspace2em"></div>
+            <p>It is so nice to see the roster of all the students with who has access and who does not - I am so excited.</p>
+            <h6>- Trainer</h6>
+            <div class="vspace1em"></div>
+            <p>This is the stuff of my dreams.</p>
+            <h6>- Training SME</h6>
+            <img class="img-fluid unquote" src="Images/close%20quote.png" alt="Closed quotation mark" data-aos="fade-up" data-aos-once="true">
+        </div>
+        <div class="col-l64g-3 col-md-2 col-sm-1 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--wrapup-->
+    <div class="row mx-4">
+        <div class="col-xl-2 col-md-1 col-xs-12"></div>
+        <div class="col-xl-8 col-md-10 col-xs-12">
+            <h6>This project demonstrated my ability to inherit unfinished work, diagnose what had to change, and ship a production-ready product that solved problems the original team never reached—from the novel challenge of designing scalable deception mechanics, to making an expensive proof-of-concept financially viable at 2,000 users, to building the administrative infrastructure for a training program that had to run itself.</h6>
+        </div>
+        <div class="col-xl-2 col-md-1 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--next story-->
+    <div class="row d-flex align-items-center">
+        <div class="vspace1em col-12"></div>
+        <div class="col-md-1 col-xs-12"></div>
+        <div class="col-md-3 d-md-block d-none">
+            <img class="rounded-lg" src="Images/scaling-accessibility-thumbnail.png" alt="Accessibility icon" data-aos="fade-up" data-aos-once="true">
+        </div>
+        <div class="col-md-7 col-xs-12">
+            <h5>Looking for more design leadership?</h5>
+            <p>Continue reading about <a class="secondary-link" href="Scaling-Accessibility-Practices.html">how I established accessibility practices</a> at my company.</p>
+        </div>
+        <div class="col-md-1 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</main>
+<footer class="container-fluid">
+    <div class="row mx-4">
+        <div class="col-12 footerhighlight">
+            <div class="vspace1em"></div>
+			<div class="vspacehalfem"></div>
+            <p>emma healy</p>
+        </div>
+		<div class="col-12 footertext">
+            <p>emmahealy2021@u.northwestern.edu </p>
+			<p>&copy; Emma Healy 2024</p>
+			<div class="vspacehalfem"></div>
+        </div>
+    </div>
+</footer>
+</html>
