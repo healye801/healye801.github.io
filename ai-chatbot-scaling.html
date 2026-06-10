@@ -173,6 +173,18 @@
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
+<!--user journey-->
+    <div class="row mx-4">
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
+            <h4>User Journey</h4>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
 <!--insight-->
     <div class="row mx-4">
         <div class="col-xl-3 col-md-2 col-xs-12"></div>
@@ -187,7 +199,7 @@
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
-<!--key findings-->
+<!--key findings, need to reflect UI changes and integration with traning LMS-->
     <div class="row mx-4">
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
@@ -202,10 +214,6 @@
             <p>Early testing revealed that lying convincingly and consistently was a significant technical challenge. Fabricating locations, named groups, and complex historical or social concepts produced inconsistencies that broke immersion. Numerical and temporal deception—randomized dates and figures—proved far more reliable and harder for employees to catch without deliberate cross-referencing.</p>
             <p><strong>The inherited prompts were too costly to scale:</strong></p>
             <p>The defunct pilot team's prompts had been designed without deployment at scale in mind. At the token volume required to support 2,000 employees through a multi-day training, the original architecture was prohibitively expensive and too slow to deliver a usable experience.</p>
-            <p><strong>No admin configuration layer:</strong></p>
-            <p>There was no interface for training program owners to structure levels, configure progression, or monitor completion across the workforce—any operational change required going back to engineering.</p>
-            <p><strong>Conversation UX lacked scaffolding:</strong></p>
-            <p>New users had no guidance on how to approach the interview exercise or use the tool effectively. Without structured entry points, employees at the lower levels struggled to get started—undermining the value of the difficulty gradient.</p>
         </div>
         <div class="col-xl-3 col-md-2 col-xs-12"></div>
         <div class="vspace3em col-12"></div>
@@ -239,7 +247,18 @@
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
-<!--designing deception-->
+<!--integrating with other training tools-->
+    <div class="row mx-4">
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="col-xl-6 col-md-8 col-xs-12">
+            <h5>Integrating with other training tools</h5>
+            <p>I designed an admin layer inside the CMS that allowed training program owners to manage level structures, configure content sequencing per level, and monitor completion across the workforce—without engineering involvement. The interface surfaced usage and progress data by level and cohort, giving program owners visibility into where employees were concentrating and where they were getting stuck, so they could intervene or adjust content before issues compounded at scale.</p>
+        </div>
+        <div class="col-xl-3 col-md-2 col-xs-12"></div>
+        <div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+    </div>
+<!--designing deception, talk more about the design problem and how you collabed with engineers-->
     <div class="row mx-4">
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
@@ -254,7 +273,7 @@
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
-<!--cost, performance, scaling-->
+<!--cost, performance, scaling -- focus on live streaming output-->
     <div class="row mx-4">
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
@@ -268,17 +287,6 @@
         <div class="vspace3em col-12"></div>
         <div class="vspace3em col-12"></div>
     </div>
-<!--admin config text-->
-    <div class="row mx-4">
-        <div class="col-xl-3 col-md-2 col-xs-12"></div>
-        <div class="col-xl-6 col-md-8 col-xs-12">
-            <h5>Admin configuration interface</h5>
-            <p>I designed an admin layer inside the CMS that allowed training program owners to manage level structures, configure content sequencing per level, and monitor completion across the workforce—without engineering involvement. The interface surfaced usage and progress data by level and cohort, giving program owners visibility into where employees were concentrating and where they were getting stuck, so they could intervene or adjust content before issues compounded at scale.</p>
-        </div>
-        <div class="col-xl-3 col-md-2 col-xs-12"></div>
-        <div class="vspace3em col-12"></div>
-        <div class="vspace3em col-12"></div>
-    </div>
 <!--end-to-end experience-->
     <div class="row mx-4">
         <div class="vspace3em col-12"></div>
@@ -287,6 +295,7 @@
         <div class="col-xl-6 col-md-8 col-xs-12" data-aos="fade-up" data-aos-once="true">
             <h5>End-to-end experience design</h5>
             <p>I mapped and redesigned the full user journey from level selection through exercise completion—including how employees were introduced to the tool, how they chose their starting level, how exercises were structured within each level's conversation flow, how progress was surfaced, and how the experience guided users toward advancement when they were ready. Level 1 included scaffolded entry points: suggested opening questions, a brief orientation to the tool's capabilities, and explicit framing of what each level involved. Higher levels offered a more direct entry that respected experienced employees' time—and prepared them for an interviewee who wouldn't make it easy.</p>
+            <p>Finally, I gave the chatbot interface a mcuch-needed update. </p>
         </div>
         <div class="col-xl-3 col-md-2 col-xs-12"></div>
         <div class="vspace3em col-12"></div>
@@ -377,6 +386,22 @@
         <div class="vspace3em col-12"></div>
     </div>
 <!--next story-->
+    <div class="row d-flex align-items-center">
+		<div class="vspace1em col-12"></div>
+		<div class="col-md-1 col-xs-12"></div>
+        <div class="col-md-3 d-md-block d-none">
+            <img class="rounded-lg" src="Images/training-team-thumbnail.png" alt="A learning management system interface" data-aos="fade-up" data-aos-once="true">
+        </div>
+        <div class="col-md-7 col-xs-12">
+            <h5>Looking for more product design?</h5>
+            <p>Continue reading about the <a class="secondary-link" href="Training-Team.html">training and enablement team I founded</a> at a large federal agency.</p>
+        </div>
+        <div class="col-md-1 col-xs-12"></div>
+		<div class="vspace3em col-12"></div>
+        <div class="vspace3em col-12"></div>
+		<div class="vspace3em col-12"></div>
+    </div>
+<!--next story
     <div class="row d-flex align-items-center">
         <div class="vspace1em col-12"></div>
         <div class="col-md-1 col-xs-12"></div>
