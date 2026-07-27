@@ -6,7 +6,7 @@ p, body {
 	line-height: 1.6;
 }
 h1, h2 {
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -21,11 +21,12 @@ h7 {
 }
 h1 {
 	font-size: clamp(2.6rem, 2rem + 2.5vw, 3.8rem);
-	text-transform: lowercase;
+	text-transform: uppercase;
 	line-height: 1.15;
 }
 h2 {
 	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
+	text-transform: uppercase;
 	line-height: 1.2;
 }
 h3 {
@@ -47,20 +48,21 @@ h7 {
 	font-size: 1.05rem;
 }
 .ornamentation p {
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: clamp(2.4rem, 2rem + 1.6vw, 2.9rem);
+	text-transform: uppercase;
 }
 .ornamentation2 p {
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 2rem;
-	text-transform: lowercase;
+	text-transform: uppercase;
 }
 .ornamentation3 p {
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 17vw;
@@ -86,13 +88,13 @@ h7 {
 	letter-spacing: 0.03em;
 }
 .navbar-brand {
-    font-family: "UnifrakturMaguntia", cursive;
+    font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
     font-size: 1.7rem;
     color: #ffffff !important;
 	text-decoration: none !important;
-	text-transform: lowercase !important;
+	text-transform: uppercase !important;
 }
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
@@ -220,7 +222,7 @@ footer {
 }
 .footerhighlight p {
 	font-size: 1.6rem;
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 }
@@ -262,7 +264,7 @@ footer {
 }
 .btn-primary, .btn-primary:visited {
     background-color: #0a2243 !important;
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 1.63rem;
@@ -274,7 +276,7 @@ footer {
 }
 .btn-primary:hover, .btn-primary:active {
     background-color: #625079 !important;
-	font-family: "UnifrakturMaguntia", cursive;
+	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
 	font-size: 1.63rem;
