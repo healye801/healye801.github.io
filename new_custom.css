@@ -198,18 +198,24 @@ div.vspace8em {
 	flex-wrap: wrap;
 	gap: 0.35rem 1.5rem;
 }
+.exp-row .role {
+	font-weight: 600;
+	font-size: 1.1rem;
+}
 .exp-dates {
 	font-family: 'Josefin Sans', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 0.9rem;
-	color: rgba(255, 255, 255, 0.55);
+	color: rgba(255, 255, 255, 0.75);
 	white-space: nowrap;
 }
-.intro-copy {
+.intro-copy,
+.accent-bar {
 	position: relative;
 	padding-left: 1.75rem;
 }
-.intro-copy::before {
+.intro-copy::before,
+.accent-bar::before {
 	content: "";
 	position: absolute;
 	top: 0.25em;
