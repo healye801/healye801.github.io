@@ -6,9 +6,10 @@ p, body {
 	line-height: 1.6;
 }
 h1, h2 {
-	font-family: "Rock 3D", cursive;
-	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
 	font-style: normal;
+	letter-spacing: -0.01em;
 }
 h3, h4, h5, h6, {
     font-family: 'Josefin Sans', sans-serif;
@@ -21,12 +22,10 @@ h7 {
 }
 h1 {
 	font-size: clamp(2.6rem, 2rem + 2.5vw, 3.8rem);
-	text-transform: uppercase;
 	line-height: 1.15;
 }
 h2 {
 	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
-	text-transform: uppercase;
 	line-height: 1.2;
 }
 h3 {
@@ -221,9 +220,9 @@ footer {
 	font-size: 0.9rem;
 }
 .footerhighlight p {
-	font-size: 1.6rem;
-	font-family: "Rock 3D", cursive;
-	font-weight: 400;
+	font-size: 1.4rem;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
 	font-style: normal;
 }
 #greentext {
@@ -264,10 +263,10 @@ footer {
 }
 .btn-primary, .btn-primary:visited {
     background-color: #0a2243 !important;
-	font-family: "Rock 3D", cursive;
-	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
 	font-style: normal;
-	font-size: 1.63rem;
+	font-size: 1.2rem;
 	color: #FFFFFF !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
@@ -276,10 +275,10 @@ footer {
 }
 .btn-primary:hover, .btn-primary:active {
     background-color: #625079 !important;
-	font-family: "Rock 3D", cursive;
-	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
 	font-style: normal;
-	font-size: 1.63rem;
+	font-size: 1.2rem;
 	color: #D2AFD4 !important;
 	margin: 0rem !important;
 	padding: 0.35rem 1.5rem !important;
