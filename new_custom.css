@@ -169,6 +169,19 @@ div.vspace8em {
 .text-col {
 	max-width: 38rem;
 }
+.intro-copy {
+	position: relative;
+	padding-left: 1.75rem;
+}
+.intro-copy::before {
+	content: "";
+	position: absolute;
+	top: 0.25em;
+	bottom: 0.25em;
+	left: 0;
+	width: 2px;
+	background-color: rgba(183, 230, 225, 0.4);
+}
 div.whitediv {
     background-color: #FFFDF7;
 }
