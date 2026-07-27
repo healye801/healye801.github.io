@@ -2,7 +2,8 @@ p, body {
 	font-family: "Source Sans 3", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 1.1rem;
+	font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
+	line-height: 1.6;
 }
 h1, h2 {
 	font-family: "UnifrakturMaguntia", cursive;
@@ -19,38 +20,43 @@ h7 {
     font-weight: 300;
 }
 h1 {
-	font-size: 6.4rem;
+	font-size: clamp(2.6rem, 2rem + 2.5vw, 3.8rem);
 	text-transform: lowercase;
+	line-height: 1.15;
 }
 h2 {
-	font-size: 3.19rem;
+	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
+	line-height: 1.2;
 }
 h3 {
-	font-size: 1.9rem;
+	font-size: 1.6rem;
+	line-height: 1.3;
 }
 h4 {
-	font-size: 1.8rem;
+	font-size: 1.45rem;
+	line-height: 1.3;
 }
 h5 {
-	font-size: 1.4rem;
+	font-size: 1.25rem;
+	line-height: 1.3;
 }
 h6 {
-	font-size: 1.1rem;
+	font-size: 1.05rem;
 }
 h7 {
-	font-size: 1.1rem;
+	font-size: 1.05rem;
 }
 .ornamentation p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 3.4rem;
+	font-size: clamp(2.4rem, 2rem + 1.6vw, 2.9rem);
 }
 .ornamentation2 p {
 	font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 2.25rem;
+	font-size: 2rem;
 	text-transform: lowercase;
 }
 .ornamentation3 p {
@@ -64,25 +70,26 @@ h7 {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: italic;
-	font-size: 1.5rem;
+	font-size: 1.35rem;
 }
 .midlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     font-style: normal;
-	font-size: 1.3rem;
+	font-size: 1.15rem;
 }
 .lowlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     font-style: normal;
-	font-size: 1.05rem;
+	font-size: 0.95rem;
+	letter-spacing: 0.03em;
 }
 .navbar-brand {
     font-family: "UnifrakturMaguntia", cursive;
 	font-weight: 400;
 	font-style: normal;
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     color: #ffffff !important;
 	text-decoration: none !important;
 	text-transform: lowercase !important;
@@ -90,15 +97,17 @@ h7 {
 .navbar-text {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
-    font-size: 1.63rem;
+    font-size: 1.2rem;
 	color: #ffffff !important;
 	text-decoration: none !important;
 	text-transform: uppercase !important;
+	letter-spacing: 0.04em;
 }
 .navbar-nav {
-	font-size: 1.2rem;
+	font-size: 1rem;
 	color: #ffffff !important;
 	text-decoration: none !important;
+	letter-spacing: 0.04em;
 }
 .nav-item {
 	text-decoration: none !important;
@@ -138,6 +147,26 @@ div.vspace2em {
 div.vspace3em {
     clear: both;
     height: 3em;
+}
+div.vspace4em {
+    clear: both;
+    height: 4em;
+}
+div.vspace6em {
+    clear: both;
+    height: 6em;
+}
+div.vspace8em {
+    clear: both;
+    height: 8em;
+}
+.content-wrap {
+	max-width: 87.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text-col {
+	max-width: 38rem;
 }
 div.whitediv {
     background-color: #FFFDF7;
