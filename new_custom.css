@@ -27,6 +27,7 @@ h1 {
 h1.rock-heading {
 	font-family: "Rock 3D", cursive;
 	font-weight: 400;
+	font-size: 1.7rem;
 	text-transform: uppercase;
 }
 h2 {
@@ -126,7 +127,7 @@ h7 {
 .navbar-custom-bg {
 	background-color: #0A2243;
 }
-#work, #about {
+#work, #experience, #about {
 	scroll-margin-top: 90px;
 }
 .dropdown-item:hover {
@@ -291,6 +292,12 @@ img {
 img.img-fluid.quote {
 	max-width: 15%;
 	height: auto;
+}
+.about-photo {
+	width: auto;
+	max-height: 200px;
+	object-fit: cover;
+	display: inline-block;
 }
 img.img-fluid.unquote {
 	max-width: 15%;
