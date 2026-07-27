@@ -128,6 +128,15 @@ h7 {
 .navbar-custom-bg {
 	background-color: #0A2243;
 }
+@media (max-width: 991.98px) {
+	.navbar-collapse.show,
+	.navbar-collapse.collapsing {
+		background-color: #0a2243;
+		margin: 0 -1rem;
+		padding: 0.5rem 1rem 1rem;
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+	}
+}
 #work, #experience, #about {
 	scroll-margin-top: 90px;
 }
