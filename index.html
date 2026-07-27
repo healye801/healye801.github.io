@@ -169,8 +169,10 @@
 			</h4>
 			<div class="vspacehalfem"></div>
 			<p class="px-4" id=whitetext>Identified critical training gap and won stakeholder buy-in for new product team. Developed strategic proposal that secured resources for ongoing technical enablement.</p>
-			<div class="lowlight">
-				<p class="px-4" id=whitetext>Product Strategy // Research // Product Design</p>
+			<div class="tag-list px-4">
+				<button type="button" class="tag-pill" data-filter="product-strategy">Product Strategy</button>
+				<button type="button" class="tag-pill" data-filter="research">Research</button>
+				<button type="button" class="tag-pill" data-filter="product-design">Product Design</button>
 			</div>
 		</div>
 		<div class="d-none d-md-block d-lg-none col-md-2"></div> <!--md margin, break line-->
@@ -195,8 +197,10 @@
 			</h4>
 			<div class="vspacehalfem"></div>
 			<p class="px-4" id=whitetext>Led a cross-functional team to redesign a complex enterprise application. Designed new AI tagging tools, improved naviation, and conducted comprehensive user research and testing.</p>
-			<div class="lowlight">
-				<p class="px-4" id=whitetext>UX Design // Research // Usability Testing</p>
+			<div class="tag-list px-4">
+				<button type="button" class="tag-pill" data-filter="ux-design">UX Design</button>
+				<button type="button" class="tag-pill" data-filter="research">Research</button>
+				<button type="button" class="tag-pill" data-filter="usability-testing">Usability Testing</button>
 			</div>
 		</div>
 		<div class="d-none d-md-block d-lg-none col-md-2"></div> <!--md margin, break line-->
@@ -221,8 +225,9 @@
 			</h4>
 			<div class="vspacehalfem"></div>
 			<p class="px-4" id=whitetext>Led UI design for executive dashboard pitched directly to Invesco CFO. Created interactive prototype to visualize complex cloud spending data.</p>
-			<div class="lowlight">
-				<p class="px-4" id=whitetext>UI Design // Data Visualization</p>
+			<div class="tag-list px-4">
+				<button type="button" class="tag-pill" data-filter="ui-design">UI Design</button>
+				<button type="button" class="tag-pill" data-filter="data-visualization">Data Visualization</button>
 			</div>
 		</div>
 		<div class="d-none d-md-block d-lg-none col-md-2"></div> <!--md margin, break line-->
@@ -247,8 +252,9 @@
 			</h4>
 			<div class="vspacehalfem"></div>
 			<p class="px-4" id=whitetext>Delivered themed e-commerce assets for Walmart's Q3 celebrity collaborations. Balanced multiple brand identities while maintaining Walmart's design standards.</p>
-			<div class="lowlight">
-				<p class="px-4" id=whitetext>Graphic Design // UI Design</p>
+			<div class="tag-list px-4">
+				<button type="button" class="tag-pill" data-filter="graphic-design">Graphic Design</button>
+				<button type="button" class="tag-pill" data-filter="ui-design">UI Design</button>
 			</div>
 		</div>
 		<div class="d-none d-md-block d-lg-none col-md-2"></div> <!--md margin, break line-->
@@ -303,21 +309,37 @@
     <script>
         (function () {
             var filterButtons = document.querySelectorAll('.filter-btn');
+            var tagPills = document.querySelectorAll('.tag-pill');
             var projects = document.querySelectorAll('[data-categories]');
+            var filterBar = document.querySelector('.filter-bar');
+
+            function applyFilter(filter) {
+                filterButtons.forEach(function (b) {
+                    b.classList.toggle('active', b.getAttribute('data-filter') === filter);
+                });
+                projects.forEach(function (project) {
+                    var categories = project.getAttribute('data-categories').split(',');
+                    var matches = filter === 'all' || categories.indexOf(filter) !== -1;
+                    if (matches) {
+                        project.style.removeProperty('display');
+                    } else {
+                        project.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }
+
             filterButtons.forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    filterButtons.forEach(function (b) { b.classList.remove('active'); });
-                    btn.classList.add('active');
-                    var filter = btn.getAttribute('data-filter');
-                    projects.forEach(function (project) {
-                        var categories = project.getAttribute('data-categories').split(',');
-                        var matches = filter === 'all' || categories.indexOf(filter) !== -1;
-                        if (matches) {
-                            project.style.removeProperty('display');
-                        } else {
-                            project.style.setProperty('display', 'none', 'important');
-                        }
-                    });
+                    applyFilter(btn.getAttribute('data-filter'));
+                });
+            });
+
+            tagPills.forEach(function (tag) {
+                tag.addEventListener('click', function () {
+                    applyFilter(tag.getAttribute('data-filter'));
+                    if (filterBar) {
+                        filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 });
             });
         })();

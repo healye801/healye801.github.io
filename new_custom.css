@@ -211,6 +211,28 @@ div.vspace8em {
 	border-color: #E3920D;
 	color: #0a2243;
 }
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.tag-pill {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 400;
+	font-size: 0.85rem;
+	letter-spacing: 0.03em;
+	color: rgba(255, 255, 255, 0.7);
+	background-color: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 999px;
+	padding: 0.15rem 0.7rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease;
+}
+.tag-pill:hover {
+	border-color: #E3920D;
+	color: #E3920D;
+}
 div.whitediv {
     background-color: #FFFDF7;
 }
