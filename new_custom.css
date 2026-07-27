@@ -177,7 +177,10 @@ div.vspace8em {
 	margin-right: auto;
 }
 .text-col {
+	width: 100%;
 	max-width: 38rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 .exp-row {
 	display: flex;
@@ -209,8 +212,46 @@ div.vspace8em {
 .filter-bar {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 0.6rem;
-	padding-left: 1rem;
+	max-width: 46rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.project-compact {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.75rem;
+	max-width: 44rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4rem;
+}
+.project-compact .project-text-inner {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.project-compact .thumb-link {
+	flex: 0 0 auto;
+	display: block;
+}
+.thumb-square {
+	height: 13.5rem;
+	width: auto;
+	object-fit: contain;
+	display: block;
+}
+@media (max-width: 767.98px) {
+	.project-compact {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.thumb-square {
+		height: auto;
+		width: 100%;
+		max-width: 20rem;
+	}
 }
 .filter-btn {
 	font-family: 'Josefin Sans', sans-serif;
