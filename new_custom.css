@@ -126,6 +126,9 @@ h7 {
 .navbar-custom-bg {
 	background-color: #0A2243;
 }
+#work, #about {
+	scroll-margin-top: 90px;
+}
 .dropdown-item:hover {
 	background-color: #625079 !important;
 	color: #D2AFD4 !important;
