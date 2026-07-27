@@ -182,6 +182,35 @@ div.vspace8em {
 	width: 2px;
 	background-color: rgba(183, 230, 225, 0.4);
 }
+.filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	padding-left: 1rem;
+}
+.filter-btn {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 500;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: #FFFFFF;
+	background-color: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 999px;
+	padding: 0.35rem 1rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.filter-btn:hover {
+	border-color: #E3920D;
+	color: #E3920D;
+}
+.filter-btn.active {
+	background-color: #E3920D;
+	border-color: #E3920D;
+	color: #0a2243;
+}
 div.whitediv {
     background-color: #FFFDF7;
 }

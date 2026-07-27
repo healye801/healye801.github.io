@@ -79,7 +79,28 @@
 	</div>
 	<!--white space-->
 	<div class="row mx-4">
-		<div class="col-12 vspace8em"></div>
+		<div class="col-12 vspace6em"></div>
+	</div>
+	<!--category filter-->
+	<div class="row mx-4">
+		<div class="col-xl-2 col-lg-1 col-md-2 col-xs-2"></div>
+		<div class="col-xl-8 col-lg-10 col-md-8 col-xs-10">
+			<div class="filter-bar" role="group" aria-label="Filter projects by category">
+				<button type="button" class="filter-btn active" data-filter="all">All</button>
+				<button type="button" class="filter-btn" data-filter="product-strategy">Product Strategy</button>
+				<button type="button" class="filter-btn" data-filter="research">Research</button>
+				<button type="button" class="filter-btn" data-filter="product-design">Product Design</button>
+				<button type="button" class="filter-btn" data-filter="ux-design">UX Design</button>
+				<button type="button" class="filter-btn" data-filter="usability-testing">Usability Testing</button>
+				<button type="button" class="filter-btn" data-filter="ui-design">UI Design</button>
+				<button type="button" class="filter-btn" data-filter="data-visualization">Data Visualization</button>
+				<button type="button" class="filter-btn" data-filter="graphic-design">Graphic Design</button>
+			</div>
+		</div>
+	</div>
+	<!--white space-->
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
 		<div class="d-xs-block d-md-none col-xs-12 vspace3em"></div>
 	</div>
 	<!--ai trainingchatbot - hidden from home page-->
@@ -136,7 +157,7 @@
 		<div class="col-12 vspace3em"></div>
 	</div>
 	<!--training team-->
-	<div class="row mx-4 d-flex align-items-center">
+	<div class="row mx-4 d-flex align-items-center" data-categories="product-strategy,research,product-design">
 		<div class="col-xl-2 col-lg-1 col-md-2 col-xs-2"></div>
 		<div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
 			<div class="vspacehalfem"></div>
@@ -162,7 +183,7 @@
 		<div class="col-12 vspace4em"></div>
 	</div>
 	<!--pdf management-->
-	<div class="row mx-4 d-flex align-items-center">
+	<div class="row mx-4 d-flex align-items-center" data-categories="ux-design,research,usability-testing">
 		<div class="col-xl-2 col-lg-1 col-md-2 col-xs-2"></div>
 		<div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
 			<div class="vspacehalfem"></div>
@@ -188,7 +209,7 @@
 		<div class="col-12 vspace4em"></div>
 	</div>
 	<!--invesco-->
-	<div class="row mx-4 d-flex align-items-center">
+	<div class="row mx-4 d-flex align-items-center" data-categories="ui-design,data-visualization">
 		<div class="col-xl-2 col-lg-1 col-md-2 col-xs-2"></div>
 		<div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
 			<div class="vspacehalfem"></div>
@@ -214,7 +235,7 @@
 		<div class="col-12 vspace4em"></div>
 	</div>
 	<!--walmart-->
-	<div class="row mx-4 d-flex align-items-center">
+	<div class="row mx-4 d-flex align-items-center" data-categories="graphic-design,ui-design">
 		<div class="col-xl-2 col-lg-1 col-md-2 col-xs-2"></div>
 		<div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
 			<div class="vspacehalfem"></div>
@@ -278,6 +299,28 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        (function () {
+            var filterButtons = document.querySelectorAll('.filter-btn');
+            var projects = document.querySelectorAll('[data-categories]');
+            filterButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filterButtons.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+                    var filter = btn.getAttribute('data-filter');
+                    projects.forEach(function (project) {
+                        var categories = project.getAttribute('data-categories').split(',');
+                        var matches = filter === 'all' || categories.indexOf(filter) !== -1;
+                        if (matches) {
+                            project.style.removeProperty('display');
+                        } else {
+                            project.style.setProperty('display', 'none', 'important');
+                        }
+                    });
+                });
+            });
+        })();
     </script>
 </div>
 </main>
