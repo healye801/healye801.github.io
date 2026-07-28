@@ -283,6 +283,12 @@ h3.case-subheading {
 		flex-direction: column;
 		gap: 0.25rem;
 	}
+	.case-row .case-label {
+		flex-basis: auto;
+	}
+	.case-row .case-label:empty {
+		display: none;
+	}
 }
 .case-meta {
 	display: grid;
