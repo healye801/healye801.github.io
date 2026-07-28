@@ -377,9 +377,23 @@ img {
     width: 100%;
     /*padding: 5% 2% 5% 2%;*/
 }
-img.img-fluid.quote {
-	max-width: 15%;
-	height: auto;
+.quote-mark-aos {
+	display: inline-block;
+}
+.quote-mark {
+	display: inline-block;
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: clamp(6rem, 12vw, 10rem);
+	line-height: 1;
+	color: #fa935c;
+}
+.quote-mark--open {
+	transform: rotate(180deg);
+}
+.quote-mark--close {
+	float: right;
 }
 .about-photo-wrap {
 	position: relative;
@@ -406,11 +420,6 @@ img.img-fluid.quote {
 .about-photo-wrap:hover .about-photo.photo,
 .about-photo-wrap:active .about-photo.photo {
 	opacity: 1;
-}
-img.img-fluid.unquote {
-	max-width: 15%;
-	height: auto;
-	float: right;
 }
 /*img.img-case-study {
     object-fit: contain;
