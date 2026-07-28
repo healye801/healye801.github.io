@@ -133,6 +133,13 @@ h7 {
 	text-decoration: none !important;
 	text-transform: uppercase !important;
 }
+.navbar-nav .nav-link {
+	color: rgba(255, 255, 255, 0.55) !important;
+	transition: color 150ms ease;
+}
+.navbar-nav .nav-item.active .nav-link {
+	color: #ffffff !important;
+}
 .navbar-custom-bg {
 	background-color: #0A2243;
 }

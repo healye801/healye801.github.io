@@ -37,7 +37,7 @@
 	  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 		<ul class="navbar-nav">
 	  <li class="nav-item">
-		  <a class="nav-link px-3" href="#work">Design</a>
+		  <a class="nav-link px-3" href="#work">Projects</a>
 	  </li>
 		  <li class="nav-item">
 			<a class="nav-link px-3" href="#experience">Experience</a>
@@ -63,13 +63,12 @@
 			<p align="center">emma healy</p>	
 		</div>
 		<div class="col-xl-4 col-lg-3 col-sm-2 col-xs-3"></div>
-		<div class="col-xl-4 col-lg-3 col-sm-2 col-xs-1"></div>
-    	<div class="col-xl-4 col-lg-6 col-sm-8 col-xs-8 midlight orangetext" data-aos="fade-up" data-aos-once="true">
-			<p align="center" class="orangetext">Senior Product Designer at Alpha Omega</p>	
-		</div>
-		<div class="col-xl-4 col-lg-3 col-sm-2 col-xs-3"></div>
 		<div class="col-12 vspace1em"></div>
     	<div class="intro-copy text-col" data-aos="fade-up" data-aos-once="true">
+			<div class="midlight orangetext">
+				<p>Senior Product Designer at Alpha Omega</p>
+			</div>
+			<div class="vspacehalfem"></div>
 			<p>Specializing in enterprise-grade tools, dashboards, and accessibility.</p>
 			<p>Leading end-to-end design, from user research to high-fidelity Figma prototyping, to create scalable solutions that impact thousands of users daily.</p>
 			<div class="vspacehalfem"></div>
@@ -87,7 +86,7 @@
 	<!--design heading-->
 	<div class="row mx-4" id="work">
 		<div class="text-col" data-aos="fade-up" data-aos-once="true">
-			<h1 class="rock-heading">Design</h1>
+			<h1 class="rock-heading">Projects</h1>
 		</div>
 	</div>
 	<!--white space-->
@@ -287,6 +286,15 @@
 					<span id="whitetext" class="role">Publicis Sapient &mdash; UX Designer</span>
 					<span class="exp-dates">2021&ndash;2023</span>
 				</div>
+				<div class="vspace1em col-12"></div>
+				<div class="exp-row">
+					<span id="whitetext" class="role">Section 508 Trusted Tester Certification</span>
+				</div>
+				<div class="vspace1em col-12"></div>
+				<div class="exp-row">
+					<span id="whitetext" class="role">Northwestern University &mdash; B.S. in Communication Studies, Design, and Marketing</span>
+					<span class="exp-dates">2021</span>
+				</div>
 			</div>
 		</div>
 		<div class="col-12 vspace6em"></div>
@@ -375,6 +383,37 @@
 
             window.addEventListener('scroll', updateNavBrand, { passive: true });
             updateNavBrand();
+        })();
+    </script>
+    <script>
+        (function () {
+            var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            var sections = [];
+            navLinks.forEach(function (link) {
+                var hash = (link.getAttribute('href') || '').split('#')[1];
+                var el = hash ? document.getElementById(hash) : null;
+                var navItem = link.closest('.nav-item');
+                if (el && navItem) {
+                    sections.push({ el: el, navItem: navItem });
+                }
+            });
+            if (!sections.length) return;
+
+            function updateActiveNav() {
+                var scrollPos = window.scrollY + 120;
+                var current = sections[0];
+                sections.forEach(function (s) {
+                    if (s.el.offsetTop <= scrollPos) {
+                        current = s;
+                    }
+                });
+                sections.forEach(function (s) {
+                    s.navItem.classList.toggle('active', s === current);
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
         })();
     </script>
 </div>
