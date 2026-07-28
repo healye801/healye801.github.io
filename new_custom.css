@@ -59,8 +59,15 @@ h7 {
 	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
-	font-size: clamp(2.4rem, 2rem + 1.6vw, 2.9rem);
+	font-size: clamp(2.8rem, 2.4rem + 2vw, 3.5rem);
 	text-transform: uppercase;
+}
+.hero-tilde {
+	display: inline-block;
+	font-family: "Rock 3D", cursive;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: #ffffff;
 }
 .ornamentation2 p {
 	font-family: "Rock 3D", cursive;
@@ -234,17 +241,18 @@ div.vspace8em {
 	margin-bottom: 0.5rem;
 }
 .project-intro {
-	display: flex;
-	align-items: flex-start;
-	gap: 0.85rem;
-	text-align: left;
+	position: relative;
+	padding-left: 2.75rem;
 }
 .project-asterisk {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
 	font-family: "Rock 3D", cursive;
-	font-size: 2.25rem;
+	font-size: 2.75rem;
 	line-height: 1;
 	color: #fa935c;
-	flex: 0 0 auto;
 }
 .intro-copy,
 .accent-bar {
