@@ -381,11 +381,29 @@ img.img-fluid.quote {
 	max-width: 15%;
 	height: auto;
 }
+.about-photo-wrap {
+	position: relative;
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+}
 .about-photo {
-	width: auto;
-	max-height: 200px;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	display: inline-block;
+}
+.about-photo-wrap .about-photo {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.about-photo-wrap .about-photo.photo {
+	opacity: 0;
+	transition: opacity 0.35s ease;
+}
+.about-photo-wrap:hover .about-photo.photo {
+	opacity: 1;
 }
 img.img-fluid.unquote {
 	max-width: 15%;
