@@ -220,7 +220,7 @@ div.vspace8em {
 .intro-copy,
 .accent-bar {
 	position: relative;
-	padding-left: 1.75rem;
+	padding-left: 2.75rem;
 }
 .intro-copy::before,
 .accent-bar::before {
