@@ -89,6 +89,15 @@ h7 {
     font-style: italic;
 	font-size: 1.35rem;
 }
+#redtext {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 1.75rem;
+	color: #BA324F;
+	margin: 1.5rem 0 0.25rem 0;
+	line-height: 1;
+}
 .midlight p {
 	font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
