@@ -384,8 +384,9 @@ img.img-fluid.quote {
 .about-photo-wrap {
 	position: relative;
 	display: inline-block;
-	width: 200px;
-	height: 200px;
+	width: clamp(200px, 45vw, 320px);
+	max-width: 100%;
+	aspect-ratio: 1 / 1;
 }
 .about-photo {
 	width: 100%;
@@ -402,7 +403,8 @@ img.img-fluid.quote {
 	opacity: 0;
 	transition: opacity 0.35s ease;
 }
-.about-photo-wrap:hover .about-photo.photo {
+.about-photo-wrap:hover .about-photo.photo,
+.about-photo-wrap:active .about-photo.photo {
 	opacity: 1;
 }
 img.img-fluid.unquote {
