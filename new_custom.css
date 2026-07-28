@@ -5,6 +5,23 @@ p, body {
 	font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
 	line-height: 1.6;
 }
+.skip-link {
+	position: absolute;
+	top: -60px;
+	left: 0;
+	z-index: 10000;
+	background-color: #fa935c;
+	color: #0a2243;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	padding: 0.75rem 1.25rem;
+	text-decoration: none;
+	border-radius: 0 0 0.3rem 0;
+	transition: top 150ms ease;
+}
+.skip-link:focus {
+	top: 0;
+}
 h1, h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
@@ -89,7 +106,7 @@ h7 {
     font-style: italic;
 	font-size: 1.35rem;
 }
-#redtext {
+.redtext {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 700;
 	font-style: normal;
@@ -246,7 +263,7 @@ div.vspace8em {
 	font-size: 0.85rem;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.6);
 	margin-bottom: 0.5rem;
 }
 .project-intro {
@@ -444,7 +461,7 @@ footer {
 }
 .footertext p {
 	font-size: 0.9rem;
-	color: rgba(255, 255, 255, 0.45);
+	color: rgba(255, 255, 255, 0.6);
 }
 .footerhighlight p {
 	font-size: 1.4rem;
@@ -455,9 +472,6 @@ footer {
 }
 #blacktext {
     color: #141A18;
-}
-#whitetext {
-    color: #FFFFFF;
 }
 .whitetext {
 	color: #FFFFFF;
