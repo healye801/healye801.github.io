@@ -242,11 +242,10 @@ div.vspace8em {
 }
 .project-intro {
 	position: relative;
-	padding-left: 2.75rem;
 }
 .project-asterisk {
 	position: absolute;
-	left: 0;
+	left: -2.5rem;
 	top: 50%;
 	transform: translateY(-50%);
 	font-family: "Rock 3D", cursive;
