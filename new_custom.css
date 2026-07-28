@@ -31,7 +31,7 @@ h1.rock-heading {
 	text-transform: uppercase;
 	text-align: center;
 	/*color: #fa935c;*/
-	color: #ba324f;
+	color: #fa935c;
 }
 h2 {
 	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
@@ -330,7 +330,7 @@ div.whitediv, div.navydiv {
 	background-blend-mode: overlay;
 }
 .orangeborder {
-	border-color: rgba(183, 230, 225, 0.4) !important;
+	border-color: #ba324f;
 }
 img {
     object-fit: contain;
