@@ -569,6 +569,7 @@ a:hover {
 }
 .gate-input:focus {
 	border-color: #fa935c;
+	box-shadow: 0 0 0 3px rgba(250, 147, 92, 0.4);
 }
 .gate-error {
 	font-family: "Josefin Sans", sans-serif;
@@ -683,4 +684,11 @@ section {
 	filter: drop-shadow(-1px 1px 4px #f8f0e3);
 	/*filter: drop-shadow(1px -1px 2px #f8f0e3) drop-shadow(-15px 15px #fa935c); */
 
+}
+@media (prefers-reduced-motion: reduce) {
+	[data-aos] {
+		transition: none !important;
+		transform: none !important;
+		opacity: 1 !important;
+	}
 }
