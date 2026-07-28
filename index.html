@@ -73,7 +73,7 @@
 			<p>Leading end-to-end design to create scalable solutions that impact thousands of daily users</p>
 			<div class="vspacehalfem"></div>
 			<p>
-				<a href="mailto:emmahealy2021@u.northwestern.edu">Email<i class="bi bi-arrow-up-right-square ml-1 mr-3" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true"></i></a><a href="https://www.linkedin.com/in/emma-g-healy/" target="_blank">LinkedIn<i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true"></i></a>
+				<a href="mailto:emmahealy2021@u.northwestern.edu">Email<i class="bi bi-arrow-up-right-square ml-1 mr-3" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/emma-g-healy/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span><i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a>
 			</p>
 		</div>
 	</div>
@@ -99,13 +99,13 @@
 	<!--category filter-->
 	<div class="row mx-4">
 		<div class="filter-bar" role="group" aria-label="Filter projects by category">
-			<button type="button" class="filter-btn active" data-filter="all">All</button>
-			<button type="button" class="filter-btn" data-filter="strategy">Strategy</button>
-			<button type="button" class="filter-btn" data-filter="research">Research</button>
-			<button type="button" class="filter-btn" data-filter="ux">UX</button>
-			<button type="button" class="filter-btn" data-filter="usability-testing">Usability Testing</button>
-			<button type="button" class="filter-btn" data-filter="ui">UI</button>
-			<button type="button" class="filter-btn" data-filter="data-visualization">Data Visualization</button>
+			<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+			<button type="button" class="filter-btn" data-filter="strategy" aria-pressed="false">Strategy</button>
+			<button type="button" class="filter-btn" data-filter="research" aria-pressed="false">Research</button>
+			<button type="button" class="filter-btn" data-filter="ux" aria-pressed="false">UX</button>
+			<button type="button" class="filter-btn" data-filter="usability-testing" aria-pressed="false">Usability Testing</button>
+			<button type="button" class="filter-btn" data-filter="ui" aria-pressed="false">UI</button>
+			<button type="button" class="filter-btn" data-filter="data-visualization" aria-pressed="false">Data Visualization</button>
 		</div>
 	</div>
 	<!--white space-->
@@ -324,7 +324,7 @@
 				<div class="vspace1em col-12"></div>
 				<p id="whitetext">Before Alpha Omega, I worked as a consultant at Publicis Sapient. My clients included Walmart, Invesco, the Federal Home Loan Bank of New York, and a federal agency. I pitched for new work in the travel and hospitality, financial, and apparel industries.</p>
 				<div class="vspace1em col-12"></div>
-	            <p id="whitetext">When I remember to look up from my laptop, I take classes. Sometimes oil painting at the <a href="https://www.decorusatelier.com/">Decorus Atelier<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem"></i></a> in Brooklyn, watercolor at the <a href="https://www.academyeverywhere.com/">New York Academy of Art<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem"></i></a> downtown, or creative writing at the <a href="https://www.writerstudio.com/">Writers Studio<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem"></i></a> in West Village. I'm a novice gardener and truly terrible tennis player.</p>
+	            <p id="whitetext">When I remember to look up from my laptop, I take classes. Sometimes oil painting at the <a href="https://www.decorusatelier.com/">Decorus Atelier<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem" aria-hidden="true"></i></a> in Brooklyn, watercolor at the <a href="https://www.academyeverywhere.com/">New York Academy of Art<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem" aria-hidden="true"></i></a> downtown, or creative writing at the <a href="https://www.writerstudio.com/">Writers Studio<i class="bi bi-arrow-up-right-square ml-1 mr-1" style="color: #b7e6e1; font-size: .8rem" aria-hidden="true"></i></a> in West Village. I'm a novice gardener and truly terrible tennis player.</p>
 				<div class="vspace1em col-12"></div>
 				<p id="whitetext">That's me! Thanks for stopping by.</p>
 			</div>
@@ -348,7 +348,9 @@
 
             function applyFilter(filter) {
                 filterButtons.forEach(function (b) {
-                    b.classList.toggle('active', b.getAttribute('data-filter') === filter);
+                    var isActive = b.getAttribute('data-filter') === filter;
+                    b.classList.toggle('active', isActive);
+                    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                 });
                 projects.forEach(function (project) {
                     var categories = project.getAttribute('data-categories').split(',');
@@ -404,7 +406,7 @@
                 var el = hash ? document.getElementById(hash) : null;
                 var navItem = link.closest('.nav-item');
                 if (el && navItem) {
-                    sections.push({ el: el, navItem: navItem });
+                    sections.push({ el: el, navItem: navItem, navLink: link });
                 }
             });
             if (!sections.length) return;
@@ -419,6 +421,11 @@
                 });
                 sections.forEach(function (s) {
                     s.navItem.classList.toggle('active', s === current);
+                    if (s === current) {
+                        s.navLink.setAttribute('aria-current', 'true');
+                    } else {
+                        s.navLink.removeAttribute('aria-current');
+                    }
                 });
             }
 

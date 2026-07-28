@@ -25,13 +25,16 @@
 	function buildGate() {
 		var overlay = document.createElement("div");
 		overlay.className = "gate-overlay";
+		overlay.setAttribute("role", "dialog");
+		overlay.setAttribute("aria-modal", "true");
+		overlay.setAttribute("aria-labelledby", "gate-title");
 		overlay.innerHTML =
 			'<div class="gate-panel">' +
-			'<h2 class="gate-title">Password Protected</h2>' +
+			'<h2 class="gate-title" id="gate-title">Password Protected</h2>' +
 			'<p class="gate-subtext">This case study is password protected. Enter the password to continue.</p>' +
 			'<form class="gate-form" autocomplete="off">' +
 			'<input type="password" class="gate-input" autocomplete="new-password" placeholder="Password" aria-label="Password">' +
-			'<div class="gate-error" hidden>Incorrect password. Please try again.</div>' +
+			'<div class="gate-error" role="alert" hidden>Incorrect password. Please try again.</div>' +
 			'<div class="gate-actions">' +
 			'<a href="index.html" class="gate-cancel">Back to homepage</a>' +
 			'<button type="submit" class="gate-submit">Unlock</button>' +
@@ -39,6 +42,11 @@
 			"</form>" +
 			"</div>";
 		document.body.appendChild(overlay);
+		Array.prototype.forEach.call(document.body.children, function (el) {
+			if (el !== overlay) {
+				el.setAttribute("inert", "");
+			}
+		});
 		return overlay;
 	}
 
@@ -62,6 +70,9 @@
 			e.preventDefault();
 			sha256Hex(input.value).then(function (hash) {
 				if (hash === PASSWORD_HASH) {
+					Array.prototype.forEach.call(document.body.children, function (el) {
+						el.removeAttribute("inert");
+					});
 					overlay.remove();
 					sessionStorage.setItem(STORAGE_KEY, "true");
 					return;
