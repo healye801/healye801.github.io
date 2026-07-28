@@ -359,6 +359,24 @@
             });
         })();
     </script>
+    <script>
+        (function () {
+            var navBrand = document.querySelector('.navbar-brand');
+            var heroWordmark = document.querySelector('.ornamentation');
+            if (!navBrand || !heroWordmark) return;
+
+            navBrand.classList.add('navbar-brand-hidden');
+
+            function updateNavBrand() {
+                var rect = heroWordmark.getBoundingClientRect();
+                var scrolledPast = rect.bottom < 0;
+                navBrand.classList.toggle('navbar-brand-hidden', !scrolledPast);
+            }
+
+            window.addEventListener('scroll', updateNavBrand, { passive: true });
+            updateNavBrand();
+        })();
+    </script>
 </div>
 </main>
 <footer class="container-fluid">
