@@ -502,6 +502,122 @@ a:hover {
 	color: #fa935c;
 	text-decoration: underline;
 }
+.gate-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem;
+	background-color: rgba(10, 34, 67, 0.94);
+	backdrop-filter: blur(3px);
+}
+.gate-panel {
+	width: 100%;
+	max-width: 22rem;
+	background-color: #0a2243;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 0.75rem;
+	padding: 2.5rem 2rem;
+	text-align: center;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.gate-title {
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	color: #fa935c;
+	margin-bottom: 0.75rem;
+}
+.gate-subtext {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.95rem;
+	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 1.5rem;
+}
+.gate-input {
+	width: 100%;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 1rem;
+	color: #ffffff;
+	background-color: #132a4d;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 0.3rem;
+	padding: 0.6rem 0.85rem;
+	outline: none;
+	transition: border-color 150ms ease;
+}
+.gate-input:focus {
+	border-color: #fa935c;
+}
+.gate-error {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #fa935c;
+	margin-top: 0.75rem;
+	text-align: left;
+}
+.gate-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+.gate-cancel {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.55);
+	text-decoration: underline;
+}
+.gate-cancel:hover {
+	color: #fa935c;
+}
+.gate-submit {
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: #ffffff;
+	background-color: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 999px;
+	padding: 0.45rem 1.4rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.gate-submit:hover {
+	border-color: #fa935c;
+	color: #fa935c;
+}
+.gate-denied {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 2rem;
+	background-color: #0a2243;
+}
+.gate-denied h1 {
+	font-family: "Rock 3D", cursive;
+	text-transform: uppercase;
+	color: #fa935c;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+.gate-denied p {
+	font-family: "Josefin Sans", sans-serif;
+	color: #ffffff;
+	font-size: 1.1rem;
+}
+.gate-denied a {
+	color: #b7e6e1;
+}
 .hero-text {
   text-align: left;
   position: absolute;
