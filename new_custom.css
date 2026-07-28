@@ -27,10 +27,11 @@ h1 {
 h1.rock-heading {
 	font-family: "Rock 3D", cursive;
 	font-weight: 400;
-	font-size: 1.7rem;
+	font-size: 3rem;
 	text-transform: uppercase;
 	text-align: center;
-	color: #E3920D;
+	/*color: #fa935c;*/
+	color: #ba324f;
 }
 h2 {
 	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
@@ -284,13 +285,13 @@ div.vspace8em {
 	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
 }
 .filter-btn:hover {
-	border-color: #E3920D;
-	color: #E3920D;
+	border-color: #084b83;
+	color: rgba(183, 230, 225, 0.8);
 }
 .filter-btn.active {
-	background-color: #E3920D;
-	border-color: #E3920D;
-	color: #0a2243;
+	background-color: #084b83;
+	border-color: #084b83;
+	color: #ffffff;
 }
 .tag-list {
 	display: flex;
@@ -311,36 +312,25 @@ div.vspace8em {
 	transition: border-color 150ms ease, color 150ms ease;
 }
 .tag-pill:hover {
-	border-color: #E3920D;
-	color: #E3920D;
+	border-color: #084b83;
+	color: rgba(183, 230, 225, 0.8);
 }
 div.whitediv {
     background-color: #FFFDF7;
 }
-div.reddiv{
-	background-color: #EB4A67;
-}
+
 div.navydiv {
 	background-color:#0a2243;
 }
-div.orangediv{
-	background-color: #E3920D;
-}
-div.bluediv{
-	background-color: #133E79;
-}
-div.greendiv {
-	background-color: #377B67;
-}
 main, footer,
-div.whitediv, div.reddiv, div.navydiv, div.orangediv, div.bluediv, div.greendiv {
+div.whitediv, div.navydiv {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3CfeColorMatrix type='saturate' values='0'%3E%3C/feColorMatrix%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.15'%3E%3C/feFuncR%3E%3CfeFuncG type='linear' slope='0.15'%3E%3C/feFuncG%3E%3CfeFuncB type='linear' slope='0.15'%3E%3C/feFuncB%3E%3CfeFuncA type='linear' slope='0.4'%3E%3C/feFuncA%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'%3E%3C/rect%3E%3C/svg%3E");
 	background-repeat: repeat;
 	background-size: 180px 180px;
 	background-blend-mode: overlay;
 }
 .orangeborder {
-	border-color: #E3920D !important;
+	border-color: rgba(183, 230, 225, 0.4) !important;
 }
 img {
     object-fit: contain;
@@ -385,12 +375,6 @@ footer {
 	font-style: normal;
 	text-transform: uppercase;
 }
-#greentext {
-	color: #377B67;
-}
-#redtext{
-	color: #EB4A67;
-}
 #blacktext {
     color: #141A18;
 }
@@ -404,13 +388,10 @@ footer {
 	color:#0a2243;
 }
 #orangetext{
-	color: #E3920D;
+	color: #fa935c;
 }
 .orangetext {
-	color: #E3920D;
-}
-#bluetext{
-	color: #133E79;
+	color: #fa935c;
 }
 #creamtext{
 	color: #FFFAF0;
@@ -450,15 +431,15 @@ a {
 	text-decoration: underline;
 }
 a:hover {
-	color: #E3920D;
+	color: #fa935c;
 	text-decoration: underline;
 }
 .secondary-link {
-  color: #17498F;
+  color: #084b83;
   text-decoration: underline;
 }
 .secondary-link:hover {
-	color: #E3920D;
+	color: #fa935c;
 	text-decoration: underline;
 }
 .hero-text {
@@ -476,7 +457,7 @@ a:hover {
 	background: url(Images/blockquote-image.png)"
 }
 .blockquote h6 {
-	color: #E3920D;
+	color: #fa935c;
 	text-align: right;
 	font-family: 'Josefin Sans', sans-serif;
 	font-style: normal;
@@ -504,8 +485,8 @@ section {
 	max-width: 30%;
 }
 .drop-shadow {
-	/*box-shadow: 10px 10px 15px #E3920D; */
+	/*box-shadow: 10px 10px 15px #fa935c; */
 	filter: drop-shadow(-1px 1px 4px #f8f0e3);
-	/*filter: drop-shadow(1px -1px 2px #f8f0e3) drop-shadow(-15px 15px #E3920D); */
+	/*filter: drop-shadow(1px -1px 2px #f8f0e3) drop-shadow(-15px 15px #fa935c); */
 
 }
