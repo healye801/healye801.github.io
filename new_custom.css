@@ -281,6 +281,7 @@ h3.case-subheading {
 @media (max-width: 767.98px) {
 	.case-row {
 		flex-direction: column;
+		align-items: stretch;
 		gap: 0.25rem;
 	}
 	.case-row .case-label {
@@ -288,6 +289,10 @@ h3.case-subheading {
 	}
 	.case-row .case-label:empty {
 		display: none;
+	}
+	.case-row .case-content {
+		min-width: 0;
+		max-width: 100%;
 	}
 }
 .case-meta {
@@ -309,6 +314,40 @@ h3.case-subheading {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 400;
 	font-size: 1.05rem;
+}
+.case-table {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.92rem;
+	background-color: #ffffff;
+	margin-bottom: 1.5rem;
+}
+.case-table th {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	background-color: #fbeee4;
+	white-space: nowrap;
+}
+.case-table td, .case-table th {
+	vertical-align: top;
+	padding: 0.6rem 0.85rem;
+}
+.conversation-flow {
+	text-align: center;
+	max-width: 26rem;
+	margin: 1.5rem auto;
+}
+.conversation-flow p {
+	margin: 0;
+}
+.conversation-flow-arrow {
+	font-family: "Rock 3D", cursive;
+	color: #fa935c;
+	font-size: 1.3rem;
+	line-height: 1;
+	margin: 0.5rem 0;
 }
 @media (max-width: 767.98px) {
 	.case-meta {
