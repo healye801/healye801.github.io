@@ -185,7 +185,7 @@ h7 {
 		box-shadow: 0 24px 20px -8px rgba(0, 0, 0, 0.3);
 	}
 }
-#work, #experience, #about {
+#work, #results, #experience, #about {
 	scroll-margin-top: 90px;
 }
 .dropdown-item:hover {
@@ -461,6 +461,89 @@ h3.case-subheading {
 @media (prefers-reduced-motion: reduce) {
 	.skills-ticker-track {
 		animation: none;
+	}
+}
+.results-stats {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+.results-stats-item {
+	position: relative;
+	padding: 2.5rem 2rem;
+}
+.results-stats-item::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.5rem;
+	bottom: 0.5rem;
+	width: 2px;
+	background-color: rgba(183, 230, 225, 0.4);
+}
+.results-stats-item:first-child::before {
+	display: none;
+}
+.results-stats-label {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 1rem;
+}
+.results-stats-number {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 3.25rem;
+	line-height: 1;
+	color: #ffffff;
+}
+.results-stats-unit {
+	font-weight: 600;
+	font-size: 1.5rem;
+	color: #fa935c;
+	margin-left: 0.2rem;
+}
+.results-stats-desc {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #ffffff;
+	margin: 1rem 0 0 0;
+}
+.results-stats-footnote {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	color: rgba(255, 255, 255, 0.5);
+	margin: 1.25rem 0 0 0;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 991.98px) {
+	.results-stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.results-stats-item:nth-child(2n+1)::before {
+		display: none;
+	}
+	.results-stats-item:nth-child(n+3) {
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
+	}
+}
+@media (max-width: 575.98px) {
+	.results-stats {
+		grid-template-columns: 1fr;
+	}
+	.results-stats-item::before {
+		display: none;
+	}
+	.results-stats-item {
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	.results-stats-item:first-child {
+		border-top: none;
 	}
 }
 .project-intro {
