@@ -428,6 +428,41 @@ h3.case-subheading {
 	color: rgba(255, 255, 255, 0.6);
 	margin-bottom: 0.5rem;
 }
+.skills-ticker {
+	overflow: hidden;
+	width: 100%;
+}
+.skills-ticker-track {
+	display: flex;
+	align-items: center;
+	width: max-content;
+	animation: skills-ticker-scroll 60s linear infinite;
+}
+.skills-ticker:hover .skills-ticker-track {
+	animation-play-state: paused;
+}
+.skills-ticker-item {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 500;
+	font-size: 1.05rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #ffffff;
+	white-space: nowrap;
+}
+.skills-ticker-sep {
+	color: #fa935c;
+	margin: 0 1.25rem;
+}
+@keyframes skills-ticker-scroll {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+	.skills-ticker-track {
+		animation: none;
+	}
+}
 .project-intro {
 	position: relative;
 }
