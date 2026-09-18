@@ -108,9 +108,9 @@ h7 {
 }
 .redtext {
 	font-family: 'Josefin Sans', sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	font-style: normal;
-	font-size: 1.75rem;
+	font-size: 2.1rem;
 	color: #BA324F;
 	margin: 1.5rem 0 0.25rem 0;
 	line-height: 1;
@@ -308,6 +308,50 @@ h3.case-subheading {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 400;
 	font-size: 1.05rem;
+}
+.next-story {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+.next-story-thumb {
+	flex: 0 0 8rem;
+	width: 8rem;
+	height: auto;
+}
+@media (min-width: 768px) {
+	.next-story {
+		width: min(52rem, 92vw);
+		margin-left: 50%;
+		transform: translateX(-50%);
+		align-items: stretch;
+		height: 9rem;
+		gap: 1.25rem;
+	}
+	.next-story-thumb {
+		flex: 0 1 auto;
+		width: auto;
+		height: 100%;
+		object-fit: contain;
+		object-position: left center;
+	}
+	.next-story-text {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+@media (max-width: 575.98px) {
+	.next-story {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.next-story-thumb {
+		width: 100%;
+		height: auto;
+		max-width: 12rem;
+	}
 }
 .case-table {
 	font-family: "Source Sans 3", sans-serif;

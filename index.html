@@ -157,7 +157,7 @@
 		<div class="d-xs-block d-md-none col-xs-12 vspace3em"></div>
 	</div>
 	<!--ai interview simulator-->
-	<div class="mx-4" data-categories="ux,conversation-design,ai-tools">
+	<div class="mx-4" data-project="AI-Interview-Simulator" data-categories="ux,conversation-design,ai-tools">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<div class="project-text-inner">
 				<div class="resume-subheading">FEDERAL AGENCY - Password Protected</div>
@@ -201,7 +201,7 @@
 		<div class="col-12 vspace3em"></div>
 	</div>
 	<!--training team - hidden from home page-->
-	<div class="mx-4 hidden-project" data-categories="strategy,research,ux">
+	<div class="mx-4" data-project="Training-Team" data-categories="strategy,research,ux">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="Training-Team.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/training-team-thumbnail.png" alt="A learning management system interface"></a>
 			<div class="project-text-inner">
@@ -220,7 +220,7 @@
 		</div>
 	</div>
 	<!--pdf management - OPTION B: larger square thumbnail left of centered text - hidden from home page-->
-	<div class="mx-4 hidden-project" data-categories="ux,research,usability-testing">
+	<div class="mx-4" data-project="PDF-Management-App" data-categories="ux,research,usability-testing">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="PDF-Management-App.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/pdf-management-thumbnail.png" alt="A PDF Editor interface"></a>
 			<div class="project-text-inner">
@@ -239,7 +239,7 @@
 		</div>
 	</div>
 	<!--invesco - hidden from home page-->
-	<div class="mx-4 hidden-project" data-categories="ui,data-visualization">
+	<div class="mx-4" data-project="Invesco-Cloud-Dashboard" data-categories="ui,data-visualization">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="Invesco-Cloud-Dashboard.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/invesco-cloud-thumbnail.png" alt="An Invesco cloud usage dashboard interface"></a>
 			<div class="project-text-inner">
@@ -256,8 +256,8 @@
 			</div>
 		</div>
 	</div>
-	<!--walmart - hidden from home page-->
-	<div class="mx-4" style="display: none !important;">
+	<!--walmart-->
+	<div class="mx-4" data-project="Walmart-Celebrity-Shopping-Carts">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="Walmart-Celebrity-Shopping-Carts.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/walmart-celebrity-carts-thumbnail.png" alt="Graphic displaying Walmart Celebrity collaboration photos of Patrick Mahomes, Barbie, and Becky G"></a>
 			<div class="project-text-inner">
@@ -445,11 +445,17 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="project-visibility.js"></script>
     <script>
         AOS.init();
     </script>
     <script>
         (function () {
+            var hiddenProjects = window.HIDDEN_PROJECTS || [];
+            document.querySelectorAll('[data-project]').forEach(function (el) {
+                el.classList.toggle('hidden-project', hiddenProjects.indexOf(el.getAttribute('data-project')) !== -1);
+            });
+
             var filterButtons = document.querySelectorAll('.filter-btn');
             var tagPills = document.querySelectorAll('.tag-pill');
             var projects = document.querySelectorAll('[data-categories]');
