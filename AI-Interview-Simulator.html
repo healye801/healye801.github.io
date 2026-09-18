@@ -91,22 +91,22 @@
 		</div>
 		<div class="col-12 vspace1em"></div>
 	</div>
-<!--problem-->
+<!--challenge-->
 	<div class="row mx-4">
 		<div class="col-12 vspace3em"></div>
 		<div class="case-section">
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
-				<h2 class="case-label case-heading">Problem</h2>
+				<h2 class="case-label case-heading">Challenge</h2>
 				<div class="case-content">
-					<p>Eligibility interviews are high-stakes, sensitive, and difficult to practice at scale. Case Managers must learn how to ask trauma-informed questions, elicit enough testimony to assess eligibility, and follow up appropriately when an applicant is vague, reluctant, emotionally guarded, confused, or potentially inconsistent.</p>
-					<p>Before the production tool, training relied heavily on live actors and peer role-play. Both approaches had limitations:</p>
+					<p>Eligibility interviews are high-stakes and sensitive, and they're genuinely difficult to practice at scale. Case Managers have to learn how to ask trauma-informed questions, elicit enough testimony to actually assess eligibility, and follow up appropriately when an applicant is vague, reluctant, emotionally guarded, or inconsistent &mdash; skills that don't come from a slide deck.</p>
+					<p>Before the production tool existed, training leaned almost entirely on live actors and peer role-play, and both had real limits:</p>
 					<ul>
-						<li>Actors were expensive and difficult to scale &mdash; approximately $50 per hour, with each new class of about 30 Case Managers requiring hour-long practice sessions</li>
-						<li>Peer role-play reduced active practice time, since one trainee had to act as the applicant while the other practiced interviewing</li>
-						<li>Practice opportunities were limited by classroom time, facilitator availability, and scheduling</li>
+						<li><strong>Actors were expensive and hard to scale</strong> &mdash; roughly $50 an hour, and every new class of about 30 Case Managers needed hour-long sessions</li>
+						<li><strong>Peer role-play cut practice time in half</strong>, since one trainee had to play the applicant while the other practiced interviewing</li>
+						<li><strong>Practice was bottlenecked</strong> by classroom time, facilitator availability, and scheduling</li>
 					</ul>
-					<p>On the technical side, the early proof-of-concept prototype used a single, long system prompt to drive all applicant behavior. This made it difficult to introduce new scenarios, tune difficulty, or maintain consistent behavior as the tool moved toward production.</p>
-					<p>The training team needed a scalable way for Case Managers to practice realistic interviews across many claim scenarios and difficulty levels.</p>
+					<p>On the technical side, I inherited a proof-of-concept built on one long system prompt driving every bit of the applicant's behavior. It was enough for a demo, but not built to last &mdash; introducing a new scenario or tuning difficulty meant editing one massive block of instructions and hoping nothing else broke.</p>
+					<p>The training team needed something that could genuinely stand in for a live actor: realistic, varied practice across many claim scenarios and difficulty levels, without the scheduling bottleneck.</p>
 				</div>
 			</div>
 		</div>
@@ -118,13 +118,13 @@
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
 				<h2 class="case-label case-heading">Users</h2>
 				<div class="case-content">
-					<p>The tool was designed for internal agency use. The user base included:</p>
+					<p>The tool was built for internal agency use, split across two groups with pretty different needs:</p>
 					<ul>
-						<li>New Case Managers hired during a rapid staffing increase</li>
-						<li>Experienced Case Managers with five or more years of interviewing experience</li>
-						<li>Training staff and SMEs who needed configurable, repeatable practice scenarios</li>
+						<li><strong>New Case Managers</strong>, hired during a rapid staffing increase, who needed an approachable way to build confidence and practice eliciting testimony for the first time</li>
+						<li><strong>Experienced Case Managers</strong>, five or more years in, who needed sharper, more realistic simulations that demanded precise questioning, rephrasing, and follow-up</li>
+						<li><strong>Training staff and SMEs</strong>, who needed to configure and reuse scenarios without touching code</li>
 					</ul>
-					<p>New Case Managers needed an approachable way to build confidence and practice eliciting testimony. Experienced Case Managers needed more realistic and challenging simulations that required precise questioning, rephrasing, and follow-up.</p>
+					<p>Designing for both ends of that experience spectrum at once &mdash; without making the tool feel condescending to veterans or overwhelming to rookies &mdash; shaped almost every decision that followed.</p>
 				</div>
 			</div>
 		</div>
@@ -146,16 +146,16 @@
 					<p><strong>Encourage trauma-informed follow-up</strong> &mdash; simulate applicants who may be nervous, vague, indirect, or reluctant to discuss sensitive topics</p>
 					<div class="vspacehalfem"></div>
 					<div class="redtext">04.</div>
-					<p><strong>Prevent over-disclosure</strong> &mdash; ensure the applicant revealed information gradually, so Case Managers had to ask appropriate follow-up questions</p>
+					<p><strong>Prevent over-disclosure</strong> &mdash; make sure the applicant revealed information gradually, so Case Managers actually had to ask good follow-up questions instead of getting the whole story handed to them</p>
 					<div class="vspacehalfem"></div>
 					<div class="redtext">05.</div>
-					<p><strong>Align the conversation model to interview goals</strong> &mdash; map officer questions to relevant testimony categories and eligibility factors</p>
+					<p><strong>Align the conversation model to interview goals</strong> &mdash; map officer questions to the testimony categories and eligibility factors that actually mattered</p>
 					<div class="vspacehalfem"></div>
 					<div class="redtext">06.</div>
-					<p><strong>Support scalable scenario authoring</strong> &mdash; allow SMEs to configure many applicant personas, timelines, claim types, credibility concerns, and other details</p>
+					<p><strong>Support scalable scenario authoring</strong> &mdash; let SMEs configure new applicant personas, timelines, claim types, and credibility concerns without engineering support</p>
 					<div class="vspacehalfem"></div>
 					<div class="redtext">07.</div>
-					<p><strong>Improve conversational usability</strong> &mdash; make system status and turn-taking clear through a loading indicator and disabled submit state</p>
+					<p><strong>Improve conversational usability</strong> &mdash; make system status and turn-taking obvious through a loading indicator and disabled submit state</p>
 				</div>
 			</div>
 		</div>
@@ -168,7 +168,7 @@
 				<h2 class="case-label case-heading">Conversation Design Approach</h2>
 				<div class="case-content">
 					<h3 class="case-subheading">Scalable Conversation Architecture</h3>
-					<p>The MVP version of the simulator relied on a single, long system prompt to direct the applicant's behavior. My work focused on replacing that prompt with a scalable production architecture that separated scenario content from reusable behavior rules. Rather than treating each simulated applicant as a one-off chatbot governed by one large prompt, the redesigned product used a configurable framework.</p>
+					<p>The MVP relied on a single, long system prompt to direct the applicant's every move. My work centered on replacing that with a scalable production architecture that separated scenario content from reusable behavior rules &mdash; instead of one big prompt trying to be everything at once, a configurable framework that different pieces could plug into.</p>
 					<p>The framework included:</p>
 					<ul>
 						<li>Structured scenario data</li>
@@ -179,7 +179,7 @@
 						<li>Response validation</li>
 						<li>UI states for turn-taking and system status</li>
 					</ul>
-					<p>This architecture allowed the team to support many different applicant personas and claim scenarios while keeping the core conversation behavior consistent &mdash; something the original single-prompt approach could not support.</p>
+					<p>This let the team support many different applicant personas and claim scenarios while keeping the core conversation behavior consistent &mdash; something the original single-prompt approach simply couldn't do without breaking something else every time.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -206,7 +206,9 @@
 						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
 						<p>Applicant response appears with clear turn-taking UI</p>
 					</div>
-					<p>This structure made the chatbot more predictable, testable, and maintainable.</p>
+					<p>All of that runs behind a conversation window that looks and feels like a normal chat interface &mdash; a Case Manager asks a question, the applicant answers in character, and the exchange builds into a full interview transcript.</p>
+					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/conversation-example.png" alt="Screenshot of the interview simulator mid-conversation, with an applicant's short answers above and a new question typed into the input box, ready to send.">
+					<p>This structure made the chatbot far more predictable, testable, and maintainable than the original single-prompt version &mdash; every response could be traced back to a specific intent, a specific difficulty rule, and a specific piece of scenario data.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -214,7 +216,7 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Scenario Configuration</h3>
-					<p>The simulator supported many applicant scenarios. SMEs could configure scenario details such as:</p>
+					<p>The simulator had to support many applicant scenarios, not just the one demo case it launched with. SMEs could configure:</p>
 					<ul>
 						<li>Applicant background information</li>
 						<li>Residence history</li>
@@ -225,7 +227,7 @@
 						<li>Eligibility factors</li>
 						<li>Other scenario-specific details</li>
 					</ul>
-					<p>This configuration model allowed the product to scale beyond a single training example. SMEs could create varied applicant profiles while the product maintained consistent conversation behavior across scenarios.</p>
+					<p>This is what let the product scale beyond a single training example. SMEs could build out varied, realistic applicant profiles on their own, while the underlying conversation behavior stayed consistent no matter which scenario a Case Manager picked.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -233,13 +235,12 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Persona-Driven Onboarding</h3>
-					<p>The onboarding flow began with difficulty selection: <em>Choose your interview difficulty level.</em> Users selected from three levels.</p>
-					<p><strong>Easy</strong> &mdash; Response style: clear and direct answers. Use this mode if you're just starting out and want to practice asking questions and eliciting testimony.</p>
-					<p><strong>Medium</strong> &mdash; Response style: occasionally vague and indirect. Use this mode to practice rephrasing questions.</p>
-					<p><strong>Hard</strong> &mdash; Response style: often vague and indirect. Use this mode to practice rephrasing questions and asking follow-up questions.</p>
-					<p>The onboarding explained that applicant vagueness was intentional. This helped users understand that a vague response was part of the exercise, not a product failure.</p>
-					<p>In classroom settings, trainers provided the broader instructional context. During self-guided practice, Case Managers could choose their own difficulty level and scenario.</p>
-					<p>Users selected both a claim scenario and a difficulty level. They could not switch levels mid-session, which preserved the integrity and consistency of the interview simulation.</p>
+					<p>The onboarding flow opened with a simple prompt: <em>Choose your interview difficulty level.</em> Users picked from three options.</p>
+					<p><strong>Easy</strong> &mdash; Clear and direct answers. Good for someone just starting out who wants to practice asking questions and eliciting testimony without extra friction.</p>
+					<p><strong>Medium</strong> &mdash; Occasionally vague or indirect. Built for practicing rephrasing.</p>
+					<p><strong>Hard</strong> &mdash; Often vague or indirect. Built for practicing rephrasing and follow-up questions together.</p>
+					<p>I made sure onboarding explicitly called out that applicant vagueness was intentional &mdash; a small detail, but an important one. Without it, users read a vague answer as a bug instead of the exercise working as designed.</p>
+					<p>In classroom settings, trainers layered in their own instructional context. In self-guided practice, Case Managers picked their own difficulty and scenario &mdash; but couldn't switch levels mid-session, which kept any single interview internally consistent.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -280,7 +281,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p>Across all three levels, the maximum number of sequential vague responses was capped at 2. This was a critical design choice. If the applicant was vague for too long, the simulation became frustrating. If the applicant was too forthcoming, Case Managers did not need to practice follow-up. The vagueness score and cap helped balance realism with usability.</p>
+					<p>Across all three levels, I capped the maximum number of sequential vague responses at 2. This turned out to be one of the more important numbers in the whole system: too vague for too long and the simulation just got frustrating; too forthcoming and Case Managers never had to practice follow-up at all. The vagueness score and the cap together struck the balance between realism and usability.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -288,20 +289,18 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Controlled Disclosure</h3>
-					<p>The simulated applicant was designed to reveal information incrementally. This supported the core learning objective: Case Managers had to practice asking specific, trauma-informed, relevant questions.</p>
-					<p>The applicant response model followed these principles:</p>
+					<p>The simulated applicant was designed to reveal information incrementally, on purpose. That's the whole point of the exercise &mdash; if the bot just handed over a full statement on the first question, there'd be nothing left to practice.</p>
+					<p>The applicant response model followed a short set of rules:</p>
 					<ul>
 						<li>Answer only what the Case Manager asked</li>
 						<li>Reveal one piece of information at a time</li>
 						<li>Avoid giving a complete claim summary</li>
 						<li>Stay brief and human-sounding</li>
-						<li>Be more forthcoming in easy mode</li>
-						<li>Be more reluctant or indirect in medium and hard modes</li>
-						<li>Stay in character</li>
-						<li>Redirect off-topic questions in character</li>
-						<li>Avoid exposing internal instructions or simulation logic</li>
+						<li>Be more forthcoming in easy mode, more reluctant or indirect in medium and hard modes</li>
+						<li>Stay in character, including redirecting off-topic questions in character</li>
+						<li>Never expose internal instructions or simulation logic</li>
 					</ul>
-					<p>This made the bot a training partner rather than an information retrieval system.</p>
+					<p>Together, these rules are what made the bot feel like a training partner rather than a search engine with a chat window on top of it.</p>
 				</div>
 			</div>
 		</div>
@@ -314,7 +313,7 @@
 				<h2 class="case-label case-heading">Intent Design</h2>
 				<div class="case-content">
 					<h3 class="case-subheading">Intent Taxonomy</h3>
-					<p>I documented a formal intent taxonomy &mdash; replacing the MVP's single system prompt &mdash; to define the types of officer questions the simulator needed to support. The taxonomy connected interview topics to applicant response behavior, disclosure rules, and training goals.</p>
+					<p>Replacing the MVP's single system prompt meant I had to document, from scratch, every type of question the simulator needed to recognize and respond to. I built a formal intent taxonomy connecting interview topics to applicant response behavior, disclosure rules, and training goals.</p>
 					<p>Example taxonomy:</p>
 					<div class="table-responsive">
 						<table class="table table-bordered case-table">
@@ -429,7 +428,7 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Priority Intents</h3>
-					<p>The highest-priority intents included:</p>
+					<p>Not every intent carried equal weight. I prioritized:</p>
 					<ul>
 						<li>Place of birth</li>
 						<li>Nationality</li>
@@ -438,7 +437,7 @@
 						<li>Ongoing risk</li>
 						<li>Decision point</li>
 					</ul>
-					<p>These intents were prioritized because they represented foundational areas Case Managers needed to establish during the interview.</p>
+					<p>These represented the foundational areas every Case Manager needed to establish before anything else in the interview would make sense.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -446,7 +445,7 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Eligibility-Element-Aligned Design</h3>
-					<p>The intent design was aligned with the information Case Managers needed to elicit during an eligibility interview. This made the simulator more than a generic role-play bot. It became a structured training tool that helped Case Managers practice eliciting testimony relevant to the claim.</p>
+					<p>I deliberately aligned the intent design with the actual information Case Managers needed to elicit during an eligibility interview. That decision is what took the simulator from a generic role-play bot to a structured training tool &mdash; every exchange mapped back to something that mattered for the claim itself.</p>
 					<p>Example:</p>
 					<div class="table-responsive">
 						<table class="table table-bordered case-table">
@@ -517,7 +516,7 @@
 						</table>
 					</div>
 					<div class="highlight">
-						<p>I mapped the conversation model to the actual information Case Managers needed to elicit. Each intent represented a type of testimony relevant to the interview, such as identity, residence history, reason for the claim, ongoing risk, or the decision point. This helped ensure the simulation supported job-relevant practice rather than generic conversational role-play.</p>
+						<p>I mapped the conversation model to the actual information Case Managers needed to elicit. Each intent represented a type of testimony relevant to the interview, such as identity, residence history, reason for the claim, ongoing risk, or the decision point. That's what kept the simulation feeling like job-relevant practice instead of generic conversational role-play.</p>
 					</div>
 				</div>
 			</div>
@@ -530,14 +529,14 @@
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
 				<h2 class="case-label case-heading">Fallback and Error Handling</h2>
 				<div class="case-content">
-					<p>Fallback behavior was designed to preserve the applicant persona. The bot did not switch into coach mode or give interviewing advice during the simulation.</p>
+					<p>I designed fallback behavior to protect the applicant persona above almost everything else. The bot was never allowed to slip into coach mode or hand out interviewing advice mid-simulation &mdash; the moment it did, the illusion (and the training value) would collapse.</p>
 					<p>Common fallback responses included:</p>
 					<ul>
 						<li>&ldquo;Uh&hellip; I don't remember.&rdquo;</li>
 						<li>&ldquo;Can you rephrase that? I don't understand.&rdquo;</li>
 						<li>&ldquo;Can we please talk about what happened? It's important.&rdquo;</li>
 					</ul>
-					<p>These fallbacks supported common breakdowns:</p>
+					<p>These lines weren't just filler &mdash; each one mapped to a specific kind of breakdown:</p>
 					<div class="table-responsive">
 						<table class="table table-bordered case-table">
 							<thead>
@@ -581,7 +580,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p>The fallback strategy was intentionally in-character. This maintained realism and prevented the bot from becoming a coach or evaluator during the interview.</p>
+					<p>Keeping the fallback strategy strictly in-character was a deliberate call. It preserved realism and made sure the bot never accidentally turned into a coach or an evaluator mid-interview &mdash; it stayed the applicant, full stop.</p>
 				</div>
 			</div>
 		</div>
@@ -593,14 +592,19 @@
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
 				<h2 class="case-label case-heading">System Status and Turn-Taking</h2>
 				<div class="case-content">
-					<p>During testing, users sometimes thought they could submit multiple questions while the bot was generating a response. This caused confusion and interrupted the natural rhythm of the simulated interview.</p>
-					<p>To solve this, I added:</p>
+					<p>During testing, I noticed users would sometimes try to submit a second question while the bot was still generating its response to the first. It's a small thing, but it broke the rhythm of the interview and left people confused about whether their question had actually gone through.</p>
+					<p>To fix it, I added three coordinated pieces of UI:</p>
 					<ul>
 						<li>Animated typing dots</li>
 						<li>A disabled submit button while the bot was responding</li>
 						<li>A blocked input state during response generation</li>
 					</ul>
-					<p>The typing indicator appeared after every user message. This clarified that the simulated applicant was processing the question and that the Case Manager needed to wait before continuing.</p>
+					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/response-loading.png" alt="Screenshot showing the input field and submit button disabled while the applicant's response is generating.">
+					<p>The typing indicator appeared after every user message, using the same short animation each time:</p>
+					<img class="img-responsive mx-auto d-block" style="max-width: 14rem; width: 100%;" src="Images/ai-interview-simulator/typing-indicator.png" alt="Animated typing indicator dots shown while the simulated applicant's response is generating.">
+					<p>Once the response was ready, the answer appeared and the input reset, cueing the Case Manager that it was their turn again.</p>
+					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/response-complete.png" alt="Screenshot showing the applicant's completed response and the input field reset, ready for the next question.">
+					<p>Small as it sounds, this made the simulated applicant feel less like a search box and more like someone actually sitting across the table.</p>
 				</div>
 			</div>
 			<div class="vspace2em"></div>
@@ -630,31 +634,40 @@
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
 				<h2 class="case-label case-heading">Testing and Iteration</h2>
 				<div class="case-content">
-					<p>Testing happened in several stages.</p>
+					<p>Testing happened in a few distinct stages, each answering a different question.</p>
+				</div>
+			</div>
+			<div class="vspace1em"></div>
+			<div class="case-row">
+				<div class="case-label"></div>
+				<div class="case-content">
 					<h3 class="case-subheading">SME and Training Staff Review</h3>
-					<p>SMEs and training staff tested the simulation as both participants and observers. They evaluated whether the applicant behavior was realistic, whether the scenario configuration supported training needs, and whether the chatbot's responses aligned with expected interview dynamics.</p>
-					<div class="vspace1em"></div>
+					<p>SMEs and training staff tested the simulation as both participants and observers, watching for whether applicant behavior felt realistic, whether scenario configuration actually supported real training needs, and whether the chatbot's responses matched how a real interview tends to unfold.</p>
+				</div>
+			</div>
+			<div class="vspace1em"></div>
+			<div class="case-row">
+				<div class="case-label"></div>
+				<div class="case-content">
 					<h3 class="case-subheading">User Testing</h3>
-					<p>We tested with approximately 20 users. Case Managers conducted practice interviews and provided feedback on:</p>
-					<ul>
-						<li>Realism</li>
-						<li>Difficulty</li>
-						<li>Clarity</li>
-						<li>Usability</li>
-						<li>Whether the simulation helped them practice follow-up questioning</li>
-					</ul>
-					<div class="vspace1em"></div>
+					<p>We tested with roughly 20 users, running full practice interviews and collecting feedback on realism, difficulty, clarity, usability, and &mdash; most importantly &mdash; whether the simulation actually helped them practice follow-up questioning.</p>
+				</div>
+			</div>
+			<div class="vspace1em"></div>
+			<div class="case-row">
+				<div class="case-label"></div>
+				<div class="case-content">
 					<h3 class="case-subheading">Iterations After Testing</h3>
-					<p>Based on testing, we:</p>
+					<p>Based on what we learned, I:</p>
 					<ul>
 						<li>Adjusted vagueness levels several times</li>
 						<li>Added more intents</li>
-						<li>Compared easy, medium, and hard mode behavior</li>
+						<li>Compared easy, medium, and hard mode behavior side by side</li>
 						<li>Added the animated typing indicator</li>
 						<li>Disabled submission while the bot was thinking</li>
 						<li>Refined fallback behavior</li>
 					</ul>
-					<p>Most success measurement was qualitative, based on user, SME, and trainer feedback.</p>
+					<p>Most of our success measurement stayed qualitative, grounded in feedback from users, SMEs, and trainers rather than a single quantitative benchmark &mdash; the thing we were optimizing for was "does this feel like a real interview," which isn't easy to reduce to a number.</p>
 				</div>
 			</div>
 		</div>
@@ -666,22 +679,26 @@
 			<div class="case-row" data-aos="fade-up" data-aos-once="true">
 				<h2 class="case-label case-heading">Results</h2>
 				<div class="case-content">
-					<p>The tool moved from MVP to production in three months. It was adopted for:</p>
-					<ul>
-						<li>Agency-wide training serving approximately 4,000 users</li>
-						<li>Ongoing new-hire training classes</li>
-						<li>Ongoing internal practice</li>
-					</ul>
-					<p>The tool also reduced reliance on paid actors. Previously, actor-led practice required paid actors at approximately $50 per hour for hour-long sessions with each new class of Case Managers. With the chatbot, Case Managers could practice without actor scheduling or actor costs.</p>
-					<p>The tool also improved training efficiency. In peer role-play, one trainee acted as the applicant while the other practiced interviewing. With the chatbot, both trainees could practice simultaneously.</p>
+					<p>The tool moved from MVP to production in three months and was adopted for agency-wide training serving approximately 4,000 users, ongoing new-hire training classes, and ongoing internal practice.</p>
+					<p>It also changed the economics of training. Actor-led practice had cost roughly $50 an hour, with every new class of Case Managers needing hour-long sessions booked and scheduled in advance. With the chatbot, that constraint disappeared &mdash; practice was available whenever a Case Manager needed it, with no actor to book and no calendar to work around. Peer role-play improved too: instead of one trainee sitting out to play the applicant, both could practice simultaneously.</p>
 				</div>
 			</div>
 			<div class="vspace1em"></div>
 			<div class="case-row">
 				<div class="case-label"></div>
 				<div class="case-content">
-					<h3 class="case-subheading">Strongest Outcome</h3>
-					<p>We took an MVP built on a single system prompt and scaled it into a production AI simulator used in agency-wide training for approximately 4,000 Case Managers and ongoing new-hire cohorts.</p>
+					<h3 class="case-subheading">Key Achievements</h3>
+					<div class="redtext">01.</div>
+					<p><strong>Replaced a single-prompt MVP</strong> with a scalable, production-grade conversation architecture</p>
+					<div class="vspacehalfem"></div>
+					<div class="redtext">02.</div>
+					<p><strong>Scaled to agency-wide training</strong> for approximately 4,000 users and ongoing new-hire cohorts</p>
+					<div class="vspacehalfem"></div>
+					<div class="redtext">03.</div>
+					<p><strong>Eliminated actor scheduling and cost</strong> as a bottleneck to realistic practice</p>
+					<div class="vspacehalfem"></div>
+					<div class="redtext">04.</div>
+					<p><strong>Doubled peer practice efficiency</strong> by removing the need for one trainee to sit out as the applicant</p>
 				</div>
 			</div>
 		</div>
@@ -694,18 +711,17 @@
 				<h2 class="case-label case-heading">Reflection</h2>
 				<div class="case-content">
 					<h3 class="case-subheading">Hardest Design Decision</h3>
-					<p>The hardest design decision was balancing realism with usability.</p>
-					<p>Real applicants may be vague, reluctant, or indirect, especially when discussing sensitive experiences. But if the chatbot was vague for too long, the simulation became frustrating. If it was too forthcoming, Case Managers did not have to practice the follow-up skills the tool was designed to teach.</p>
-					<p>The difficulty model helped solve this. Easy, medium, and hard modes changed how direct the applicant was, while the cap of two sequential vague responses prevented the interaction from stalling.</p>
+					<p>The hardest call was balancing realism with usability.</p>
+					<p>Real applicants can be vague, reluctant, or indirect, especially discussing sensitive experiences &mdash; but a chatbot that stayed vague too long just became frustrating, and one that was too forthcoming let Case Managers skip the follow-up skills the whole tool existed to teach.</p>
+					<p>The difficulty model is what resolved it. Easy, medium, and hard modes controlled how direct the applicant was, and the cap of two sequential vague responses kept any single exchange from stalling out completely.</p>
 					<div class="vspace1em"></div>
 					<h3 class="case-subheading">Biggest Design Challenge</h3>
-					<p>The biggest design challenge was making the simulator both realistic and scalable, starting from an MVP whose single system prompt couldn't support that scale.</p>
-					<p>The tool had to support many scenarios, applicant personas, claim types, timelines, credibility concerns, and eligibility factors. At the same time, the applicant behavior needed to remain consistent across scenarios &mdash; something a single long prompt could not reliably do.</p>
-					<p>The solution was to separate reusable conversation behavior from scenario-specific content. This gave SMEs flexibility to configure scenarios while preserving a consistent interaction model for users.</p>
+					<p>The biggest challenge was making the simulator both realistic and scalable, starting from an MVP whose single system prompt genuinely couldn't support that scale.</p>
+					<p>The tool had to support many scenarios, applicant personas, claim types, timelines, and credibility concerns, while keeping applicant behavior consistent across every one of them &mdash; something a single long prompt could not reliably do.</p>
+					<p>The fix was separating reusable conversation behavior from scenario-specific content. That gave SMEs the flexibility to configure new scenarios on their own, while the interaction model underneath stayed the same for users no matter which scenario they picked.</p>
 					<div class="vspace1em"></div>
 					<h3 class="case-subheading">Future Improvements</h3>
-					<p>A future version could add controlled deception or inconsistency patterns.</p>
-					<p>The current version supports vague, indirect, and reluctant applicant behavior. A future version could allow SMEs to configure more complex credibility challenges, such as:</p>
+					<p>A future version could add controlled deception or inconsistency patterns. Right now the simulator supports vague, indirect, and reluctant applicant behavior; a future version could let SMEs configure more complex credibility challenges, like:</p>
 					<ul>
 						<li>Inconsistent dates</li>
 						<li>Evasive answers</li>
@@ -713,8 +729,8 @@
 						<li>Implausible explanations</li>
 						<li>Facts that emerge only after repeated questioning</li>
 					</ul>
-					<p>This would help Case Managers practice identifying and following up on credibility concerns in a controlled training environment.</p>
-					<p>We also explored automated scoring and coaching but chose not to include it. Interview quality in this context is nuanced, and automated feedback was not reliable enough for the training goals. Instead, the chatbot remained focused on role-play, while evaluation stayed with trainers and SMEs.</p>
+					<p>That would give Case Managers a controlled environment to practice identifying and following up on credibility concerns &mdash; a harder, more advanced skill than the current version teaches.</p>
+					<p>I also looked into automated scoring and coaching, and deliberately chose not to build it. Interview quality here is nuanced enough that automated feedback wasn't reliable for the training goals we had. The chatbot stayed focused on what it did well &mdash; realistic role-play &mdash; and left evaluation where it belonged, with trainers and SMEs.</p>
 				</div>
 			</div>
 			<div class="vspace3em"></div>
