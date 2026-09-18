@@ -299,6 +299,11 @@ h3.case-subheading {
 .case-meta dd {
 	margin: 0;
 }
+.case-content img {
+	display: block;
+	margin-top: 3.5rem;
+	margin-bottom: 3.5rem;
+}
 .case-closing {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 400;
@@ -309,6 +314,18 @@ h3.case-subheading {
 	font-size: 0.92rem;
 	background-color: #ffffff;
 	margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+	.case-content .table-responsive {
+		width: max-content;
+		max-width: min(90vw, 64rem);
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+	.case-content .table-responsive .case-table {
+		width: max-content;
+		min-width: 100%;
+	}
 }
 .case-table th {
 	font-family: 'Josefin Sans', sans-serif;
