@@ -327,14 +327,14 @@
 				<div class="vspace2em col-12"></div>
 				<div class="resume-subheading">Skills</div>
 				<p class="sr-only">Skills: Usability Testing, Section 508, High-Fidelity Prototyping, Stakeholder Workshops, Backlog Management, Rapid Prototyping, Writing, Complex Requirements, and more.</p>
-				<div class="write-cycle" aria-hidden="true" data-stop-at-end="true" data-words='["Usability Testing","Section 508","High-Fidelity Prototyping","Stakeholder Workshops","Backlog Management","Rapid Prototyping","Writing","Complex Requirements","...too many to count"]'>
-					<span class="write-cycle-text"></span><span class="write-cycle-cursor"></span>
+				<div class="write-cycle" aria-hidden="true" data-words='["Usability Testing","Section 508","High-Fidelity Prototyping","Stakeholder Workshops","Backlog Management","Rapid Prototyping","Writing","Complex Requirements"]'>
+					<span class="write-cycle-text"></span>
 				</div>
 				<div class="vspace2em col-12"></div>
 				<div class="resume-subheading">Tools</div>
 				<p class="sr-only">Tools: Figma, Claude Code, ChatGPT, Gemini, Jira, Confluence, HTML/CSS, Axure, Adobe Creative Suite.</p>
 				<div class="write-cycle" aria-hidden="true" data-words='["Figma","Claude Code","ChatGPT","Gemini","Jira","Confluence","HTML/CSS","Axure","Adobe Creative Suite"]'>
-					<span class="write-cycle-text"></span><span class="write-cycle-cursor"></span>
+					<span class="write-cycle-text"></span>
 				</div>
 				<div class="vspace2em col-12"></div>
 				<div class="resume-subheading">Certifications</div>
@@ -386,6 +386,8 @@
             var PAUSE_TIME = 350;
             var STATIC_HOLD = 1600;
 
+            var FINAL_WORD = '...too many to list';
+
             function runCycle(el, onComplete) {
                 var words;
                 try {
@@ -399,46 +401,80 @@
                     if (onComplete) onComplete();
                     return;
                 }
-                var stopAtEnd = el.getAttribute('data-stop-at-end') === 'true';
-                var i = 0;
+                var cursorHTML = '<span class="write-cycle-cursor"></span>';
 
-                function step(word, idx, dir, cb) {
-                    textEl.textContent = word.slice(0, idx);
-                    if (dir === 1 && idx < word.length) {
-                        setTimeout(function () { step(word, idx + 1, dir, cb); }, TYPE_SPEED);
-                    } else if (dir === -1 && idx > 0) {
-                        setTimeout(function () { step(word, idx - 1, dir, cb); }, ERASE_SPEED);
-                    } else {
-                        cb();
-                    }
+                function render(lines) {
+                    textEl.innerHTML = lines.join('<br>') + cursorHTML;
                 }
 
-                function loop() {
-                    var isLastWord = i === words.length - 1;
-                    var word = words[i % words.length];
-                    i++;
-                    if (reduced) {
-                        textEl.textContent = word;
-                        if (stopAtEnd && isLastWord) {
-                            if (onComplete) onComplete();
-                            return;
+                if (reduced) {
+                    render(words);
+                    setTimeout(function () {
+                        render([FINAL_WORD]);
+                        if (onComplete) onComplete();
+                    }, STATIC_HOLD);
+                    return;
+                }
+
+                function typeWord(idx, cb) {
+                    var word = words[idx];
+                    var priorLines = words.slice(0, idx);
+                    var charIdx = 0;
+                    (function step() {
+                        render(priorLines.concat([word.slice(0, charIdx)]));
+                        if (charIdx < word.length) {
+                            charIdx++;
+                            setTimeout(step, TYPE_SPEED);
+                        } else {
+                            cb();
                         }
-                        setTimeout(loop, STATIC_HOLD);
+                    })();
+                }
+
+                function typeAll(idx) {
+                    if (idx >= words.length) {
+                        setTimeout(collapseToFinal, HOLD_TIME);
                         return;
                     }
-                    step(word, 0, 1, function () {
-                        if (stopAtEnd && isLastWord) {
-                            if (onComplete) onComplete();
-                            return;
-                        }
-                        setTimeout(function () {
-                            step(word, word.length, -1, function () {
-                                setTimeout(loop, PAUSE_TIME);
-                            });
-                        }, HOLD_TIME);
+                    typeWord(idx, function () {
+                        setTimeout(function () { typeAll(idx + 1); }, PAUSE_TIME);
                     });
                 }
-                loop();
+
+                function eraseWord(idx, cb) {
+                    if (idx < 0) { cb(); return; }
+                    var word = words[idx];
+                    var priorLines = words.slice(0, idx);
+                    var charIdx = word.length;
+                    (function step() {
+                        render(priorLines.concat(charIdx > 0 ? [word.slice(0, charIdx)] : []));
+                        if (charIdx > 0) {
+                            charIdx--;
+                            setTimeout(step, ERASE_SPEED);
+                        } else {
+                            eraseWord(idx - 1, cb);
+                        }
+                    })();
+                }
+
+                function typeFinal() {
+                    var charIdx = 0;
+                    (function step() {
+                        render([FINAL_WORD.slice(0, charIdx)]);
+                        if (charIdx < FINAL_WORD.length) {
+                            charIdx++;
+                            setTimeout(step, TYPE_SPEED);
+                        } else if (onComplete) {
+                            onComplete();
+                        }
+                    })();
+                }
+
+                function collapseToFinal() {
+                    eraseWord(words.length - 1, typeFinal);
+                }
+
+                typeAll(0);
             }
 
             var cycleEls = Array.prototype.slice.call(document.querySelectorAll('.write-cycle'));
