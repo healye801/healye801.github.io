@@ -181,24 +181,16 @@
 				<div class="case-label"></div>
 				<div class="case-content">
 					<h3 class="case-subheading">Conversation Flow</h3>
-					<div class="conversation-flow">
-						<p>Case Manager selects scenario and difficulty</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Case Manager asks an interview question</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>System identifies the question intent</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>System retrieves relevant scenario facts</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Difficulty and vagueness rules are applied</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Dialogue state checks what has already been revealed</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Applicant response is generated</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Response is validated against behavior constraints</p>
-						<div class="conversation-flow-arrow" aria-hidden="true">&darr;</div>
-						<p>Applicant response appears with clear turn-taking UI</p>
+					<div class="conversation-flow-mockup">
+						<div class="conversation-flow-step"><span class="flow-step-number">1</span><p>Case Manager selects scenario and difficulty</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">2</span><p>Case Manager asks an interview question</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">3</span><p>System identifies the question intent</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">4</span><p>System retrieves relevant scenario facts</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">5</span><p>Difficulty and vagueness rules are applied</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">6</span><p>Dialogue state checks what has already been revealed</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">7</span><p>Applicant response is generated</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">8</span><p>Response is validated against behavior constraints</p></div>
+						<div class="conversation-flow-step"><span class="flow-step-number">9</span><p>Applicant response appears with clear turn-taking UI</p></div>
 					</div>
 					<p>All of that runs behind a conversation window that looks and feels like a normal chat interface &mdash; a Case Manager asks a question, the applicant answers in character, and the exchange builds into a full interview transcript.</p>
 					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/conversation-example.png" alt="Screenshot of the interview simulator mid-conversation, with an applicant's short answers above and a new question typed into the input box, ready to send.">
@@ -593,11 +585,10 @@
 						<li>A disabled submit button while the bot was responding</li>
 						<li>A blocked input state during response generation</li>
 					</ul>
-					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/response-loading.png" alt="Screenshot showing the input field and submit button disabled while the applicant's response is generating.">
-					<p>The typing indicator appeared after every user message, using the same short animation each time:</p>
+					<p>Together, the flow looked like this: the Case Manager asks a question, the submit button and input lock while the typing indicator plays, and the answer appears with the input reset and ready for the next question.</p>
+					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/turn-taking.gif" alt="Animated sequence showing a question submitted, the input locking with a typing indicator while the response generates, and the completed answer appearing with the input reset.">
+					<p>The typing indicator itself used a short bouncing-dot animation:</p>
 					<div class="typing-indicator" role="img" aria-label="Animated typing indicator dots shown while the simulated applicant's response is generating."><span></span><span></span><span></span></div>
-					<p>Once the response was ready, the answer appeared and the input reset, cueing the Case Manager that it was their turn again.</p>
-					<img class="img-responsive rounded-lg drop-shadow mx-auto d-block" style="max-width: 18rem; width: 100%;" src="Images/ai-interview-simulator/response-complete.png" alt="Screenshot showing the applicant's completed response and the input field reset, ready for the next question.">
 					<p>Small as it sounds, this made the simulated applicant feel less like a search box and more like someone actually sitting across the table.</p>
 				</div>
 			</div>
