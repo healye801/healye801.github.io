@@ -472,6 +472,13 @@
             var projects = document.querySelectorAll('[data-categories]');
             var filterBar = document.querySelector('.filter-bar');
 
+            var visibleProjectCount = Array.prototype.reduce.call(projectEls, function (count, el) {
+                return count + (el.classList.contains('hidden-project') ? 0 : 1);
+            }, 0);
+            if (filterBar) {
+                filterBar.style.display = visibleProjectCount >= 3 ? '' : 'none';
+            }
+
             var visibleCategories = new Set();
             projects.forEach(function (project) {
                 if (project.classList.contains('hidden-project')) return;
