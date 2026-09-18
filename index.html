@@ -200,7 +200,7 @@
 		<div class="col-12 vspace3em"></div>
 	</div>
 	<!--training team - hidden from home page-->
-	<div class="mx-4" data-project="Training-Team" data-categories="strategy,research,ux">
+	<div class="mx-4" data-project="Training-Team" data-categories="strategy,research">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="Training-Team.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/training-team-thumbnail.png" alt="A learning management system interface"></a>
 			<div class="project-text-inner">
@@ -213,13 +213,12 @@
 				<div class="tag-list">
 					<button type="button" class="tag-pill" data-filter="strategy">Strategy</button>
 					<button type="button" class="tag-pill" data-filter="research">Research</button>
-					<button type="button" class="tag-pill" data-filter="ux">UX</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!--pdf management - OPTION B: larger square thumbnail left of centered text - hidden from home page-->
-	<div class="mx-4" data-project="PDF-Management-App" data-categories="ux,research,usability-testing,ai-tools">
+	<div class="mx-4" data-project="PDF-Management-App" data-categories="research,usability-testing,ai-tools">
 		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
 			<a href="PDF-Management-App.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/pdf-management-thumbnail.png" alt="A PDF Editor interface"></a>
 			<div class="project-text-inner">
@@ -230,7 +229,6 @@
 				<div class="vspacehalfem"></div>
 				<p class="whitetext">Led a cross-functional team to redesign a complex enterprise application. Designed new AI tagging tools, improved naviation, and conducted comprehensive user research and testing.</p>
 				<div class="tag-list">
-					<button type="button" class="tag-pill" data-filter="ux">UX</button>
 					<button type="button" class="tag-pill" data-filter="research">Research</button>
 					<button type="button" class="tag-pill" data-filter="usability-testing">Usability Testing</button>
 					<button type="button" class="tag-pill" data-filter="ai-tools">AI Tools</button>
@@ -473,6 +471,13 @@
             var tagPills = document.querySelectorAll('.tag-pill');
             var projects = document.querySelectorAll('[data-categories]');
             var filterBar = document.querySelector('.filter-bar');
+
+            var visibleProjectCount = Array.prototype.reduce.call(projectEls, function (count, el) {
+                return count + (el.classList.contains('hidden-project') ? 0 : 1);
+            }, 0);
+            if (filterBar) {
+                filterBar.style.display = visibleProjectCount >= 3 ? '' : 'none';
+            }
 
             var visibleCategories = new Set();
             projects.forEach(function (project) {
