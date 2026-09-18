@@ -577,6 +577,9 @@ h3.case-subheading {
 	width: 2px;
 	background-color: rgba(183, 230, 225, 0.4);
 }
+.hidden-project {
+	display: none !important;
+}
 .filter-bar {
 	display: flex;
 	flex-wrap: wrap;
