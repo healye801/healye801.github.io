@@ -40,7 +40,7 @@
 	  <li class="nav-item">
 			<a class="nav-link px-3" href="#results">Results</a>
 		  </li>
-		  <li class="nav-item" style="display: none !important;">
+		  <li class="nav-item" id="projects-nav-item" style="display: none !important;">
 			<a class="nav-link px-3" href="#work">Projects</a>
 		  </li>
 		  <li class="nav-item">
@@ -68,7 +68,7 @@
 		</div>
 		<div class="col-xl-3 col-lg-2 col-sm-1 col-xs-1"></div>
 		<div class="col-12 vspace1em"></div>
-    	<div class="text-col" data-aos="fade-up" data-aos-once="true">
+    	<div class="text-col text-center" data-aos="fade-up" data-aos-once="true">
 			<div class="midlight orangetext">
 				<p>Senior Product Designer at Alpha Omega</p>
 			</div>
@@ -121,7 +121,7 @@
 		<div class="col-12 vspace6em"></div>
 	</div>
 	<!--projects section-->
-	<div>
+	<div id="projects-section">
 	<!--design heading-->
 	<div class="row mx-4" id="work">
 		<div class="text-col" data-aos="fade-up" data-aos-once="true">
@@ -452,9 +452,22 @@
     <script>
         (function () {
             var hiddenProjects = window.HIDDEN_PROJECTS || [];
-            document.querySelectorAll('[data-project]').forEach(function (el) {
+            var projectEls = document.querySelectorAll('[data-project]');
+            projectEls.forEach(function (el) {
                 el.classList.toggle('hidden-project', hiddenProjects.indexOf(el.getAttribute('data-project')) !== -1);
             });
+
+            var anyProjectVisible = Array.prototype.some.call(projectEls, function (el) {
+                return !el.classList.contains('hidden-project');
+            });
+            var projectsSection = document.getElementById('projects-section');
+            var projectsNavItem = document.getElementById('projects-nav-item');
+            if (projectsSection) {
+                projectsSection.style.display = anyProjectVisible ? '' : 'none';
+            }
+            if (projectsNavItem) {
+                projectsNavItem.style.display = anyProjectVisible ? '' : 'none';
+            }
 
             var filterButtons = document.querySelectorAll('.filter-btn');
             var tagPills = document.querySelectorAll('.tag-pill');
