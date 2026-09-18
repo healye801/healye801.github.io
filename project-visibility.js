@@ -4,7 +4,6 @@
 // on other case study pages.
 window.HIDDEN_PROJECTS = [
 	"Training-Team",
-	"PDF-Management-App",
 	"Invesco-Cloud-Dashboard",
 	"Walmart-Celebrity-Shopping-Carts"
 ];
