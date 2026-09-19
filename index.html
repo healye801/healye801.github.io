@@ -326,14 +326,14 @@
 				</div>
 				<div class="vspace2em col-12"></div>
 				<div class="resume-subheading">Skills</div>
-				<p class="sr-only">Skills: Usability Testing, Section 508, High-Fidelity Prototyping, Stakeholder Workshops, Backlog Management, Rapid Prototyping, Writing, Complex Requirements, and more.</p>
-				<div class="write-cycle" aria-hidden="true" data-words='["Usability Testing","Section 508","High-Fidelity Prototyping","Stakeholder Workshops","Backlog Management","Rapid Prototyping","Writing","Complex Requirements"]'>
+				<p class="sr-only">Skills: Usability Testing, Section 508, High-Fidelity Prototyping, Defining Complex Requirements, Facilitating Stakeholder Workshops, Backlog Management, Writing, Communication, and more.</p>
+				<div class="write-cycle" aria-hidden="true" data-final-word="...too many to list :)" data-words='["Usability Testing, Section 508, High-Fidelity Prototyping, Defining Complex Requirements, Facilitating Stakeholder Workshops, Backlog Management, Writing, Communication"]'>
 					<span class="write-cycle-text"></span>
 				</div>
 				<div class="vspace2em col-12"></div>
 				<div class="resume-subheading">Tools</div>
 				<p class="sr-only">Tools: Figma, Claude Code, ChatGPT, Gemini, Jira, Confluence, HTML/CSS, Axure, Adobe Creative Suite.</p>
-				<div class="write-cycle" aria-hidden="true" data-words='["Figma","Claude Code","ChatGPT","Gemini","Jira","Confluence","HTML/CSS","Axure","Adobe Creative Suite"]'>
+				<div class="write-cycle" aria-hidden="true" data-words='["Figma, Claude Code, ChatGPT, Gemini, Jira, Confluence, HTML/CSS, Axure, Adobe Creative Suite"]'>
 					<span class="write-cycle-text"></span>
 				</div>
 				<div class="vspace2em col-12"></div>
@@ -385,6 +385,8 @@
             var HOLD_TIME = 1000;
             var PAUSE_TIME = 350;
             var STATIC_HOLD = 1600;
+            var WORD_TYPE_SPEED = 35;
+            var COMMA_PAUSE = 180;
 
             var FINAL_WORD = '...too many to list';
 
@@ -401,6 +403,7 @@
                     if (onComplete) onComplete();
                     return;
                 }
+                var finalWord = el.getAttribute('data-final-word') || FINAL_WORD;
                 var cursorHTML = '<span class="write-cycle-cursor"></span>';
 
                 function render(lines) {
@@ -410,7 +413,7 @@
                 if (reduced) {
                     render(words);
                     setTimeout(function () {
-                        render([FINAL_WORD]);
+                        render([finalWord]);
                         if (onComplete) onComplete();
                     }, STATIC_HOLD);
                     return;
@@ -423,8 +426,9 @@
                     (function step() {
                         render(priorLines.concat([word.slice(0, charIdx)]));
                         if (charIdx < word.length) {
+                            var lastChar = charIdx > 0 ? word[charIdx - 1] : '';
                             charIdx++;
-                            setTimeout(step, TYPE_SPEED);
+                            setTimeout(step, lastChar === ',' ? COMMA_PAUSE : WORD_TYPE_SPEED);
                         } else {
                             cb();
                         }
@@ -460,14 +464,29 @@
                 function typeFinal() {
                     var charIdx = 0;
                     (function step() {
-                        render([FINAL_WORD.slice(0, charIdx)]);
-                        if (charIdx < FINAL_WORD.length) {
+                        render([finalWord.slice(0, charIdx)]);
+                        if (charIdx < finalWord.length) {
                             charIdx++;
-                            setTimeout(step, TYPE_SPEED);
-                        } else if (onComplete) {
-                            onComplete();
+                            setTimeout(step, WORD_TYPE_SPEED);
+                        } else {
+                            finishCursor();
                         }
                     })();
+                }
+
+                function finishCursor() {
+                    var cursor = textEl.querySelector('.write-cycle-cursor');
+                    if (!cursor || reduced) {
+                        if (cursor) cursor.remove();
+                        if (onComplete) onComplete();
+                        return;
+                    }
+                    cursor.classList.add('write-cycle-cursor-end');
+                    cursor.addEventListener('animationend', function handler() {
+                        cursor.removeEventListener('animationend', handler);
+                        cursor.remove();
+                        if (onComplete) onComplete();
+                    });
                 }
 
                 function collapseToFinal() {
