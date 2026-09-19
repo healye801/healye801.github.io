@@ -135,7 +135,8 @@ h7 {
 	letter-spacing: 0.03em;
 }
 .navbar-brand {
-    font-family: "Rock 3D", cursive;
+    /* TEMP: Rock 3D swapped for Josefin Sans site-wide */
+    font-family: "Josefin Sans", sans-serif;
 	font-weight: 400;
 	font-style: normal;
     font-size: 1.7rem;
@@ -869,7 +870,8 @@ footer {
 }
 .footerhighlight p {
 	font-size: 1.4rem;
-	font-family: "Rock 3D", cursive;
+	/* TEMP: Rock 3D swapped for Josefin Sans site-wide */
+	font-family: "Josefin Sans", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	text-transform: uppercase;
