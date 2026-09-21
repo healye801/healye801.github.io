@@ -235,6 +235,10 @@ div.vspace8em {
     clear: both;
     height: 8em;
 }
+div.vspace12em {
+    clear: both;
+    height: 12em;
+}
 .content-wrap {
 	max-width: 87.5rem;
 	margin-left: auto;

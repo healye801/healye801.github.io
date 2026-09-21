@@ -1,0 +1,1 @@
+this file verifies my request to exclude emmaghealy.com from the Wayback Machine
