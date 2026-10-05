@@ -675,19 +675,6 @@ h3.case-subheading {
 		display: none;
 	}
 }
-.accent-bar {
-	position: relative;
-	padding-left: 2.75rem;
-}
-.accent-bar::before {
-	content: "";
-	position: absolute;
-	top: 0.25em;
-	bottom: 0.25em;
-	left: 0;
-	width: 2px;
-	background-color: rgba(183, 230, 225, 0.4);
-}
 .hidden-project {
 	display: none !important;
 }
