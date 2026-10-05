@@ -23,13 +23,13 @@ p, body {
 	top: 0;
 }
 h1, h2 {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
 	font-weight: 600;
 	font-style: normal;
 	letter-spacing: -0.01em;
 }
 h3, h4, h5, h6, {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -42,11 +42,12 @@ h1 {
 	line-height: 1.15;
 }
 h1.rock-heading {
-	font-family: "Rock 3D", cursive;
+	font-family: "Nunito", sans-serif;
 	font-weight: 400;
-	font-size: clamp(2.6rem, 2rem + 3vw, 4.8rem);
+	/* Matches the hero wordmark's (.ornamentation p) size exactly. */
+	font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
 	text-transform: uppercase;
-	text-align: center;
+	text-align: left;
 	/*color: #fa935c;*/
 	color: #fa935c;
 }
@@ -76,9 +77,10 @@ h7 {
 	font-family: "Rock 3D", cursive;
 	font-weight: 400;
 	font-style: normal;
-	font-size: clamp(3.5rem, 2.8rem + 3.3vw, 5rem);
+	font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
 	text-transform: uppercase;
 	white-space: nowrap;
+	text-align: left;
 }
 @media (max-width: 767.98px) {
 	.ornamentation p {
@@ -107,7 +109,7 @@ h7 {
 	text-align: center;
 }
 .highlight p {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-style: italic;
 	font-size: 1.35rem;
@@ -136,7 +138,7 @@ h7 {
 }
 .navbar-brand {
     /* TEMP: Rock 3D swapped for Josefin Sans site-wide */
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
 	font-weight: 400;
 	font-style: normal;
     font-size: 1.7rem;
@@ -151,7 +153,7 @@ h7 {
 	pointer-events: none;
 }
 .navbar-text {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-size: 1.2rem;
 	color: #ffffff !important;
@@ -249,6 +251,13 @@ div.vspace12em {
 	max-width: 38rem;
 	margin-left: auto;
 	margin-right: auto;
+}
+/* Left-aligns the TEXT inside the hero intro's .text-col (it was
+   center-aligned text before) without touching .text-col's own
+   centering margins -- the block itself should stay centered on the
+   page, same as every other section (Results, Experience, About). */
+.text-col.hero-align-left {
+	text-align: left;
 }
 .case-section {
 	width: 100%;
@@ -504,13 +513,22 @@ h3.case-subheading {
 .exp-row {
 	display: flex;
 	justify-content: space-between;
-	align-items: baseline;
-	flex-wrap: wrap;
+	/* flex-start (not baseline/wrap) -- role text can run to 2 lines
+	   (e.g. the Education entry) and the date should stay pinned to
+	   its top-right on the same row, rather than wrapping onto its
+	   own line below. */
+	align-items: flex-start;
 	gap: 0.35rem 1.5rem;
 }
 .exp-row .role {
 	font-weight: 600;
 	font-size: 1.1rem;
+	/* Lets this wrap within its own space instead of forcing .exp-dates
+	   off the row -- min-width: 0 overrides a flex item's default
+	   content-based minimum width, which would otherwise refuse to
+	   shrink below the text's unwrapped length. */
+	flex: 1 1 auto;
+	min-width: 0;
 }
 .exp-dates {
 	font-family: 'Josefin Sans', sans-serif;
@@ -518,6 +536,7 @@ h3.case-subheading {
 	font-size: 0.9rem;
 	color: rgba(255, 255, 255, 0.75);
 	white-space: nowrap;
+	flex-shrink: 0;
 }
 .resume-subheading {
 	font-family: 'Josefin Sans', sans-serif;
@@ -676,6 +695,14 @@ h3.case-subheading {
 	}
 }
 .hidden-project {
+	display: none !important;
+}
+/* Belt-and-suspenders for the [hidden] attribute on #projects-nav-item
+   and #projects-section -- project-visibility.js clears their inline
+   style.display on load, which would otherwise race against the
+   plain [hidden] default depending on what Bootstrap's own rules set. */
+#projects-nav-item[hidden],
+#projects-section[hidden] {
 	display: none !important;
 }
 .filter-bar {
@@ -853,7 +880,7 @@ footer {
     text-align: center;
 	background-color: #0a2243;
 	color: #FFFFFF;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
 .footertext p {
@@ -863,7 +890,7 @@ footer {
 .footerhighlight p {
 	font-size: 1.4rem;
 	/* TEMP: Rock 3D swapped for Josefin Sans site-wide */
-	font-family: "Josefin Sans", sans-serif;
+	font-family: "Nunito", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	text-transform: uppercase;
