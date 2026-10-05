@@ -10,7 +10,7 @@ p, body {
 	top: -60px;
 	left: 0;
 	z-index: 10000;
-	background-color: #fa935c;
+	background-color: #56efbd;
 	color: #0a2243;
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
@@ -49,7 +49,7 @@ h1.rock-heading {
 	text-transform: uppercase;
 	text-align: left;
 	/*color: #fa935c;*/
-	color: #fa935c;
+	color: #56efbd;
 }
 h2 {
 	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
@@ -124,7 +124,7 @@ h7 {
 	line-height: 1;
 }
 .midlight p {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Source Sans 3', sans-serif;
     font-weight: 400;
     font-style: normal;
 	font-size: 1.15rem;
@@ -531,7 +531,7 @@ h3.case-subheading {
 	min-width: 0;
 }
 .exp-dates {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Source Sans 3', sans-serif;
 	font-weight: 400;
 	font-size: 0.9rem;
 	color: rgba(255, 255, 255, 0.75);
@@ -632,7 +632,7 @@ h3.case-subheading {
 .results-stats-unit {
 	font-weight: 1000;
 	font-size: 1.5rem;
-	color: #fa935c;
+	color: #56efbd;
 	margin-left: 0.2rem;
 }
 .results-stats-desc {
@@ -687,7 +687,7 @@ h3.case-subheading {
 	font-family: "Rock 3D", cursive;
 	font-size: 2.75rem;
 	line-height: 1;
-	color: #fa935c;
+	color: #56efbd;
 }
 @media (max-width: 767.98px) {
 	.project-asterisk {
@@ -905,10 +905,10 @@ footer {
 	color:#0a2243;
 }
 #orangetext{
-	color: #fa935c;
+	color: #56efbd;
 }
 .orangetext {
-	color: #fa935c;
+	color: #56efbd;
 }
 #creamtext{
 	color: #FFFAF0;
@@ -985,7 +985,7 @@ a:hover {
 	font-weight: 400;
 	font-size: 1.6rem;
 	text-transform: uppercase;
-	color: #fa935c;
+	color: #56efbd;
 	margin-bottom: 0.75rem;
 }
 .gate-subtext {
@@ -1007,14 +1007,14 @@ a:hover {
 	transition: border-color 150ms ease;
 }
 .gate-input:focus {
-	border-color: #fa935c;
-	box-shadow: 0 0 0 3px rgba(250, 147, 92, 0.4);
+	border-color: #56efbd;
+	box-shadow: 0 0 0 3px rgba(92, 250, 216, 0.4);
 }
 .gate-error {
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 0.85rem;
 	font-weight: 600;
-	color: #fa935c;
+	color: #56efbd;
 	margin-top: 0.75rem;
 	text-align: left;
 }
@@ -1032,7 +1032,7 @@ a:hover {
 	text-decoration: underline;
 }
 .gate-cancel:hover {
-	color: #fa935c;
+	color: #56efbd;
 }
 .gate-submit {
 	font-family: "Josefin Sans", sans-serif;
@@ -1047,8 +1047,8 @@ a:hover {
 	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
 }
 .gate-submit:hover {
-	border-color: #fa935c;
-	color: #fa935c;
+	border-color: #56efbd;
+	color: #56efbd;
 }
 .gate-denied {
 	position: fixed;
@@ -1064,7 +1064,7 @@ a:hover {
 .gate-denied h1 {
 	font-family: "Rock 3D", cursive;
 	text-transform: uppercase;
-	color: #fa935c;
+	color: #56efbd;
 	font-size: 2rem;
 	margin-bottom: 1rem;
 }
