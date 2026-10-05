@@ -23,13 +23,13 @@ p, body {
 	top: 0;
 }
 h1, h2 {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
 	font-weight: 600;
 	font-style: normal;
 	letter-spacing: -0.01em;
 }
 h3, h4, h5, h6, {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -42,7 +42,7 @@ h1 {
 	line-height: 1.15;
 }
 h1.rock-heading {
-	font-family: "Rock 3D", cursive;
+	font-family: "Nunito", sans-serif;
 	font-weight: 400;
 	/* Matches the hero wordmark's (.ornamentation p) size exactly. */
 	font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
@@ -109,7 +109,7 @@ h7 {
 	text-align: center;
 }
 .highlight p {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-style: italic;
 	font-size: 1.35rem;
@@ -138,7 +138,7 @@ h7 {
 }
 .navbar-brand {
     /* TEMP: Rock 3D swapped for Josefin Sans site-wide */
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Nunito", sans-serif;
 	font-weight: 400;
 	font-style: normal;
     font-size: 1.7rem;
@@ -153,7 +153,7 @@ h7 {
 	pointer-events: none;
 }
 .navbar-text {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-size: 1.2rem;
 	color: #ffffff !important;
@@ -880,7 +880,7 @@ footer {
     text-align: center;
 	background-color: #0a2243;
 	color: #FFFFFF;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
 .footertext p {
@@ -890,7 +890,7 @@ footer {
 .footerhighlight p {
 	font-size: 1.4rem;
 	/* TEMP: Rock 3D swapped for Josefin Sans site-wide */
-	font-family: "Josefin Sans", sans-serif;
+	font-family: "Nunito", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	text-transform: uppercase;
