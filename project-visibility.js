@@ -3,6 +3,8 @@
 // unhide/hide it everywhere it's referenced, including "next story" links
 // on other case study pages.
 window.HIDDEN_PROJECTS = [
+	"AI-Interview-Simulator",
+	"Training-Team",
 	"Invesco-Cloud-Dashboard",
 	"Walmart-Celebrity-Shopping-Carts"
 ];
