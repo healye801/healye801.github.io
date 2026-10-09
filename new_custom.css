@@ -748,7 +748,7 @@ h3.case-subheading {
 		grid-template-columns: 1fr;
 		row-gap: 1.5rem;
 		justify-items: center;
-		text-align: center;
+		text-align: left;
 	}
 	.project-compact .thumb-link,
 	.project-compact .project-text-inner {
