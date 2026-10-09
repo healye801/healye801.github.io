@@ -6,5 +6,6 @@ window.HIDDEN_PROJECTS = [
 	"AI-Interview-Simulator",
 	"Training-Team",
 	"Invesco-Cloud-Dashboard",
-	"Walmart-Celebrity-Shopping-Carts"
+	"Walmart-Celebrity-Shopping-Carts",
+	"PDF-Management-App"
 ];
