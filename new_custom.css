@@ -581,9 +581,9 @@ h3.case-subheading {
 }
 .hero-wordmark-cursor {
 	display: inline-block;
-	width: 0.04em;
-	height: 0.75em;
-	margin-left: 0.03em;
+	width: 0.08em;
+	height: 0.9em;
+	margin-left: 0.08em;
 	background-color: currentColor;
 	vertical-align: middle;
 	animation: write-cycle-blink 0.85s steps(1) infinite;
