@@ -61,13 +61,16 @@
 		<div class="col-12 vspace8em"></div>
 	</div>
 	<!--intro text-->
-	<div class="row mx-4 whitetext">
-		<div class="col-12 vspace3em"></div>
-		<div class="text-col hero-align-left ornamentation" data-aos="fade-up" data-aos-once="true">
+	<div class="col-12 vspace3em"></div>
+	<!-- Not wrapped in .row (Bootstrap's row is display:flex, which
+	     breaks the full-bleed negative-margin trick .hero-container
+	     relies on) -- a plain block sibling of .content-wrap's other
+	     .row children instead. -->
+	<div class="hero-container whitetext" data-aos="fade-up" data-aos-once="true">
+		<div class="hero-container-name ornamentation">
 			<p><span id="hero-wordmark-text">emma healy</span><span class="hero-wordmark-cursor" aria-hidden="true"></span></p>
 		</div>
-		<div class="col-12 vspacehalfem"></div>
-    	<div class="text-col hero-align-left" data-aos="fade-up" data-aos-once="true">
+		<div class="hero-container-meta">
 			<div class="midlight orangetext">
 				<p>UX Conversational Designer at Nationwide</p>
 			</div>
@@ -77,6 +80,31 @@
 			</p>
 		</div>
 	</div>
+	<div class="hero-divider" role="separator"></div>
+	<!--specimen-style filler info strip, storiedcolors "Plate No. 018" row-->
+	<div class="meta-strip">
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Field 01</span>
+			<span class="meta-strip-value">Lorem ipsum</span>
+		</div>
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Field 02</span>
+			<span class="meta-strip-value">Dolor sit amet</span>
+		</div>
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Field 03</span>
+			<span class="meta-strip-value">Consectetur</span>
+		</div>
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Field 04</span>
+			<span class="meta-strip-value">Adipiscing elit</span>
+		</div>
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Field 05</span>
+			<span class="meta-strip-value">Sed do eiusmod</span>
+		</div>
+	</div>
+	<div class="hero-divider" role="separator"></div>
 	<!--white space-->
 	<div class="row mx-4">
 		<div class="col-12 vspace6em"></div>
@@ -119,15 +147,15 @@
 	<!--projects section-->
 	<div id="projects-section">
 	<!--design heading-->
-	<div class="row mx-4" id="work">
-		<div class="text-col" data-aos="fade-up" data-aos-once="true">
-			<h1 class="rock-heading">Projects</h1>
-			<div class="col-12 vspace1em"></div>
+	<div class="three-col-grid" id="work">
+		<h1 class="section-label">Projects</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
 			<div class="project-intro">
 				<span class="project-asterisk" aria-hidden="true">*</span>
 				<p class="whitetext">Much of my recent work is confidential, so feel free to reach out if you'd like to hear more about it.</p>
 			</div>
 		</div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
 	</div>
 	<!--white space-->
 	<div class="row mx-4">
@@ -192,11 +220,14 @@
 		<div class="col-12 vspace8em"></div>
 	</div>
 	</div>
+	<div class="hero-divider" role="separator"></div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
 	<!--experience-->
-	<div class="row mx-4" id="experience">
-		<div class="text-col" data-aos="fade-up" data-aos-once="true">
-			<h1 class="rock-heading">Experience</h1>
-			<div class="col-12 vspace2em"></div>
+	<div class="three-col-grid" id="experience">
+		<h1 class="section-label">Experience</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
 			<div>
 				<div class="resume-subheading">Experience</div>
 				<div class="exp-row">
@@ -240,13 +271,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-12 vspace6em"></div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
+	</div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
+	<div class="hero-divider" role="separator"></div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
 	</div>
 	<!--about-->
-	<div class="row mx-4" id="about">
-		<div class="text-col" data-aos="fade-up" data-aos-once="true">
-			<h1 class="rock-heading">About</h1>
-			<div class="col-12 vspace2em"></div>
+	<div class="three-col-grid" id="about">
+		<h1 class="section-label">About</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
 			<div>
 	            <p class="whitetext">I'm a Senior Product Designer based in the New York metro. I'm a certified Section 508 expert, experienced in QA testing and training teams to create accessible products.</p>
 				<div class="vspace1em col-12"></div>
@@ -255,6 +292,9 @@
 				<p class="whitetext">That's me! Thanks for stopping by.</p>
 			</div>
 		</div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
+	</div>
+	<div class="row mx-4">
 		<div class="col-12 vspace8em"></div>
 	</div>
     <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->

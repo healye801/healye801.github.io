@@ -1,9 +1,48 @@
+:root {
+	/*
+	 * Tonal text scale for dark (navy) sections -- same hue family as
+	 * the navy background (#0a2243) and teal accent (#56efbd), a blend
+	 * at hue ~184deg, rather than achromatic white-at-reduced-opacity.
+	 * Each step's lightness was solved to match the exact WCAG contrast
+	 * ratio of the rgba(255,255,255,X) value it replaces, against
+	 * #0a2243, so legibility doesn't regress -- only the hue changes,
+	 * from gray to a muted slate-teal consistent with the brand pair.
+	 */
+	/* For the biggest, brightest text (hero wordmark, stat numbers) --
+	   a clearly pale aqua-mint rather than white, so even the brightest
+	   text on this page belongs to the teal-navy family instead of
+	   being a neutral escape hatch from it. Still 11.55:1 on navy
+	   (comfortably above white's own 15.88:1), so it reads as "bright"
+	   on large bold type, just visibly tinted rather than neutral. */
+	--tone-0: #bce3e6;
+	/* Primary body copy on dark sections (.whitetext) -- sits between
+	   --tone-0 (reserved for the logo/wordmark/stat numbers) and
+	   --tone-1 (secondary metadata like .exp-dates), preserving the
+	   original brightness hierarchy between full-emphasis text and
+	   dimmer detail text, just shifted from plain white into the same
+	   tonal family. Slightly less saturated than --tone-0 since it's
+	   read continuously across paragraphs, not just a few bold words. */
+	--tone-body: #b6d7da;
+	--tone-1: #a9ced1; /* was rgba(255,255,255,0.75) -- 9.40:1 on navy */
+	--tone-2: #97c4c7; /* was rgba(255,255,255,0.70) -- 8.35:1 on navy */
+	--tone-3: #74b0b4; /* was rgba(255,255,255,0.60) -- 6.49:1 on navy */
+	--tone-4: #62a5aa; /* was rgba(255,255,255,0.55) -- 5.68:1 on navy */
+	--tone-5: #569a9f; /* was rgba(255,255,255,0.50) -- 4.93:1 on navy */
+}
 p, body {
 	font-family: "Source Sans 3", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
 	line-height: 1.6;
+}
+/* Guards against the 100vw full-bleed trick used by .hero-container
+   below (100vw includes the scrollbar gutter on non-overlay-scrollbar
+   browsers, e.g. Windows Chrome, which can otherwise introduce a 1px
+   -ish horizontal scrollbar). No sticky-positioned elements on this
+   page, so overflow-x on body itself is safe here. */
+body {
+	overflow-x: hidden;
 }
 .skip-link {
 	position: absolute;
@@ -44,8 +83,13 @@ h1 {
 h1.rock-heading {
 	font-family: "Nunito", sans-serif;
 	font-weight: 1000;
-	/* Matches the hero wordmark's (.ornamentation p) size exactly. */
-	font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
+	/* Sized up from the previous 2-2.75rem clamp to widen the gap
+	   against the shrunk subheader labels below (.resume-subheading,
+	   .results-stats-label) -- bigger headers, smaller labels, same
+	   contrast move as storiedcolors.com's big-title/tiny-caption
+	   pairing. No longer tied to the hero wordmark's size (.ornamentation
+	   p), which is now roughly double this, Bistre-title-scale. */
+	font-size: clamp(2.25rem, 1.7rem + 3vw, 3.5rem);
 	text-transform: uppercase;
 	text-align: left;
 	/*color: #fa935c;*/
@@ -77,10 +121,16 @@ h7 {
 	font-family: "Nunito", sans-serif;
 	font-weight: 1000;
 	font-style: normal;
-	font-size: clamp(2rem, 1.6rem + 2vw, 2.75rem);
+	/* Roughly double h1.rock-heading's size -- a storiedcolors
+	   "Bistre"-scale display name, no longer kept in sync with the
+	   section headers (which stay at their own, smaller size). */
+	font-size: clamp(4.5rem, 3.4rem + 6vw, 7rem);
 	text-transform: uppercase;
 	white-space: nowrap;
 	text-align: left;
+	/* Overrides the plain white inherited from the .whitetext ancestor
+	   -- tonal instead, same reasoning as --tone-0 above. */
+	color: var(--tone-0);
 }
 @media (max-width: 767.98px) {
 	.ornamentation p {
@@ -123,6 +173,26 @@ h7 {
 	margin: 1.5rem 0 0.25rem 0;
 	line-height: 1;
 }
+/*
+ * A short, standalone emphasized line meant to be interspersed within
+ * running prose -- a third voice between h1.rock-heading (1000 weight,
+ * huge, uppercase) and plain body copy (400 weight, ~1rem), rather
+ * than a bigger/bolder version of either. Italic and teal-accented
+ * (the brand's primary accent, same tonal family as the --tone-* text
+ * scale) so it reads as its own register, not a heavier paragraph.
+ * Inspired by storiedcolors.com's habit of dropping a short declarative
+ * line at a dramatically different scale between blocks of body text.
+ */
+.pull-text {
+	display: block;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 800;
+	font-style: italic;
+	font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+	line-height: 1.25;
+	color: #56efbd;
+	margin: 0 0 0.35rem 0;
+}
 .midlight p {
 	font-family: 'Source Sans 3', sans-serif;
     font-weight: 400;
@@ -142,7 +212,8 @@ h7 {
 	font-weight: 1000;
 	font-style: normal;
     font-size: 1.7rem;
-    color: #ffffff !important;
+    /* Same tonal "logo" tone as the hero wordmark and stat numbers. */
+    color: var(--tone-0) !important;
 	text-decoration: none !important;
 	text-transform: uppercase !important;
 	opacity: 1;
@@ -176,7 +247,16 @@ h7 {
 	text-transform: uppercase !important;
 }
 .navbar-nav .nav-link {
-	color: rgba(255, 255, 255, 0.55) !important;
+	/* Same small-caps "subheader" voice as .results-stats-label
+	   (UMUX-Lite SCORE etc.) instead of the navbar's own plain
+	   sans-serif -- and more generous padding around each item,
+	   storiedcolors-style spacious nav. */
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.85rem;
+	letter-spacing: 0.1em;
+	padding: 0.75rem 1.5rem !important;
+	color: var(--tone-4) !important;
 	transition: color 150ms ease;
 }
 .navbar-nav .nav-item.active .nav-link {
@@ -252,12 +332,194 @@ div.vspace12em {
 	margin-left: auto;
 	margin-right: auto;
 }
-/* Left-aligns the TEXT inside the hero intro's .text-col (it was
-   center-aligned text before) without touching .text-col's own
-   centering margins -- the block itself should stay centered on the
-   page, same as every other section (Results, Experience, About). */
-.text-col.hero-align-left {
-	text-align: left;
+/*
+ * Reusable full-bleed 3-column scaffold -- same outer page margins as
+ * .hero-container/the top nav (left/right insets match where their
+ * own text actually sits, not just their padding boxes), with the
+ * real content living only in the middle column. The middle column's
+ * own width matches .text-col's existing 38rem exactly, and
+ * min(38rem, 100%) + minmax(0, 1fr) gutters degrade gracefully on
+ * narrow screens with no separate breakpoint needed -- the gutters
+ * just shrink to 0 and the middle column becomes 100% of the (full-
+ * bleed) width, the same place .text-col already sat on its own.
+ * Left/right columns are empty placeholders for now.
+ */
+.three-col-grid {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) min(38rem, 100%) minmax(0, 1fr);
+	column-gap: 0;
+}
+.three-col-grid-middle {
+	grid-column: 2;
+}
+/*
+ * Section title as a small marginal label in the (previously empty)
+ * left column -- storiedcolors' "Related Specimens" treatment:
+ * small, label-proportioned, not a big prominent heading. Same
+ * small-caps tonal voice as .resume-subheading/.meta-strip-label
+ * elsewhere on the page, just repositioned into the gutter instead
+ * of sitting inline above the section's content.
+ */
+.section-label {
+	grid-column: 1;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+	margin: 0;
+}
+@media (max-width: 1550px) {
+	.section-label {
+		/* The left/right gutter columns shrink toward 0 width on
+		   narrow screens (see .three-col-grid) -- a label still
+		   pinned to grid-column 1 there would get squeezed into
+		   nothing. Span the full row instead. */
+		grid-column: 1 / -1;
+		margin-bottom: 0.75rem;
+	}
+}
+/*
+ * Hero intro, storiedcolors-style: one bordered, full-width container
+ * (same max-width as .content-wrap, matching the Results grid below
+ * it) with the big name pinned to the top-left and the job title /
+ * specialization / contact links stacked at the top-right -- rather
+ * than the previous centered, stacked .text-col layout.
+ */
+.hero-container {
+	/* Full-bleed: breaks out of every ancestor's centering/max-width
+	   (.content-wrap's 87.5rem cap, the row's own mx-4 margins) to
+	   span almost the full browser viewport instead of just the
+	   content column -- the standard calc(50% - 50vw) full-bleed
+	   trick. Insets match where the nav's own text actually sits, not
+	   just its outer padded box: navbar-brand has zero internal
+	   padding, so its 2rem (16px margin + 16px navbar padding) is the
+	   real text position on the left. The nav-links, by contrast,
+	   have their own 1.5rem internal padding (added earlier for a
+	   bigger click target) on top of the navbar's 1rem, so matching
+	   just that outer 1rem left a 24px gap between the nav's visible
+	   "ABOUT" text and the hero's visible right-aligned text -- the
+	   right inset needs the full 2.5rem to land on the real text
+	   edge, not the invisible padding past it. */
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	/* Generous padding (not a fixed min-height) so the section reads
+	   as tall and spacious, storiedcolors-style, while still growing
+	   naturally with its own content instead of leaving dead space. */
+	padding: clamp(6rem, 4rem + 8vw, 12rem) clamp(2rem, 1rem + 4vw, 5rem);
+	position: relative;
+	/* Flex alignment (align-self/align-items) for "name at the
+	   bottom, meta at the top" turned out fundamentally unreliable:
+	   it only redistributes space on whichever column is SHORTER
+	   than the other, and which one that is flips depending on the
+	   viewport width (meta's paragraph rewraps to a different line
+	   count as the column narrows/widens). Corner-pinning with
+	   absolute positioning is deterministic regardless of either
+	   column's content height -- min-height here is the guaranteed
+	   vertical room between the two pinned corners, generous enough
+	   that they can never collide, and doubles as the "make it even
+	   taller" ask. */
+	min-height: clamp(36rem, 22rem + 22vw, 52rem);
+}
+.hero-container-name {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	/* Offsets for an absolutely positioned child resolve against the
+	   ancestor's PADDING edge, so left/bottom: 0 here already lines
+	   up with .hero-container's own padding -- no extra inset needed. */
+}
+.hero-container-name p {
+	/* The default UA <p> margin (1em top/bottom) would otherwise
+	   nudge the pinned text away from the true corner. */
+	margin: 0;
+}
+.hero-container-meta {
+	position: absolute;
+	right: 0;
+	top: 0;
+	max-width: 26rem;
+	text-align: right;
+}
+@media (max-width: 1550px) {
+	.hero-container {
+		/* Dropped during the absolute-positioning rewrite -- without
+		   this, .hero-container-name/.hero-container-meta (still
+		   in-flow flex items once position:static below takes them
+		   out of absolute mode) laid out side by side in a cramped
+		   row instead of stacking. */
+		flex-direction: column;
+		min-height: 0;
+		padding: clamp(4rem, 3rem + 5vw, 8rem) 1.5rem;
+	}
+	/* Corner-pinning only makes sense in the wide two-column layout --
+	   back to normal stacked document flow (name, then meta, in
+	   source order) below it. */
+	.hero-container-name,
+	.hero-container-meta {
+		position: static;
+		max-width: 100%;
+	}
+	.hero-container-meta {
+		text-align: left;
+	}
+}
+/*
+ * Full-bleed divider below the hero -- true edge-to-edge, with zero
+ * horizontal inset (unlike .hero-container's own 1rem), storiedcolors
+ * -style: a plain flat rule cutting the full viewport width, replacing
+ * the bordered-box look.
+ */
+.hero-divider {
+	width: auto;
+	height: 1px;
+	margin: 0 calc(50% - 50vw);
+	padding: 0;
+	background-color: rgba(183, 230, 225, 0.25);
+	border: none;
+}
+/*
+ * Compact specimen-style info strip, storiedcolors' "Plate No. 018"
+ * row below its header -- a horizontal run of small label/value
+ * pairs, sandwiched between two .hero-divider lines. Filler content
+ * for now; same full-bleed page margins as the hero/nav, same small-
+ * caps tonal label voice as .resume-subheading/.results-stats-label
+ * elsewhere on the page.
+ */
+.meta-strip {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem 3rem;
+	padding: 2rem 0;
+}
+.meta-strip-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+.meta-strip-label {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+}
+.meta-strip-value {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.95rem;
+	color: var(--tone-body);
 }
 .case-section {
 	width: 100%;
@@ -534,17 +796,20 @@ h3.case-subheading {
 	font-family: 'Source Sans 3', sans-serif;
 	font-weight: 400;
 	font-size: 0.9rem;
-	color: rgba(255, 255, 255, 0.75);
+	color: var(--tone-1);
 	white-space: nowrap;
 	flex-shrink: 0;
 }
 .resume-subheading {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
-	font-size: 0.85rem;
+	/* Shrunk (0.85rem -> 0.7rem) and tracked wider (0.08em -> 0.12em)
+	   to read as a deliberately tiny caption against the now-larger
+	   h1.rock-heading above it, instead of just "a bit smaller." */
+	font-size: 0.7rem;
 	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	color: rgba(255, 255, 255, 0.6);
+	letter-spacing: 0.12em;
+	color: var(--tone-3);
 	margin-bottom: 0.5rem;
 }
 .write-cycle {
@@ -558,7 +823,7 @@ h3.case-subheading {
 	font-weight: 600;
 	font-size: 1.1rem;
 	line-height: 1.2;
-	color: #ffffff;
+	color: var(--tone-body);
 }
 .write-cycle-cursor {
 	display: inline-block;
@@ -601,33 +866,24 @@ h3.case-subheading {
 	position: relative;
 	padding: 2.5rem 2rem;
 }
-.results-stats-item::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0.5rem;
-	bottom: 0.5rem;
-	width: 2px;
-	background-color: rgba(183, 230, 225, 0.4);
-}
-.results-stats-item:first-child::before {
-	display: none;
-}
 .results-stats-label {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
-	font-size: 0.78rem;
+	/* Same shrink-and-widen-tracking move as .resume-subheading, paired
+	   with results-stats-number sized up to match -- the biggest
+	   size/weight jump on the page lives in this one pairing. */
+	font-size: 0.68rem;
 	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	color: rgba(255, 255, 255, 0.6);
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
 	margin-bottom: 1rem;
 }
 .results-stats-number {
 	font-family: 'Nunito', sans-serif;
 	font-weight: 1000;
-	font-size: 3.25rem;
+	font-size: 3.75rem;
 	line-height: 1;
-	color: #ffffff;
+	color: var(--tone-0);
 }
 .results-stats-unit {
 	font-weight: 1000;
@@ -639,38 +895,32 @@ h3.case-subheading {
 	font-family: "Source Sans 3", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #ffffff;
+	color: var(--tone-body);
 	margin: 1rem 0 0 0;
 }
 .results-stats-footnote {
 	font-family: "Source Sans 3", sans-serif;
 	font-size: 0.8rem;
 	line-height: 1.5;
-	color: rgba(255, 255, 255, 0.5);
+	color: var(--tone-5);
 	margin: 1.25rem 0 0 0;
 	padding-top: 1rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	border-top: 1px solid rgba(183, 230, 225, 0.15);
 }
 @media (max-width: 991.98px) {
 	.results-stats {
 		grid-template-columns: repeat(2, 1fr);
 	}
-	.results-stats-item:nth-child(2n+1)::before {
-		display: none;
-	}
 	.results-stats-item:nth-child(n+3) {
-		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		border-top: 1px solid rgba(183, 230, 225, 0.15);
 	}
 }
 @media (max-width: 575.98px) {
 	.results-stats {
 		grid-template-columns: 1fr;
 	}
-	.results-stats-item::before {
-		display: none;
-	}
 	.results-stats-item {
-		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		border-top: 1px solid rgba(183, 230, 225, 0.15);
 	}
 	.results-stats-item:first-child {
 		border-top: none;
@@ -768,7 +1018,7 @@ h3.case-subheading {
 	letter-spacing: 0.03em;
 	color: #FFFFFF;
 	background-color: transparent;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(183, 230, 225, 0.3);
 	border-radius: 999px;
 	padding: 0.35rem 1rem;
 	cursor: pointer;
@@ -793,9 +1043,9 @@ h3.case-subheading {
 	font-weight: 400;
 	font-size: 0.85rem;
 	letter-spacing: 0.03em;
-	color: rgba(255, 255, 255, 0.7);
+	color: var(--tone-2);
 	background-color: transparent;
-	border: 1px solid rgba(255, 255, 255, 0.25);
+	border: 1px solid rgba(183, 230, 225, 0.25);
 	border-radius: 999px;
 	padding: 0.15rem 0.7rem;
 	cursor: pointer;
@@ -879,13 +1129,13 @@ img {
 footer {
     text-align: center;
 	background-color: #0a2243;
-	color: #FFFFFF;
+	color: var(--tone-body);
 	font-family: 'Nunito', sans-serif;
     font-weight: 300;
 }
 .footertext p {
 	font-size: 0.9rem;
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--tone-3);
 }
 .footerhighlight p {
 	font-size: 1.4rem;
@@ -894,12 +1144,15 @@ footer {
 	font-weight: 1000;
 	font-style: normal;
 	text-transform: uppercase;
+	/* The footer's own "logo" -- same tonal tone as the hero wordmark
+	   and top-left navbar-brand. */
+	color: var(--tone-0);
 }
 #blacktext {
     color: #141A18;
 }
 .whitetext {
-	color: #FFFFFF;
+	color: var(--tone-body);
 }
 #navytext {
 	color:#0a2243;
@@ -974,7 +1227,7 @@ a:hover {
 	width: 100%;
 	max-width: 22rem;
 	background-color: #0a2243;
-	border: 1px solid rgba(255, 255, 255, 0.15);
+	border: 1px solid rgba(183, 230, 225, 0.15);
 	border-radius: 0.75rem;
 	padding: 2.5rem 2rem;
 	text-align: center;
@@ -991,7 +1244,7 @@ a:hover {
 .gate-subtext {
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 0.95rem;
-	color: rgba(255, 255, 255, 0.7);
+	color: var(--tone-2);
 	margin-bottom: 1.5rem;
 }
 .gate-input {
@@ -1000,7 +1253,7 @@ a:hover {
 	font-size: 1rem;
 	color: #ffffff;
 	background-color: #132a4d;
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(183, 230, 225, 0.3);
 	border-radius: 0.3rem;
 	padding: 0.6rem 0.85rem;
 	outline: none;
@@ -1028,7 +1281,7 @@ a:hover {
 .gate-cancel {
 	font-family: "Josefin Sans", sans-serif;
 	font-size: 0.85rem;
-	color: rgba(255, 255, 255, 0.55);
+	color: var(--tone-4);
 	text-decoration: underline;
 }
 .gate-cancel:hover {
@@ -1040,7 +1293,7 @@ a:hover {
 	font-size: 0.95rem;
 	color: #ffffff;
 	background-color: transparent;
-	border: 1px solid rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(183, 230, 225, 0.5);
 	border-radius: 999px;
 	padding: 0.45rem 1.4rem;
 	cursor: pointer;
