@@ -333,6 +333,30 @@ div.vspace12em {
 	margin-right: auto;
 }
 /*
+ * Reusable full-bleed 3-column scaffold -- same outer page margins as
+ * .hero-container/the top nav (left/right insets match where their
+ * own text actually sits, not just their padding boxes), with the
+ * real content living only in the middle column. The middle column's
+ * own width matches .text-col's existing 38rem exactly, and
+ * min(38rem, 100%) + minmax(0, 1fr) gutters degrade gracefully on
+ * narrow screens with no separate breakpoint needed -- the gutters
+ * just shrink to 0 and the middle column becomes 100% of the (full-
+ * bleed) width, the same place .text-col already sat on its own.
+ * Left/right columns are empty placeholders for now.
+ */
+.three-col-grid {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 2rem);
+	margin-right: calc(50% - 50vw + 2.5rem);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) min(38rem, 100%) minmax(0, 1fr);
+	column-gap: 0;
+}
+.three-col-grid-middle {
+	grid-column: 2;
+}
+/*
  * Hero intro, storiedcolors-style: one bordered, full-width container
  * (same max-width as .content-wrap, matching the Results grid below
  * it) with the big name pinned to the top-left and the job title /
@@ -344,12 +368,20 @@ div.vspace12em {
 	   (.content-wrap's 87.5rem cap, the row's own mx-4 margins) to
 	   span almost the full browser viewport instead of just the
 	   content column -- the standard calc(50% - 50vw) full-bleed
-	   trick, with a small inset so it stops just short of the true
-	   edge rather than touching it exactly. */
+	   trick. Insets match where the nav's own text actually sits, not
+	   just its outer padded box: navbar-brand has zero internal
+	   padding, so its 2rem (16px margin + 16px navbar padding) is the
+	   real text position on the left. The nav-links, by contrast,
+	   have their own 1.5rem internal padding (added earlier for a
+	   bigger click target) on top of the navbar's 1rem, so matching
+	   just that outer 1rem left a 24px gap between the nav's visible
+	   "ABOUT" text and the hero's visible right-aligned text -- the
+	   right inset needs the full 2.5rem to land on the real text
+	   edge, not the invisible padding past it. */
 	width: auto;
 	max-width: none;
-	margin-left: calc(50% - 50vw + 1rem);
-	margin-right: calc(50% - 50vw + 1rem);
+	margin-left: calc(50% - 50vw + 2rem);
+	margin-right: calc(50% - 50vw + 2.5rem);
 	/* Generous padding (not a fixed min-height) so the section reads
 	   as tall and spacious, storiedcolors-style, while still growing
 	   naturally with its own content instead of leaving dead space. */
@@ -390,6 +422,12 @@ div.vspace12em {
 }
 @media (max-width: 1550px) {
 	.hero-container {
+		/* Dropped during the absolute-positioning rewrite -- without
+		   this, .hero-container-name/.hero-container-meta (still
+		   in-flow flex items once position:static below takes them
+		   out of absolute mode) laid out side by side in a cramped
+		   row instead of stacking. */
+		flex-direction: column;
 		min-height: 0;
 		padding: clamp(4rem, 3rem + 5vw, 8rem) 1.5rem;
 	}
