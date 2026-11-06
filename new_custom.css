@@ -36,6 +36,14 @@ p, body {
 	font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
 	line-height: 1.6;
 }
+/* Guards against the 100vw full-bleed trick used by .hero-container
+   below (100vw includes the scrollbar gutter on non-overlay-scrollbar
+   browsers, e.g. Windows Chrome, which can otherwise introduce a 1px
+   -ish horizontal scrollbar). No sticky-positioned elements on this
+   page, so overflow-x on body itself is safe here. */
+body {
+	overflow-x: hidden;
+}
 .skip-link {
 	position: absolute;
 	top: -60px;
@@ -75,12 +83,12 @@ h1 {
 h1.rock-heading {
 	font-family: "Nunito", sans-serif;
 	font-weight: 1000;
-	/* Matches the hero wordmark's (.ornamentation p) size exactly. Sized
-	   up from the previous 2-2.75rem clamp to widen the gap against the
-	   shrunk subheader labels below (.resume-subheading,
+	/* Sized up from the previous 2-2.75rem clamp to widen the gap
+	   against the shrunk subheader labels below (.resume-subheading,
 	   .results-stats-label) -- bigger headers, smaller labels, same
 	   contrast move as storiedcolors.com's big-title/tiny-caption
-	   pairing. */
+	   pairing. No longer tied to the hero wordmark's size (.ornamentation
+	   p), which is now roughly double this, Bistre-title-scale. */
 	font-size: clamp(2.25rem, 1.7rem + 3vw, 3.5rem);
 	text-transform: uppercase;
 	text-align: left;
@@ -113,8 +121,10 @@ h7 {
 	font-family: "Nunito", sans-serif;
 	font-weight: 1000;
 	font-style: normal;
-	/* Kept in sync with h1.rock-heading's size -- see its comment. */
-	font-size: clamp(2.25rem, 1.7rem + 3vw, 3.5rem);
+	/* Roughly double h1.rock-heading's size -- a storiedcolors
+	   "Bistre"-scale display name, no longer kept in sync with the
+	   section headers (which stay at their own, smaller size). */
+	font-size: clamp(4.5rem, 3.4rem + 6vw, 7rem);
 	text-transform: uppercase;
 	white-space: nowrap;
 	text-align: left;
@@ -243,7 +253,7 @@ h7 {
 	   storiedcolors-style spacious nav. */
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
-	font-size: 0.68rem;
+	font-size: 0.85rem;
 	letter-spacing: 0.1em;
 	padding: 0.75rem 1.5rem !important;
 	color: var(--tone-4) !important;
@@ -322,12 +332,92 @@ div.vspace12em {
 	margin-left: auto;
 	margin-right: auto;
 }
-/* Left-aligns the TEXT inside the hero intro's .text-col (it was
-   center-aligned text before) without touching .text-col's own
-   centering margins -- the block itself should stay centered on the
-   page, same as every other section (Results, Experience, About). */
-.text-col.hero-align-left {
-	text-align: left;
+/*
+ * Hero intro, storiedcolors-style: one bordered, full-width container
+ * (same max-width as .content-wrap, matching the Results grid below
+ * it) with the big name pinned to the top-left and the job title /
+ * specialization / contact links stacked at the top-right -- rather
+ * than the previous centered, stacked .text-col layout.
+ */
+.hero-container {
+	/* Full-bleed: breaks out of every ancestor's centering/max-width
+	   (.content-wrap's 87.5rem cap, the row's own mx-4 margins) to
+	   span almost the full browser viewport instead of just the
+	   content column -- the standard calc(50% - 50vw) full-bleed
+	   trick, with a small inset so it stops just short of the true
+	   edge rather than touching it exactly. */
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 1rem);
+	margin-right: calc(50% - 50vw + 1rem);
+	/* Generous padding (not a fixed min-height) so the section reads
+	   as tall and spacious, storiedcolors-style, while still growing
+	   naturally with its own content instead of leaving dead space. */
+	padding: clamp(6rem, 4rem + 8vw, 12rem) clamp(2rem, 1rem + 4vw, 5rem);
+	position: relative;
+	/* Flex alignment (align-self/align-items) for "name at the
+	   bottom, meta at the top" turned out fundamentally unreliable:
+	   it only redistributes space on whichever column is SHORTER
+	   than the other, and which one that is flips depending on the
+	   viewport width (meta's paragraph rewraps to a different line
+	   count as the column narrows/widens). Corner-pinning with
+	   absolute positioning is deterministic regardless of either
+	   column's content height -- min-height here is the guaranteed
+	   vertical room between the two pinned corners, generous enough
+	   that they can never collide, and doubles as the "make it even
+	   taller" ask. */
+	min-height: clamp(36rem, 22rem + 22vw, 52rem);
+}
+.hero-container-name {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	/* Offsets for an absolutely positioned child resolve against the
+	   ancestor's PADDING edge, so left/bottom: 0 here already lines
+	   up with .hero-container's own padding -- no extra inset needed. */
+}
+.hero-container-name p {
+	/* The default UA <p> margin (1em top/bottom) would otherwise
+	   nudge the pinned text away from the true corner. */
+	margin: 0;
+}
+.hero-container-meta {
+	position: absolute;
+	right: 0;
+	top: 0;
+	max-width: 26rem;
+	text-align: right;
+}
+@media (max-width: 1550px) {
+	.hero-container {
+		min-height: 0;
+		padding: clamp(4rem, 3rem + 5vw, 8rem) 1.5rem;
+	}
+	/* Corner-pinning only makes sense in the wide two-column layout --
+	   back to normal stacked document flow (name, then meta, in
+	   source order) below it. */
+	.hero-container-name,
+	.hero-container-meta {
+		position: static;
+		max-width: 100%;
+	}
+	.hero-container-meta {
+		text-align: left;
+	}
+}
+/*
+ * Full-bleed divider below the hero -- true edge-to-edge, with zero
+ * horizontal inset (unlike .hero-container's own 1rem), storiedcolors
+ * -style: a plain flat rule cutting the full viewport width, replacing
+ * the bordered-box look.
+ */
+.hero-divider {
+	width: auto;
+	height: 1px;
+	margin: 0 calc(50% - 50vw);
+	padding: 0;
+	background-color: rgba(183, 230, 225, 0.25);
+	border: none;
 }
 .case-section {
 	width: 100%;
