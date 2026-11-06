@@ -385,6 +385,20 @@ div.vspace12em {
 	}
 }
 /*
+ * Results keeps its existing full-width stats grid (wider than the
+ * 38rem .three-col-grid-middle column the other sections use), so it
+ * isn't converted to .three-col-grid -- just a label row stacked
+ * above it, left-aligned to the same full-bleed margin as every
+ * other section so the title lines up with Experience/About's.
+ */
+.results-label-row {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	margin-bottom: 1.5rem;
+}
+/*
  * Hero intro, storiedcolors-style: one bordered, full-width container
  * (same max-width as .content-wrap, matching the Results grid below
  * it) with the big name pinned to the top-left and the job title /
@@ -858,13 +872,20 @@ h3.case-subheading {
 		animation: none;
 	}
 }
+.results-stats-wrap {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+}
 .results-stats {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 }
 .results-stats-item {
 	position: relative;
-	padding: 2.5rem 2rem;
+	padding: 2rem 2rem 2rem 0;
+	
 }
 .results-stats-label {
 	font-family: 'Josefin Sans', sans-serif;

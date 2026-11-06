@@ -58,7 +58,7 @@
 <div class="content-wrap">
 	<!--white space-->
 	<div class="row mx-4">
-		<div class="col-12 vspace8em"></div>
+		<div class="col-12 vspace4em"></div>
 	</div>
 	<!--intro text-->
 	<div class="col-12 vspace3em"></div>
@@ -74,9 +74,11 @@
 			<div class="midlight orangetext">
 				<p>UX Conversational Designer at Nationwide</p>
 			</div>
-			<p>I specialize in enterprise tools, dashboards, and accessibility, and I have a proven track record leading design for 0-to-1 MVP applications.</p>
 			<p class="mb-0">
-				<a href="mailto:emmahealy2021@u.northwestern.edu">Email<i class="bi bi-arrow-up-right-square ml-1 mr-3" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/emma-g-healy/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span><i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a>
+				<a href="mailto:emmahealy2021@u.northwestern.edu">Email<i class="bi bi-arrow-up-right-square ml-1 mr-3" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a>
+            </p>
+            <p class="mb-0">
+                <a href="https://www.linkedin.com/in/emma-g-healy/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span><i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a>
 			</p>
 		</div>
 	</div>
@@ -84,38 +86,24 @@
 	<!--specimen-style filler info strip, storiedcolors "Plate No. 018" row-->
 	<div class="meta-strip">
 		<div class="meta-strip-field">
-			<span class="meta-strip-label">Field 01</span>
-			<span class="meta-strip-value">Lorem ipsum</span>
+			<span class="meta-strip-label">Specialization</span>
+			<span class="meta-strip-value">Enterprise tools, chatbot design, and accessibility.</span>
 		</div>
 		<div class="meta-strip-field">
-			<span class="meta-strip-label">Field 02</span>
-			<span class="meta-strip-value">Dolor sit amet</span>
-		</div>
-		<div class="meta-strip-field">
-			<span class="meta-strip-label">Field 03</span>
-			<span class="meta-strip-value">Consectetur</span>
-		</div>
-		<div class="meta-strip-field">
-			<span class="meta-strip-label">Field 04</span>
-			<span class="meta-strip-value">Adipiscing elit</span>
-		</div>
-		<div class="meta-strip-field">
-			<span class="meta-strip-label">Field 05</span>
-			<span class="meta-strip-value">Sed do eiusmod</span>
+			<span class="meta-strip-label">strength</span>
+			<span class="meta-strip-value">Leading design for 0-to-1 MVP applications.</span>
 		</div>
 	</div>
 	<div class="hero-divider" role="separator"></div>
 	<!--white space-->
 	<div class="row mx-4">
-		<div class="col-12 vspace6em"></div>
+		<div class="col-12 vspace3em"></div>
 	</div>
 	<!--results-->
-	<div class="row mx-4" id="results">
-		<!--<div class="text-col" data-aos="fade-up" data-aos-once="true">
-			<h1 class="rock-heading">Results</h1>
-			<div class="col-12 vspace2em"></div>
-		</div>-->
-		<div class="content-wrap" data-aos="fade-up" data-aos-once="true">
+	<div class="results-label-row" id="results">
+		<h1 class="section-label">Results</h1>
+	</div>
+	<div class="results-stats-wrap" data-aos="fade-up" data-aos-once="true">
 			<div class="results-stats">
 				<div class="results-stats-item">
 					<div class="results-stats-label">Expedited Time-to-Launch</div>
@@ -141,12 +129,11 @@
 					<p class="results-stats-desc">Reduced case lookup time by 40% with new search filters.</p>
 				</div>
 			</div>
-		</div>
-		<div class="col-12 vspace6em"></div>
 	</div>
+	<div class="col-12 vspace3em"></div>
 	<!--projects section-->
 	<div id="projects-section">
-	<!--design heading-->
+	<!--projects heading-->
 	<div class="three-col-grid" id="work">
 		<h1 class="section-label">Projects</h1>
 		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
@@ -229,7 +216,7 @@
 		<h1 class="section-label">Experience</h1>
 		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
 			<div>
-				<div class="resume-subheading">Experience</div>
+				<div class="resume-subheading">Work</div>
 				<div class="exp-row">
 					<span class="role whitetext">Product Manager</span>
 					<span class="exp-dates">2026&ndash;Present</span>
@@ -564,15 +551,25 @@
 
             function updateActiveNav() {
                 var scrollPos = window.scrollY + 120;
-                var current = sections[0];
-                sections.forEach(function (s) {
-                    if (s.el.offsetTop <= scrollPos) {
-                        current = s;
-                    }
+                var visibleSections = sections.filter(function (s) {
+                    return s.navItem.offsetParent !== null;
                 });
+                if (!visibleSections.length) return;
+                var current = visibleSections[0];
+                var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+                if (atBottom) {
+                    current = visibleSections[visibleSections.length - 1];
+                } else {
+                    visibleSections.forEach(function (s) {
+                        if (s.el.offsetTop <= scrollPos) {
+                            current = s;
+                        }
+                    });
+                }
                 sections.forEach(function (s) {
-                    s.navItem.classList.toggle('active', s === current);
-                    if (s === current) {
+                    var isCurrent = s === current;
+                    s.navItem.classList.toggle('active', isCurrent);
+                    if (isCurrent) {
                         s.navLink.setAttribute('aria-current', 'true');
                     } else {
                         s.navLink.removeAttribute('aria-current');
