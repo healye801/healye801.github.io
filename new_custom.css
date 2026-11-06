@@ -347,14 +347,42 @@ div.vspace12em {
 .three-col-grid {
 	width: auto;
 	max-width: none;
-	margin-left: calc(50% - 50vw + 2rem);
-	margin-right: calc(50% - 50vw + 2.5rem);
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) min(38rem, 100%) minmax(0, 1fr);
 	column-gap: 0;
 }
 .three-col-grid-middle {
 	grid-column: 2;
+}
+/*
+ * Section title as a small marginal label in the (previously empty)
+ * left column -- storiedcolors' "Related Specimens" treatment:
+ * small, label-proportioned, not a big prominent heading. Same
+ * small-caps tonal voice as .resume-subheading/.meta-strip-label
+ * elsewhere on the page, just repositioned into the gutter instead
+ * of sitting inline above the section's content.
+ */
+.section-label {
+	grid-column: 1;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+	margin: 0;
+}
+@media (max-width: 1550px) {
+	.section-label {
+		/* The left/right gutter columns shrink toward 0 width on
+		   narrow screens (see .three-col-grid) -- a label still
+		   pinned to grid-column 1 there would get squeezed into
+		   nothing. Span the full row instead. */
+		grid-column: 1 / -1;
+		margin-bottom: 0.75rem;
+	}
 }
 /*
  * Hero intro, storiedcolors-style: one bordered, full-width container
@@ -380,8 +408,8 @@ div.vspace12em {
 	   edge, not the invisible padding past it. */
 	width: auto;
 	max-width: none;
-	margin-left: calc(50% - 50vw + 2rem);
-	margin-right: calc(50% - 50vw + 2.5rem);
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
 	/* Generous padding (not a fixed min-height) so the section reads
 	   as tall and spacious, storiedcolors-style, while still growing
 	   naturally with its own content instead of leaving dead space. */
@@ -456,6 +484,42 @@ div.vspace12em {
 	padding: 0;
 	background-color: rgba(183, 230, 225, 0.25);
 	border: none;
+}
+/*
+ * Compact specimen-style info strip, storiedcolors' "Plate No. 018"
+ * row below its header -- a horizontal run of small label/value
+ * pairs, sandwiched between two .hero-divider lines. Filler content
+ * for now; same full-bleed page margins as the hero/nav, same small-
+ * caps tonal label voice as .resume-subheading/.results-stats-label
+ * elsewhere on the page.
+ */
+.meta-strip {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem 3rem;
+	padding: 2rem 0;
+}
+.meta-strip-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+.meta-strip-label {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+}
+.meta-strip-value {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.95rem;
+	color: var(--tone-body);
 }
 .case-section {
 	width: 100%;
@@ -802,18 +866,6 @@ h3.case-subheading {
 	position: relative;
 	padding: 2.5rem 2rem;
 }
-.results-stats-item::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 0.5rem;
-	bottom: 0.5rem;
-	width: 2px;
-	background-color: rgba(183, 230, 225, 0.4);
-}
-.results-stats-item:first-child::before {
-	display: none;
-}
 .results-stats-label {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 600;
@@ -859,9 +911,6 @@ h3.case-subheading {
 	.results-stats {
 		grid-template-columns: repeat(2, 1fr);
 	}
-	.results-stats-item:nth-child(2n+1)::before {
-		display: none;
-	}
 	.results-stats-item:nth-child(n+3) {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
 	}
@@ -869,9 +918,6 @@ h3.case-subheading {
 @media (max-width: 575.98px) {
 	.results-stats {
 		grid-template-columns: 1fr;
-	}
-	.results-stats-item::before {
-		display: none;
 	}
 	.results-stats-item {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
