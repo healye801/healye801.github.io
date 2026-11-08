@@ -381,7 +381,7 @@ div.vspace12em {
 		   pinned to grid-column 1 there would get squeezed into
 		   nothing. Span the full row instead. */
 		grid-column: 1 / -1;
-		margin-bottom: 0.75rem;
+		margin-bottom: 2rem;
 	}
 }
 /*
@@ -426,8 +426,14 @@ div.vspace12em {
 	margin-right: calc(50% - 50vw + 5rem);
 	/* Generous padding (not a fixed min-height) so the section reads
 	   as tall and spacious, storiedcolors-style, while still growing
-	   naturally with its own content instead of leaving dead space. */
-	padding: clamp(6rem, 4rem + 8vw, 12rem) clamp(2rem, 1rem + 4vw, 5rem);
+	   naturally with its own content instead of leaving dead space.
+	   Vertical only -- horizontal inset lives entirely in the margin
+	   above, matching .meta-strip/.three-col-grid/.results-stats-wrap,
+	   which have no padding of their own. A horizontal component here
+	   used to stack on top of the margin, pushing the hero's actual
+	   content further in than every other full-bleed section (worse at
+	   narrow widths, where the two were tuned independently). */
+	padding: clamp(6rem, 4rem + 8vw, 12rem) 0;
 	position: relative;
 	/* Flex alignment (align-self/align-items) for "name at the
 	   bottom, meta at the top" turned out fundamentally unreliable:
@@ -471,7 +477,7 @@ div.vspace12em {
 		   row instead of stacking. */
 		flex-direction: column;
 		min-height: 0;
-		padding: clamp(4rem, 3rem + 5vw, 8rem) 1.5rem;
+		padding: clamp(4rem, 3rem + 5vw, 8rem) 0;
 	}
 	/* Corner-pinning only makes sense in the wide two-column layout --
 	   back to normal stacked document flow (name, then meta, in
@@ -521,6 +527,11 @@ div.vspace12em {
 	display: flex;
 	flex-direction: column;
 	gap: 0.35rem;
+}
+/* Same label/value pairing reused inside .hero-container-meta,
+   storiedcolors' "YEAR 16th century" treatment under the main title. */
+.hero-year-field {
+	margin-top: 1.5rem;
 }
 .meta-strip-label {
 	font-family: 'Josefin Sans', sans-serif;
@@ -1407,5 +1418,22 @@ section {
 		transition: none !important;
 		transform: none !important;
 		opacity: 1 !important;
+	}
+}
+/*
+ * The shared 4rem/5rem full-bleed page margin reads as too wide a
+ * chunk of a phone-sized viewport -- shrunk to roughly a quarter
+ * (1rem/1.25rem) on every section that uses it, rather than just one.
+ * Placed last in the file so it wins the cascade over each of these
+ * selectors' own same-specificity base/media rules defined earlier.
+ */
+@media (max-width: 575.98px) {
+	.hero-container,
+	.meta-strip,
+	.three-col-grid,
+	.results-stats-wrap,
+	.results-label-row {
+		margin-left: calc(50% - 50vw + 1rem);
+		margin-right: calc(50% - 50vw + 1.25rem);
 	}
 }
