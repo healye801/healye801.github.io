@@ -429,7 +429,7 @@
             if (wordmarkText) {
                 var fullName = wordmarkText.textContent;
                 if (reduced) {
-                    if (wordmarkCursor) wordmarkCursor.style.display = 'none';
+                    if (wordmarkCursor) wordmarkCursor.style.visibility = 'hidden';
                 } else {
                     wordmarkText.textContent = '';
                     (function typeName(idx) {
@@ -437,7 +437,7 @@
                         if (idx < fullName.length) {
                             setTimeout(function () { typeName(idx + 1); }, TYPE_SPEED);
                         } else if (wordmarkCursor) {
-                            setTimeout(function () { wordmarkCursor.style.display = 'none'; }, 1200);
+                            setTimeout(function () { wordmarkCursor.style.visibility = 'hidden'; }, 1200);
                         }
                     })(0);
                 }
