@@ -125,6 +125,15 @@ h7 {
 	   "Bistre"-scale display name, no longer kept in sync with the
 	   section headers (which stay at their own, smaller size). */
 	font-size: clamp(4.5rem, 3.4rem + 6vw, 7rem);
+	/* Without this, the inherited line-height: 1.6 (from the site's
+	   base p rule) adds ~45px of invisible space below the glyphs at
+	   this size -- on storiedcolors' own name text, the gap between
+	   the glyphs' true visual bottom and the hero's own bottom edge is
+	   about 64px; ours was coming out to ~110px purely from this
+	   extra line-box padding, not from .hero-container-name's bottom
+	   offset itself. Tightened so the text sits where it visually
+	   should within its fixed-position box. */
+	line-height: 1;
 	text-transform: uppercase;
 	white-space: nowrap;
 	text-align: left;
@@ -381,7 +390,7 @@ div.vspace12em {
 		   pinned to grid-column 1 there would get squeezed into
 		   nothing. Span the full row instead. */
 		grid-column: 1 / -1;
-		margin-bottom: 0.75rem;
+		margin-bottom: 2rem;
 	}
 }
 /*
@@ -424,58 +433,44 @@ div.vspace12em {
 	max-width: none;
 	margin-left: calc(50% - 50vw + 4rem);
 	margin-right: calc(50% - 50vw + 5rem);
-	/* Generous padding (not a fixed min-height) so the section reads
-	   as tall and spacious, storiedcolors-style, while still growing
-	   naturally with its own content instead of leaving dead space. */
-	padding: clamp(6rem, 4rem + 8vw, 12rem) clamp(2rem, 1rem + 4vw, 5rem);
 	position: relative;
-	/* Flex alignment (align-self/align-items) for "name at the
-	   bottom, meta at the top" turned out fundamentally unreliable:
-	   it only redistributes space on whichever column is SHORTER
-	   than the other, and which one that is flips depending on the
-	   viewport width (meta's paragraph rewraps to a different line
-	   count as the column narrows/widens). Corner-pinning with
-	   absolute positioning is deterministic regardless of either
-	   column's content height -- min-height here is the guaranteed
-	   vertical room between the two pinned corners, generous enough
-	   that they can never collide, and doubles as the "make it even
-	   taller" ask. */
-	min-height: clamp(36rem, 22rem + 22vw, 52rem);
+	overflow: hidden;
+	/* Verified directly against storiedcolors.com/color/bistre's own
+	   header.color-hero: this exact clamp, and plain position:absolute
+	   children anchored with fixed-rem offsets from their OWN edge
+	   (.hero-container-meta's top:8rem, .hero-container-name's
+	   bottom:6rem below) -- no flexbox, no auto-margins, no JS. The
+	   gap between them is nothing but a side effect of both fixed
+	   offsets staying put while this box's height shrinks; it isn't
+	   actively prevented from overlapping at extreme sizes (neither is
+	   storiedcolors' own), it just doesn't happen within this clamp's
+	   560px floor given each block's actual content height. */
+	height: clamp(560px, 70vh, 760px);
 }
 .hero-container-name {
 	position: absolute;
 	left: 0;
-	bottom: 0;
-	/* Offsets for an absolutely positioned child resolve against the
-	   ancestor's PADDING edge, so left/bottom: 0 here already lines
-	   up with .hero-container's own padding -- no extra inset needed. */
+	right: 0;
+	bottom: 6rem;
 }
 .hero-container-name p {
-	/* The default UA <p> margin (1em top/bottom) would otherwise
-	   nudge the pinned text away from the true corner. */
 	margin: 0;
 }
 .hero-container-meta {
 	position: absolute;
+	top: 8rem;
 	right: 0;
-	top: 0;
 	max-width: 26rem;
 	text-align: right;
 }
 @media (max-width: 1550px) {
 	.hero-container {
-		/* Dropped during the absolute-positioning rewrite -- without
-		   this, .hero-container-name/.hero-container-meta (still
-		   in-flow flex items once position:static below takes them
-		   out of absolute mode) laid out side by side in a cramped
-		   row instead of stacking. */
-		flex-direction: column;
-		min-height: 0;
-		padding: clamp(4rem, 3rem + 5vw, 8rem) 1.5rem;
+		/* The viewport-height clamp only makes sense for the wide
+		   corner layout -- back to a normal, content-sized stack. */
+		height: auto;
+		overflow: visible;
+		padding: clamp(4rem, 3rem + 5vw, 8rem) 0;
 	}
-	/* Corner-pinning only makes sense in the wide two-column layout --
-	   back to normal stacked document flow (name, then meta, in
-	   source order) below it. */
 	.hero-container-name,
 	.hero-container-meta {
 		position: static;
@@ -521,6 +516,19 @@ div.vspace12em {
 	display: flex;
 	flex-direction: column;
 	gap: 0.35rem;
+}
+/* Same label/value pairing reused inside .hero-container-meta,
+   storiedcolors' "YEAR 16th century" treatment under the main title.
+   storiedcolors' own .color-hero__metarow puts label and value on
+   one line (display:flex; justify-content:flex-end; align-items:
+   baseline; gap:8px) rather than .meta-strip-field's stacked column --
+   overridden to match that exactly. */
+.hero-year-field {
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: baseline;
+	gap: 0.5rem;
+	margin-top: .3rem;
 }
 .meta-strip-label {
 	font-family: 'Josefin Sans', sans-serif;
@@ -881,11 +889,10 @@ h3.case-subheading {
 .results-stats {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+	column-gap: 2.5rem;
 }
 .results-stats-item {
 	position: relative;
-	padding: 2rem 2rem 2rem 0;
-	
 }
 .results-stats-label {
 	font-family: 'Josefin Sans', sans-serif;
@@ -931,20 +938,25 @@ h3.case-subheading {
 @media (max-width: 991.98px) {
 	.results-stats {
 		grid-template-columns: repeat(2, 1fr);
+		row-gap: 2rem;
 	}
 	.results-stats-item:nth-child(n+3) {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
 	}
 }
 @media (max-width: 575.98px) {
 	.results-stats {
 		grid-template-columns: 1fr;
+		row-gap: 2rem;
 	}
 	.results-stats-item {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
 	}
 	.results-stats-item:first-child {
 		border-top: none;
+		padding-top: 0;
 	}
 }
 .project-intro {
@@ -1403,5 +1415,22 @@ section {
 		transition: none !important;
 		transform: none !important;
 		opacity: 1 !important;
+	}
+}
+/*
+ * The shared 4rem/5rem full-bleed page margin reads as too wide a
+ * chunk of a phone-sized viewport -- shrunk to roughly a quarter
+ * (1rem/1.25rem) on every section that uses it, rather than just one.
+ * Placed last in the file so it wins the cascade over each of these
+ * selectors' own same-specificity base/media rules defined earlier.
+ */
+@media (max-width: 575.98px) {
+	.hero-container,
+	.meta-strip,
+	.three-col-grid,
+	.results-stats-wrap,
+	.results-label-row {
+		margin-left: calc(50% - 50vw + 1rem);
+		margin-right: calc(50% - 50vw + 1.25rem);
 	}
 }
