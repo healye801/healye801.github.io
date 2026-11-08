@@ -268,6 +268,16 @@ h7 {
 	color: var(--tone-4) !important;
 	transition: color 150ms ease;
 }
+/* Bootstrap's default navbar padding-right (1rem) plus the nav-link's
+   own 1.5rem click-target padding above only add up to 2.5rem (40px)
+   -- short of the 5rem (80px) right margin every other full-bleed
+   section (.hero-container-meta, .meta-strip, .three-col-grid, etc.)
+   shares. Bumped so "About"'s visible text lands on that same margin
+   instead of 40px short of it. Left side is untouched -- navbar-brand
+   already lines up via its own margin, not this padding. */
+.navbar {
+	padding-right: 3.5rem !important;
+}
 .navbar-nav .nav-item.active .nav-link {
 	color: #ffffff !important;
 }
@@ -478,6 +488,11 @@ div.vspace12em {
 	}
 	.hero-container-meta {
 		text-align: left;
+		/* Stacked name-then-meta here (unlike the wide corner layout,
+		   where the gap comes from .hero-container's own height) needs
+		   its own breathing room -- without this the name and the
+		   first meta row sit almost flush against each other. */
+		margin-top: 2rem;
 	}
 }
 /*
@@ -529,6 +544,16 @@ div.vspace12em {
 	align-items: baseline;
 	gap: 0.5rem;
 	margin-top: .3rem;
+}
+@media (max-width: 1550px) {
+	/* .hero-container-meta's own text-align: left (set in its narrow-
+	   breakpoint override above) only governs inline text -- it has no
+	   effect on a flex row's main-axis alignment, so without this each
+	   row still hugs the right edge on small screens even though the
+	   block itself reads as "left-aligned." */
+	.hero-year-field {
+		justify-content: flex-start;
+	}
 }
 .meta-strip-label {
 	font-family: 'Josefin Sans', sans-serif;
