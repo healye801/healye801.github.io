@@ -518,8 +518,16 @@ div.vspace12em {
 	gap: 0.35rem;
 }
 /* Same label/value pairing reused inside .hero-container-meta,
-   storiedcolors' "YEAR 16th century" treatment under the main title. */
+   storiedcolors' "YEAR 16th century" treatment under the main title.
+   storiedcolors' own .color-hero__metarow puts label and value on
+   one line (display:flex; justify-content:flex-end; align-items:
+   baseline; gap:8px) rather than .meta-strip-field's stacked column --
+   overridden to match that exactly. */
 .hero-year-field {
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: baseline;
+	gap: 0.5rem;
 	margin-top: 1.5rem;
 }
 .meta-strip-label {
