@@ -528,7 +528,7 @@ div.vspace12em {
 	justify-content: flex-end;
 	align-items: baseline;
 	gap: 0.5rem;
-	margin-top: 1.5rem;
+	margin-top: .3rem;
 }
 .meta-strip-label {
 	font-family: 'Josefin Sans', sans-serif;
