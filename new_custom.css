@@ -881,11 +881,10 @@ h3.case-subheading {
 .results-stats {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+	column-gap: 2.5rem;
 }
 .results-stats-item {
 	position: relative;
-	padding: 2rem 2rem 2rem 0;
-	
 }
 .results-stats-label {
 	font-family: 'Josefin Sans', sans-serif;
@@ -931,20 +930,25 @@ h3.case-subheading {
 @media (max-width: 991.98px) {
 	.results-stats {
 		grid-template-columns: repeat(2, 1fr);
+		row-gap: 2rem;
 	}
 	.results-stats-item:nth-child(n+3) {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
 	}
 }
 @media (max-width: 575.98px) {
 	.results-stats {
 		grid-template-columns: 1fr;
+		row-gap: 2rem;
 	}
 	.results-stats-item {
 		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
 	}
 	.results-stats-item:first-child {
 		border-top: none;
+		padding-top: 0;
 	}
 }
 .project-intro {
