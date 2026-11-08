@@ -268,6 +268,16 @@ h7 {
 	color: var(--tone-4) !important;
 	transition: color 150ms ease;
 }
+/* Bootstrap's default navbar padding-right (1rem) plus the nav-link's
+   own 1.5rem click-target padding above only add up to 2.5rem (40px)
+   -- short of the 5rem (80px) right margin every other full-bleed
+   section (.hero-container-meta, .meta-strip, .three-col-grid, etc.)
+   shares. Bumped so "About"'s visible text lands on that same margin
+   instead of 40px short of it. Left side is untouched -- navbar-brand
+   already lines up via its own margin, not this padding. */
+.navbar {
+	padding-right: 3.5rem !important;
+}
 .navbar-nav .nav-item.active .nav-link {
 	color: #ffffff !important;
 }

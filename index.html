@@ -1,46 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        (function () {
-            var log = JSON.parse(sessionStorage.getItem('scrollDebugLog') || '[]');
-            function rec(msg, extra) {
-                var aosCount = document.querySelectorAll ? document.querySelectorAll('.aos-animate').length : -1;
-                var hero = document.querySelector('.hero-container');
-                log.push({
-                    msg: msg, t: performance.now(), scrollY: window.scrollY,
-                    scrollHeight: document.documentElement.scrollHeight,
-                    aosAnimateCount: aosCount,
-                    heroRectHeight: hero ? hero.getBoundingClientRect().height : null,
-                    extra: extra
-                });
-                sessionStorage.setItem('scrollDebugLog', JSON.stringify(log));
-            }
-            var origScrollTo = window.scrollTo;
-            window.scrollTo = function () {
-                rec('scrollTo called', [].slice.call(arguments));
-                return origScrollTo.apply(this, arguments);
-            };
-            var lastY = window.scrollY;
-            rec('head script start');
-            setInterval(function () {
-                if (window.scrollY !== lastY) {
-                    rec('scrollY changed ' + lastY + ' -> ' + window.scrollY);
-                    lastY = window.scrollY;
-                }
-            }, 10);
-            document.addEventListener('DOMContentLoaded', function () { rec('DOMContentLoaded'); });
-            window.addEventListener('load', function () { rec('load'); });
-            var heartbeats = 0;
-            var heartbeatTimer = setInterval(function () {
-                rec('heartbeat');
-                heartbeats++;
-                if (heartbeats > 30) clearInterval(heartbeatTimer);
-            }, 100);
-            window.__getScrollDebugLog = function () { return log; };
-            window.__clearScrollDebugLog = function () { sessionStorage.removeItem('scrollDebugLog'); };
-        })();
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Emma Healy</title>
@@ -109,7 +69,7 @@
 		<div class="hero-container-name ornamentation">
 			<p><span id="hero-wordmark-text">emma healy</span><span class="hero-wordmark-cursor" aria-hidden="true"></span></p>
 		</div>
-		<div class="hero-container-meta">
+		<div class="hero-container-meta" data-aos="fade-up" data-aos-once="true">
 			<div class="meta-strip-field hero-year-field">
 				<span class="meta-strip-label">Role</span>
 				<span class="meta-strip-value">UX Conversational Designer</span>
@@ -337,7 +297,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="project-visibility.js"></script>
     <script>
-        //AOS.init();
+        AOS.init();
     </script>
     <script>
         (function () {
