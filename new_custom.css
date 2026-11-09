@@ -268,15 +268,27 @@ h7 {
 	color: var(--tone-4) !important;
 	transition: color 150ms ease;
 }
-/* Bootstrap's default navbar padding-right (1rem) plus the nav-link's
-   own 1.5rem click-target padding above only add up to 2.5rem (40px)
-   -- short of the 5rem (80px) right margin every other full-bleed
-   section (.hero-container-meta, .meta-strip, .three-col-grid, etc.)
-   shares. Bumped so "About"'s visible text lands on that same margin
-   instead of 40px short of it. Left side is untouched -- navbar-brand
-   already lines up via its own margin, not this padding. */
+/* Matches the navbar's left/right insets to the page's own full-bleed
+   margins (4rem/5rem desktop, 1rem/1.25rem mobile -- see the shared
+   margin rules on .hero-container/.meta-strip/.three-col-grid/etc.)
+   at every viewport size, not just the wide desktop case.
+   Left: navbar-brand's own ml-3 (1rem, fixed) plus this padding needs
+   to total the page's margin-left, so this is (page margin - 1rem).
+   Right: below the 992px nav-collapse breakpoint, the hamburger
+   button replaces the nav-links and contributes none of its own
+   extra inset (unlike .nav-link's own 1.5rem click-target padding
+   above), so the base/mobile cases need the page's FULL margin-right
+   here, while the >=992px case only needs the remainder after that
+   1.5rem. The two media queries below must stay LAST in the
+   cascade (same specificity as this rule) to win over it. */
 .navbar {
-	padding-right: 3.5rem !important;
+	padding-left: 3rem !important;
+	padding-right: 5rem !important;
+}
+@media (min-width: 992px) {
+	.navbar {
+		padding-right: 3.5rem !important;
+	}
 }
 .navbar-nav .nav-item.active .nav-link {
 	color: #ffffff !important;
@@ -1457,5 +1469,17 @@ section {
 	.results-label-row {
 		margin-left: calc(50% - 50vw + 1rem);
 		margin-right: calc(50% - 50vw + 1.25rem);
+	}
+	/* .navbar's own mobile-margin counterpart (see its base rule) --
+	   placed here, last, for the same reason: it must win over the
+	   unconditional base rule defined earlier at this same
+	   specificity. navbar-brand's ml-3 (1rem) is fixed, so padding-
+	   left: 0 here is what makes its total inset land on the page's
+	   1rem mobile margin; the hamburger button (shown below 992px,
+	   which fully contains this range) has no padding of its own, so
+	   padding-right needs the page's full 1.25rem directly. */
+	.navbar {
+		padding-left: 0 !important;
+		padding-right: 1.25rem !important;
 	}
 }
