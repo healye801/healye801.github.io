@@ -1,0 +1,1485 @@
+:root {
+	/*
+	 * Tonal text scale for dark (navy) sections -- same hue family as
+	 * the navy background (#0a2243) and teal accent (#56efbd), a blend
+	 * at hue ~184deg, rather than achromatic white-at-reduced-opacity.
+	 * Each step's lightness was solved to match the exact WCAG contrast
+	 * ratio of the rgba(255,255,255,X) value it replaces, against
+	 * #0a2243, so legibility doesn't regress -- only the hue changes,
+	 * from gray to a muted slate-teal consistent with the brand pair.
+	 */
+	/* For the biggest, brightest text (hero wordmark, stat numbers) --
+	   a clearly pale aqua-mint rather than white, so even the brightest
+	   text on this page belongs to the teal-navy family instead of
+	   being a neutral escape hatch from it. Still 11.55:1 on navy
+	   (comfortably above white's own 15.88:1), so it reads as "bright"
+	   on large bold type, just visibly tinted rather than neutral. */
+	--tone-0: #bce3e6;
+	/* Primary body copy on dark sections (.whitetext) -- sits between
+	   --tone-0 (reserved for the logo/wordmark/stat numbers) and
+	   --tone-1 (secondary metadata like .exp-dates), preserving the
+	   original brightness hierarchy between full-emphasis text and
+	   dimmer detail text, just shifted from plain white into the same
+	   tonal family. Slightly less saturated than --tone-0 since it's
+	   read continuously across paragraphs, not just a few bold words. */
+	--tone-body: #b6d7da;
+	--tone-1: #a9ced1; /* was rgba(255,255,255,0.75) -- 9.40:1 on navy */
+	--tone-2: #97c4c7; /* was rgba(255,255,255,0.70) -- 8.35:1 on navy */
+	--tone-3: #74b0b4; /* was rgba(255,255,255,0.60) -- 6.49:1 on navy */
+	--tone-4: #62a5aa; /* was rgba(255,255,255,0.55) -- 5.68:1 on navy */
+	--tone-5: #569a9f; /* was rgba(255,255,255,0.50) -- 4.93:1 on navy */
+}
+p, body {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1rem);
+	line-height: 1.6;
+}
+/* Guards against the 100vw full-bleed trick used by .hero-container
+   below (100vw includes the scrollbar gutter on non-overlay-scrollbar
+   browsers, e.g. Windows Chrome, which can otherwise introduce a 1px
+   -ish horizontal scrollbar). No sticky-positioned elements on this
+   page, so overflow-x on body itself is safe here. */
+body {
+	overflow-x: hidden;
+}
+.skip-link {
+	position: absolute;
+	top: -60px;
+	left: 0;
+	z-index: 10000;
+	background-color: #56efbd;
+	color: #0a2243;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	padding: 0.75rem 1.25rem;
+	text-decoration: none;
+	border-radius: 0 0 0.3rem 0;
+	transition: top 150ms ease;
+}
+.skip-link:focus {
+	top: 0;
+}
+h1, h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	letter-spacing: -0.01em;
+}
+h3, h4, h5, h6, {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h7 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+}
+h1 {
+	font-size: clamp(2.6rem, 2rem + 2.5vw, 3.8rem);
+	line-height: 1.15;
+}
+h1.rock-heading {
+	font-family: "Nunito", sans-serif;
+	font-weight: 1000;
+	/* Sized up from the previous 2-2.75rem clamp to widen the gap
+	   against the shrunk subheader labels below (.resume-subheading,
+	   .results-stats-label) -- bigger headers, smaller labels, same
+	   contrast move as storiedcolors.com's big-title/tiny-caption
+	   pairing. No longer tied to the hero wordmark's size (.ornamentation
+	   p), which is now roughly double this, Bistre-title-scale. */
+	font-size: clamp(2.25rem, 1.7rem + 3vw, 3.5rem);
+	text-transform: uppercase;
+	text-align: left;
+	/*color: #fa935c;*/
+	color: #56efbd;
+}
+h2 {
+	font-size: clamp(1.9rem, 1.6rem + 1.3vw, 2.3rem);
+	line-height: 1.2;
+}
+h3 {
+	font-size: 1.6rem;
+	line-height: 1.3;
+}
+h4 {
+	font-size: 1.45rem;
+	line-height: 1.3;
+}
+h5 {
+	font-size: 1.25rem;
+	line-height: 1.3;
+}
+h6 {
+	font-size: 1.05rem;
+}
+h7 {
+	font-size: 1.05rem;
+}
+.ornamentation p {
+	font-family: "Nunito", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+	/* Roughly double h1.rock-heading's size -- a storiedcolors
+	   "Bistre"-scale display name, no longer kept in sync with the
+	   section headers (which stay at their own, smaller size). */
+	font-size: clamp(4.5rem, 3.4rem + 6vw, 7rem);
+	/* Without this, the inherited line-height: 1.6 (from the site's
+	   base p rule) adds ~45px of invisible space below the glyphs at
+	   this size -- on storiedcolors' own name text, the gap between
+	   the glyphs' true visual bottom and the hero's own bottom edge is
+	   about 64px; ours was coming out to ~110px purely from this
+	   extra line-box padding, not from .hero-container-name's bottom
+	   offset itself. Tightened so the text sits where it visually
+	   should within its fixed-position box. */
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-align: left;
+	/* Overrides the plain white inherited from the .whitetext ancestor
+	   -- tonal instead, same reasoning as --tone-0 above. */
+	color: var(--tone-0);
+}
+@media (max-width: 767.98px) {
+	.ornamentation p {
+		white-space: normal;
+	}
+}
+.hero-tilde {
+	display: inline-block;
+	font-family: "Rock 3D", cursive;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: #ffffff;
+}
+.ornamentation2 p {
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+.ornamentation3 p {
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 17vw;
+	text-align: center;
+}
+.highlight p {
+	font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+	font-size: 1.35rem;
+}
+.redtext {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 2.1rem;
+	color: #fa935c;
+	margin: 1.5rem 0 0.25rem 0;
+	line-height: 1;
+}
+/*
+ * A short, standalone emphasized line meant to be interspersed within
+ * running prose -- a third voice between h1.rock-heading (1000 weight,
+ * huge, uppercase) and plain body copy (400 weight, ~1rem), rather
+ * than a bigger/bolder version of either. Italic and teal-accented
+ * (the brand's primary accent, same tonal family as the --tone-* text
+ * scale) so it reads as its own register, not a heavier paragraph.
+ * Inspired by storiedcolors.com's habit of dropping a short declarative
+ * line at a dramatically different scale between blocks of body text.
+ */
+.pull-text {
+	display: block;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 800;
+	font-style: italic;
+	font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+	line-height: 1.25;
+	color: #56efbd;
+	margin: 0 0 0.35rem 0;
+}
+.midlight p {
+	font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+	font-size: 1.15rem;
+}
+.lowlight p {
+	font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+	font-size: 0.95rem;
+	letter-spacing: 0.03em;
+}
+.navbar-brand {
+    /* TEMP: Rock 3D swapped for Josefin Sans site-wide */
+    font-family: "Nunito", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+    font-size: 1.7rem;
+    /* Same tonal "logo" tone as the hero wordmark and stat numbers. */
+    color: var(--tone-0) !important;
+	text-decoration: none !important;
+	text-transform: uppercase !important;
+	opacity: 1;
+	transition: opacity 200ms ease;
+}
+.navbar-brand.navbar-brand-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+.navbar-text {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-size: 1.2rem;
+	color: #ffffff !important;
+	text-decoration: none !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.04em;
+}
+.navbar-nav {
+	font-size: 1rem;
+	color: #ffffff !important;
+	text-decoration: none !important;
+	letter-spacing: 0.04em;
+}
+.nav-item {
+	text-decoration: none !important;
+	text-transform: uppercase !important;
+}
+.nav-link {
+	text-decoration: none !important;
+	text-transform: uppercase !important;
+}
+.navbar-nav .nav-link {
+	/* Same small-caps "subheader" voice as .results-stats-label
+	   (UMUX-Lite SCORE etc.) instead of the navbar's own plain
+	   sans-serif -- and more generous padding around each item,
+	   storiedcolors-style spacious nav. */
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.85rem;
+	letter-spacing: 0.1em;
+	padding: 0.75rem 1.5rem !important;
+	color: var(--tone-4) !important;
+	transition: color 150ms ease;
+}
+/* Matches the navbar's left/right insets to the page's own full-bleed
+   margins (4rem/5rem desktop, 1rem/1.25rem mobile -- see the shared
+   margin rules on .hero-container/.meta-strip/.three-col-grid/etc.)
+   at every viewport size, not just the wide desktop case.
+   Left: navbar-brand's own ml-3 (1rem, fixed) plus this padding needs
+   to total the page's margin-left, so this is (page margin - 1rem).
+   Right: below the 992px nav-collapse breakpoint, the hamburger
+   button replaces the nav-links and contributes none of its own
+   extra inset (unlike .nav-link's own 1.5rem click-target padding
+   above), so the base/mobile cases need the page's FULL margin-right
+   here, while the >=992px case only needs the remainder after that
+   1.5rem. The two media queries below must stay LAST in the
+   cascade (same specificity as this rule) to win over it. */
+.navbar {
+	padding-left: 3rem !important;
+	padding-right: 5rem !important;
+}
+@media (min-width: 992px) {
+	.navbar {
+		padding-right: 3.5rem !important;
+	}
+}
+.navbar-nav .nav-item.active .nav-link {
+	color: #ffffff !important;
+}
+.navbar-custom-bg {
+	background-color: #0A2243;
+}
+@media (max-width: 991.98px) {
+	.navbar-collapse.show,
+	.navbar-collapse.collapsing {
+		background-color: #0a2243;
+		margin: 0 -1rem;
+		padding: 0.5rem 1rem 1rem;
+		box-shadow: 0 24px 20px -8px rgba(0, 0, 0, 0.3);
+	}
+}
+#work, #results, #experience, #about {
+	scroll-margin-top: 90px;
+}
+.dropdown-item:hover {
+	background-color: #625079 !important;
+	color: #D2AFD4 !important;
+	text-decoration: none !important;
+}
+.dropdown-divider {
+	border-top: 1px solid #625079 !important;
+}
+.dropdown-menu {
+	background-color: #0a2243;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+div.vspacehalfem {
+    clear: both;
+    height: .5em;
+}
+div.vspace1em {
+    clear: both;
+    height: 1em;
+}
+div.vspace2em {
+    clear: both;
+    height: 2em;
+}
+div.vspace3em {
+    clear: both;
+    height: 3em;
+}
+div.vspace4em {
+    clear: both;
+    height: 4em;
+}
+div.vspace6em {
+    clear: both;
+    height: 6em;
+}
+div.vspace8em {
+    clear: both;
+    height: 8em;
+}
+div.vspace12em {
+    clear: both;
+    height: 12em;
+}
+.content-wrap {
+	max-width: 87.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text-col {
+	width: 100%;
+	max-width: 38rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+/*
+ * Reusable full-bleed 3-column scaffold -- same outer page margins as
+ * .hero-container/the top nav (left/right insets match where their
+ * own text actually sits, not just their padding boxes), with the
+ * real content living only in the middle column. The middle column's
+ * own width matches .text-col's existing 38rem exactly, and
+ * min(38rem, 100%) + minmax(0, 1fr) gutters degrade gracefully on
+ * narrow screens with no separate breakpoint needed -- the gutters
+ * just shrink to 0 and the middle column becomes 100% of the (full-
+ * bleed) width, the same place .text-col already sat on its own.
+ * Left/right columns are empty placeholders for now.
+ */
+.three-col-grid {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) min(38rem, 100%) minmax(0, 1fr);
+	column-gap: 0;
+}
+.three-col-grid-middle {
+	grid-column: 2;
+}
+/*
+ * Section title as a small marginal label in the (previously empty)
+ * left column -- storiedcolors' "Related Specimens" treatment:
+ * small, label-proportioned, not a big prominent heading. Same
+ * small-caps tonal voice as .resume-subheading/.meta-strip-label
+ * elsewhere on the page, just repositioned into the gutter instead
+ * of sitting inline above the section's content.
+ */
+.section-label {
+	grid-column: 1;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+	margin: 0;
+}
+@media (max-width: 1550px) {
+	.section-label {
+		/* The left/right gutter columns shrink toward 0 width on
+		   narrow screens (see .three-col-grid) -- a label still
+		   pinned to grid-column 1 there would get squeezed into
+		   nothing. Span the full row instead. */
+		grid-column: 1 / -1;
+		margin-bottom: 2rem;
+	}
+}
+/*
+ * Results keeps its existing full-width stats grid (wider than the
+ * 38rem .three-col-grid-middle column the other sections use), so it
+ * isn't converted to .three-col-grid -- just a label row stacked
+ * above it, left-aligned to the same full-bleed margin as every
+ * other section so the title lines up with Experience/About's.
+ */
+.results-label-row {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	margin-bottom: 1.5rem;
+}
+/*
+ * Hero intro, storiedcolors-style: one bordered, full-width container
+ * (same max-width as .content-wrap, matching the Results grid below
+ * it) with the big name pinned to the top-left and the job title /
+ * specialization / contact links stacked at the top-right -- rather
+ * than the previous centered, stacked .text-col layout.
+ */
+.hero-container {
+	/* Full-bleed: breaks out of every ancestor's centering/max-width
+	   (.content-wrap's 87.5rem cap, the row's own mx-4 margins) to
+	   span almost the full browser viewport instead of just the
+	   content column -- the standard calc(50% - 50vw) full-bleed
+	   trick. Insets match where the nav's own text actually sits, not
+	   just its outer padded box: navbar-brand has zero internal
+	   padding, so its 2rem (16px margin + 16px navbar padding) is the
+	   real text position on the left. The nav-links, by contrast,
+	   have their own 1.5rem internal padding (added earlier for a
+	   bigger click target) on top of the navbar's 1rem, so matching
+	   just that outer 1rem left a 24px gap between the nav's visible
+	   "ABOUT" text and the hero's visible right-aligned text -- the
+	   right inset needs the full 2.5rem to land on the real text
+	   edge, not the invisible padding past it. */
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	position: relative;
+	overflow: hidden;
+	/* Verified directly against storiedcolors.com/color/bistre's own
+	   header.color-hero: this exact clamp, and plain position:absolute
+	   children anchored with fixed-rem offsets from their OWN edge
+	   (.hero-container-meta's top:8rem, .hero-container-name's
+	   bottom:6rem below) -- no flexbox, no auto-margins, no JS. The
+	   gap between them is nothing but a side effect of both fixed
+	   offsets staying put while this box's height shrinks; it isn't
+	   actively prevented from overlapping at extreme sizes (neither is
+	   storiedcolors' own), it just doesn't happen within this clamp's
+	   560px floor given each block's actual content height. */
+	height: clamp(560px, 70vh, 760px);
+}
+.hero-container-name {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 6rem;
+}
+.hero-container-name p {
+	margin: 0;
+}
+.hero-container-meta {
+	position: absolute;
+	top: 8rem;
+	right: 0;
+	max-width: 26rem;
+	text-align: right;
+}
+@media (max-width: 1550px) {
+	.hero-container {
+		/* The viewport-height clamp only makes sense for the wide
+		   corner layout -- back to a normal, content-sized stack. */
+		height: auto;
+		overflow: visible;
+		padding: clamp(4rem, 3rem + 5vw, 8rem) 0;
+	}
+	.hero-container-name,
+	.hero-container-meta {
+		position: static;
+		max-width: 100%;
+	}
+	.hero-container-meta {
+		text-align: left;
+		/* Stacked name-then-meta here (unlike the wide corner layout,
+		   where the gap comes from .hero-container's own height) needs
+		   its own breathing room -- without this the name and the
+		   first meta row sit almost flush against each other. */
+		margin-top: 2rem;
+	}
+}
+/*
+ * Full-bleed divider below the hero -- true edge-to-edge, with zero
+ * horizontal inset (unlike .hero-container's own 1rem), storiedcolors
+ * -style: a plain flat rule cutting the full viewport width, replacing
+ * the bordered-box look.
+ */
+.hero-divider {
+	width: auto;
+	height: 1px;
+	margin: 0 calc(50% - 50vw);
+	padding: 0;
+	background-color: rgba(183, 230, 225, 0.25);
+	border: none;
+}
+/*
+ * Compact specimen-style info strip, storiedcolors' "Plate No. 018"
+ * row below its header -- a horizontal run of small label/value
+ * pairs, sandwiched between two .hero-divider lines. Filler content
+ * for now; same full-bleed page margins as the hero/nav, same small-
+ * caps tonal label voice as .resume-subheading/.results-stats-label
+ * elsewhere on the page.
+ */
+.meta-strip {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem 3rem;
+	padding: 2rem 0;
+}
+.meta-strip-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+/* Same label/value pairing reused inside .hero-container-meta,
+   storiedcolors' "YEAR 16th century" treatment under the main title.
+   storiedcolors' own .color-hero__metarow puts label and value on
+   one line (display:flex; justify-content:flex-end; align-items:
+   baseline; gap:8px) rather than .meta-strip-field's stacked column --
+   overridden to match that exactly. */
+.hero-year-field {
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: baseline;
+	gap: 0.5rem;
+	margin-top: .3rem;
+}
+@media (max-width: 1550px) {
+	/* .hero-container-meta's own text-align: left (set in its narrow-
+	   breakpoint override above) only governs inline text -- it has no
+	   effect on a flex row's main-axis alignment, so without this each
+	   row still hugs the right edge on small screens even though the
+	   block itself reads as "left-aligned." */
+	.hero-year-field {
+		justify-content: flex-start;
+	}
+}
+.meta-strip-label {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+}
+.meta-strip-value {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.95rem;
+	color: var(--tone-body);
+}
+.case-section {
+	width: 100%;
+	max-width: 46rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.case-title {
+	font-size: clamp(2.6rem, 2rem + 2.8vw, 4.2rem) !important;
+	line-height: 1.1 !important;
+	font-weight: 400 !important;
+	letter-spacing: normal;
+	text-align: left;
+	text-transform: none;
+	color: inherit;
+}
+h2.case-heading {
+	font-size: 1.45rem;
+	line-height: 1.3;
+	font-weight: 400;
+	letter-spacing: normal;
+}
+h3.case-subheading {
+	font-size: 1.25rem;
+	line-height: 1.3;
+}
+.case-row {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.5rem;
+}
+.case-row .case-label {
+	flex: 0 0 auto;
+	margin-bottom: 0.25rem;
+}
+.case-row .case-label:empty {
+	display: none;
+}
+.case-row .case-content {
+	flex: 1 1 auto;
+	min-width: 0;
+	max-width: 100%;
+}
+.case-meta {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+}
+@media (min-width: 768px) {
+	.case-meta {
+		width: min(68rem, 92vw);
+		margin-left: 50%;
+		transform: translateX(-50%);
+		padding: 1.5rem 0;
+		border-top: 1px solid rgba(183, 230, 225, 0.4);
+		border-bottom: 1px solid rgba(183, 230, 225, 0.4);
+	}
+	.case-meta > div {
+		position: relative;
+		flex: 1 1 0;
+		min-width: 8rem;
+		padding: 0 1.75rem;
+	}
+	.case-meta > div::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background-color: rgba(183, 230, 225, 0.4);
+	}
+	.case-meta > div:first-child {
+		padding-left: 0;
+	}
+	.case-meta > div:first-child::before {
+		display: none;
+	}
+}
+.case-meta dt {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: rgba(10, 34, 67, 0.55);
+	margin: 0 0 0.4rem 0;
+}
+.case-meta dd {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #0a2243;
+	margin: 0;
+}
+.case-content img {
+	display: block;
+	margin-top: 3.5rem;
+	margin-bottom: 3.5rem;
+}
+.case-closing {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 400;
+	font-size: 1.05rem;
+}
+.next-story {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+.next-story-thumb {
+	flex: 0 0 8rem;
+	width: 8rem;
+	height: auto;
+}
+@media (min-width: 768px) {
+	.next-story {
+		width: min(52rem, 92vw);
+		margin-left: 50%;
+		transform: translateX(-50%);
+		align-items: stretch;
+		height: 9rem;
+		gap: 1.25rem;
+	}
+	.next-story-thumb {
+		flex: 0 1 auto;
+		width: auto;
+		height: 100%;
+		object-fit: contain;
+		object-position: left center;
+	}
+	.next-story-text {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+@media (max-width: 575.98px) {
+	.next-story {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.next-story-thumb {
+		width: 100%;
+		height: auto;
+		max-width: 12rem;
+	}
+}
+.case-table {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.92rem;
+	background-color: #ffffff;
+	margin-bottom: 1.5rem;
+}
+.case-content .table-responsive {
+	margin-top: 3.5rem;
+	margin-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+	.case-content .table-responsive {
+		width: max-content;
+		max-width: min(90vw, 64rem);
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+	.case-content .table-responsive .case-table {
+		width: max-content;
+		min-width: 100%;
+	}
+}
+.case-table th {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	background-color: #0a2243;
+	color: #ffffff;
+	white-space: nowrap;
+}
+.case-table td, .case-table th {
+	vertical-align: top;
+	padding: 0.6rem 0.85rem;
+}
+.conversation-flow-mockup {
+	max-width: 20rem;
+	margin: 3.5rem auto;
+	border-radius: 0.9rem;
+	overflow: hidden;
+	border: 1px solid #dcd6d1;
+	box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.1);
+	font-family: "Source Sans 3", sans-serif;
+	background-color: #ffffff;
+}
+.conversation-flow-step {
+	display: flex;
+	gap: 0.65rem;
+	align-items: baseline;
+	padding: 0.7rem 1.1rem;
+}
+.conversation-flow-step:nth-child(odd) {
+	background-color: #f1eded;
+}
+.conversation-flow-step .flow-step-number {
+	font-weight: 700;
+	color: #0a2243;
+	flex: 0 0 auto;
+}
+.conversation-flow-step p {
+	margin: 0;
+	text-align: left;
+}
+.typing-indicator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.45rem;
+	max-width: 14rem;
+	width: 100%;
+	height: 3rem;
+	margin: 3.5rem auto;
+}
+.typing-indicator span {
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
+	background-color: #1a1a1a;
+	animation: typing-bounce 1.2s infinite ease-in-out;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.15s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing-bounce {
+	0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+	30% { transform: translateY(-0.5rem); opacity: 1; }
+}
+@media (max-width: 767.98px) {
+	.case-meta {
+		flex-direction: column;
+	}
+	.case-meta > div {
+		padding: 0.75rem 0;
+		border-top: 1px solid rgba(183, 230, 225, 0.4);
+	}
+	.case-meta > div:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+}
+.exp-row {
+	display: flex;
+	justify-content: space-between;
+	/* flex-start (not baseline/wrap) -- role text can run to 2 lines
+	   (e.g. the Education entry) and the date should stay pinned to
+	   its top-right on the same row, rather than wrapping onto its
+	   own line below. */
+	align-items: flex-start;
+	gap: 0.35rem 1.5rem;
+}
+.exp-row .role {
+	font-weight: 600;
+	font-size: 1.1rem;
+	/* Lets this wrap within its own space instead of forcing .exp-dates
+	   off the row -- min-width: 0 overrides a flex item's default
+	   content-based minimum width, which would otherwise refuse to
+	   shrink below the text's unwrapped length. */
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.exp-dates {
+	font-family: 'Source Sans 3', sans-serif;
+	font-weight: 400;
+	font-size: 0.9rem;
+	color: var(--tone-1);
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+.resume-subheading {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	/* Shrunk (0.85rem -> 0.7rem) and tracked wider (0.08em -> 0.12em)
+	   to read as a deliberately tiny caption against the now-larger
+	   h1.rock-heading above it, instead of just "a bit smaller." */
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--tone-3);
+	margin-bottom: 0.5rem;
+}
+.write-cycle {
+	display: inline-flex;
+	align-items: baseline;
+	max-width: 100%;
+	flex-wrap: wrap;
+}
+.write-cycle-text {
+	font-family: "Source Sans 3", sans-serif;
+	font-weight: 600;
+	font-size: 1.1rem;
+	line-height: 1.2;
+	color: var(--tone-body);
+}
+.write-cycle-cursor {
+	display: inline-block;
+	width: 2px;
+	height: 1rem;
+	margin-left: 0.2rem;
+	background-color: #ffffff;
+	animation: write-cycle-blink 0.85s steps(1) infinite;
+}
+.write-cycle-cursor.write-cycle-cursor-end {
+	animation: write-cycle-blink 0.85s steps(1) 3;
+}
+@keyframes write-cycle-blink {
+	50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.write-cycle-cursor {
+		animation: none;
+	}
+}
+.hero-wordmark-cursor {
+	display: inline-block;
+	width: 0.08em;
+	height: 1.2em;
+	margin-left: 0.1em;
+	background-color: currentColor;
+	vertical-align: middle;
+	animation: write-cycle-blink 0.85s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+	.hero-wordmark-cursor {
+		animation: none;
+	}
+}
+.results-stats-wrap {
+	width: auto;
+	max-width: none;
+	margin-left: calc(50% - 50vw + 4rem);
+	margin-right: calc(50% - 50vw + 5rem);
+}
+.results-stats {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 2.5rem;
+}
+.results-stats-item {
+	position: relative;
+}
+.results-stats-label {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	/* Same shrink-and-widen-tracking move as .resume-subheading, paired
+	   with results-stats-number sized up to match -- the biggest
+	   size/weight jump on the page lives in this one pairing. */
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--tone-3);
+	margin-bottom: 1rem;
+}
+.results-stats-number {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 1000;
+	font-size: 3.75rem;
+	line-height: 1;
+	color: var(--tone-0);
+}
+.results-stats-unit {
+	font-weight: 1000;
+	font-size: 1.5rem;
+	color: #56efbd;
+	margin-left: 0.2rem;
+}
+.results-stats-desc {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--tone-body);
+	margin: 1rem 0 0 0;
+}
+.results-stats-footnote {
+	font-family: "Source Sans 3", sans-serif;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	color: var(--tone-5);
+	margin: 1.25rem 0 0 0;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(183, 230, 225, 0.15);
+}
+@media (max-width: 991.98px) {
+	.results-stats {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 2rem;
+	}
+	.results-stats-item:nth-child(n+3) {
+		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
+	}
+}
+@media (max-width: 575.98px) {
+	.results-stats {
+		grid-template-columns: 1fr;
+		row-gap: 2rem;
+	}
+	.results-stats-item {
+		border-top: 1px solid rgba(183, 230, 225, 0.15);
+		padding-top: 2rem;
+	}
+	.results-stats-item:first-child {
+		border-top: none;
+		padding-top: 0;
+	}
+}
+.project-intro {
+	position: relative;
+}
+.project-asterisk {
+	position: absolute;
+	left: -2.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: "Rock 3D", cursive;
+	font-size: 2.75rem;
+	line-height: 1;
+	color: #56efbd;
+}
+@media (max-width: 767.98px) {
+	.project-asterisk {
+		display: none;
+	}
+}
+.hidden-project {
+	display: none !important;
+}
+/* Belt-and-suspenders for the [hidden] attribute on #projects-nav-item
+   and #projects-section -- project-visibility.js clears their inline
+   style.display on load, which would otherwise race against the
+   plain [hidden] default depending on what Bootstrap's own rules set. */
+#projects-nav-item[hidden],
+#projects-section[hidden] {
+	display: none !important;
+}
+.filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.6rem;
+	max-width: 46rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.project-compact {
+	display: grid;
+	grid-template-columns: 21.5rem minmax(0, 36rem);
+	column-gap: 1.75rem;
+	align-items: start;
+	max-width: 44rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 4rem;
+}
+.project-compact .project-text-inner {
+	grid-column: 2;
+	min-width: 0;
+}
+.project-compact .thumb-link {
+	grid-column: 1;
+	display: block;
+}
+.thumb-square {
+	height: 13.5rem;
+	width: auto;
+	object-fit: contain;
+	display: block;
+}
+@media (min-width: 768px) {
+	.project-compact {
+		max-width: 87.5rem;
+	}
+}
+@media (max-width: 767.98px) {
+	.project-compact {
+		grid-template-columns: 1fr;
+		row-gap: 1.5rem;
+		justify-items: center;
+		text-align: left;
+	}
+	.project-compact .thumb-link,
+	.project-compact .project-text-inner {
+		grid-column: 1;
+	}
+	.thumb-square {
+		height: auto;
+		width: 100%;
+		max-width: 20rem;
+	}
+}
+.filter-btn {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 500;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: #FFFFFF;
+	background-color: transparent;
+	border: 1px solid rgba(183, 230, 225, 0.3);
+	border-radius: 999px;
+	padding: 0.35rem 1rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.filter-btn:hover {
+	border-color: #084b83;
+	color: rgba(183, 230, 225, 0.8);
+}
+.filter-btn.active {
+	background-color: #084b83;
+	border-color: #084b83;
+	color: #ffffff;
+}
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.tag-pill {
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 400;
+	font-size: 0.85rem;
+	letter-spacing: 0.03em;
+	color: var(--tone-2);
+	background-color: transparent;
+	border: 1px solid rgba(183, 230, 225, 0.25);
+	border-radius: 999px;
+	padding: 0.15rem 0.7rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease;
+}
+.tag-pill:hover {
+	border-color: #084b83;
+	color: rgba(183, 230, 225, 0.8);
+}
+div.whitediv {
+    background-color: #FFFFFD;
+}
+
+div.navydiv {
+	background-color:#0a2243;
+}
+main, footer,
+div.whitediv, div.navydiv {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3CfeColorMatrix type='saturate' values='0'%3E%3C/feColorMatrix%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.15'%3E%3C/feFuncR%3E%3CfeFuncG type='linear' slope='0.15'%3E%3C/feFuncG%3E%3CfeFuncB type='linear' slope='0.15'%3E%3C/feFuncB%3E%3CfeFuncA type='linear' slope='0.4'%3E%3C/feFuncA%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'%3E%3C/rect%3E%3C/svg%3E");
+	background-repeat: repeat;
+	background-size: 180px 180px;
+	background-blend-mode: overlay;
+}
+.orangeborder {
+	border-color: #ba324f;
+}
+img {
+    object-fit: contain;
+    width: 100%;
+    /*padding: 5% 2% 5% 2%;*/
+}
+.quote-mark-aos {
+	display: inline-block;
+}
+.quote-mark {
+	display: inline-block;
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-style: normal;
+	font-size: clamp(6rem, 12vw, 10rem);
+	line-height: 1;
+	color: #fa935c;
+}
+.quote-mark--open {
+	transform: rotate(180deg);
+}
+.quote-mark--close {
+	float: right;
+}
+.about-photo-wrap {
+	position: relative;
+	display: inline-block;
+	width: clamp(200px, 45vw, 320px);
+	max-width: 100%;
+	aspect-ratio: 1 / 1;
+}
+.about-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: inline-block;
+}
+.about-photo-wrap .about-photo {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.about-photo-wrap .about-photo.photo {
+	opacity: 0;
+	transition: opacity 0.35s ease;
+}
+.about-photo-wrap:hover .about-photo.photo,
+.about-photo-wrap:active .about-photo.photo {
+	opacity: 1;
+}
+/*img.img-case-study {
+    object-fit: contain;
+    width: 100%;
+    padding: 3% 2% 3% 2%;
+}*/
+footer {
+    text-align: center;
+	background-color: #0a2243;
+	color: var(--tone-body);
+	font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+.footertext p {
+	font-size: 0.9rem;
+	color: var(--tone-3);
+}
+.footerhighlight p {
+	font-size: 1.4rem;
+	/* TEMP: Rock 3D swapped for Josefin Sans site-wide */
+	font-family: "Nunito", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+	text-transform: uppercase;
+	/* The footer's own "logo" -- same tonal tone as the hero wordmark
+	   and top-left navbar-brand. */
+	color: var(--tone-0);
+}
+#blacktext {
+    color: #141A18;
+}
+.whitetext {
+	color: var(--tone-body);
+}
+#navytext {
+	color:#0a2243;
+}
+#orangetext{
+	color: #56efbd;
+}
+.orangetext {
+	color: #56efbd;
+}
+#creamtext{
+	color: #FFFAF0;
+}
+#navbartext {
+	color: #ffffff;
+}
+#lightestgraytext {
+	color: #FFFAF0;
+}
+.btn-primary, .btn-primary:visited {
+    background-color: #0a2243 !important;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 1.2rem;
+	color: #FFFFFF !important;
+	margin: 0rem !important;
+	padding: 0.35rem 1.5rem !important;
+	border-color: #FFFFFF;
+	border-radius: 0.2rem !important;
+}
+.btn-primary:hover, .btn-primary:active {
+    background-color: #625079 !important;
+	font-family: 'Josefin Sans', sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 1.2rem;
+	color: #D2AFD4 !important;
+	margin: 0rem !important;
+	padding: 0.35rem 1.5rem !important;
+	border-color: #625079;
+	border-radius: 0.1rem !important;
+}
+a {
+	color: #b7e6e1;
+	text-decoration: underline;
+}
+a:hover {
+	color: #fa935c;
+	text-decoration: underline;
+}
+.secondary-link {
+  color: #084b83;
+  text-decoration: underline;
+}
+.secondary-link:hover {
+	color: #fa935c;
+	text-decoration: underline;
+}
+.gate-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5rem;
+	background-color: rgba(10, 34, 67, 0.94);
+	backdrop-filter: blur(3px);
+}
+.gate-panel {
+	width: 100%;
+	max-width: 22rem;
+	background-color: #0a2243;
+	border: 1px solid rgba(183, 230, 225, 0.15);
+	border-radius: 0.75rem;
+	padding: 2.5rem 2rem;
+	text-align: center;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.gate-title {
+	font-family: "Rock 3D", cursive;
+	font-weight: 400;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	color: #56efbd;
+	margin-bottom: 0.75rem;
+}
+.gate-subtext {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.95rem;
+	color: var(--tone-2);
+	margin-bottom: 1.5rem;
+}
+.gate-input {
+	width: 100%;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 1rem;
+	color: #ffffff;
+	background-color: #132a4d;
+	border: 1px solid rgba(183, 230, 225, 0.3);
+	border-radius: 0.3rem;
+	padding: 0.6rem 0.85rem;
+	outline: none;
+	transition: border-color 150ms ease;
+}
+.gate-input:focus {
+	border-color: #56efbd;
+	box-shadow: 0 0 0 3px rgba(92, 250, 216, 0.4);
+}
+.gate-error {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #56efbd;
+	margin-top: 0.75rem;
+	text-align: left;
+}
+.gate-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+.gate-cancel {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 0.85rem;
+	color: var(--tone-4);
+	text-decoration: underline;
+}
+.gate-cancel:hover {
+	color: #56efbd;
+}
+.gate-submit {
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: #ffffff;
+	background-color: transparent;
+	border: 1px solid rgba(183, 230, 225, 0.5);
+	border-radius: 999px;
+	padding: 0.45rem 1.4rem;
+	cursor: pointer;
+	transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.gate-submit:hover {
+	border-color: #56efbd;
+	color: #56efbd;
+}
+.gate-denied {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 2rem;
+	background-color: #0a2243;
+}
+.gate-denied h1 {
+	font-family: "Rock 3D", cursive;
+	text-transform: uppercase;
+	color: #56efbd;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+.gate-denied p {
+	font-family: "Josefin Sans", sans-serif;
+	color: #ffffff;
+	font-size: 1.1rem;
+}
+.gate-denied a {
+	color: #b7e6e1;
+}
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 10% !important;
+  left: 10% !important;
+  /*bottom: 10%;
+  right: 10%;*/
+}
+.blockquote {
+    display: block;
+	border-radius: .01rem;
+	background-size: cover;
+	background: url(Images/blockquote-image.png)"
+}
+.blockquote h6 {
+	color: #fa935c;
+	text-align: right;
+	font-family: 'Josefin Sans', sans-serif;
+	font-style: normal;
+    font-weight: 300;
+	text-transform: uppercase;
+	font-size: 1.1rem; 
+	letter-spacing: 3px;
+	padding-top: 1rem;
+}
+.blockquote p{
+	color: #ffffff;
+	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+	font-size: 1.2rem;
+	padding: 3rem;
+}
+section {
+	padding: 0rem;
+	margin: 0rem;
+	overflow: auto;
+}
+.small-img {
+	max-width: 30%;
+}
+.drop-shadow {
+	/*box-shadow: 10px 10px 15px #fa935c; */
+	filter: drop-shadow(-1px 1px 4px #f8f0e3);
+	/*filter: drop-shadow(1px -1px 2px #f8f0e3) drop-shadow(-15px 15px #fa935c); */
+
+}
+@media (prefers-reduced-motion: reduce) {
+	[data-aos] {
+		transition: none !important;
+		transform: none !important;
+		opacity: 1 !important;
+	}
+}
+/*
+ * The shared 4rem/5rem full-bleed page margin reads as too wide a
+ * chunk of a phone-sized viewport -- shrunk to roughly a quarter
+ * (1rem/1.25rem) on every section that uses it, rather than just one.
+ * Placed last in the file so it wins the cascade over each of these
+ * selectors' own same-specificity base/media rules defined earlier.
+ */
+@media (max-width: 575.98px) {
+	.hero-container,
+	.meta-strip,
+	.three-col-grid,
+	.results-stats-wrap,
+	.results-label-row {
+		margin-left: calc(50% - 50vw + 1rem);
+		margin-right: calc(50% - 50vw + 1.25rem);
+	}
+	/* .navbar's own mobile-margin counterpart (see its base rule) --
+	   placed here, last, for the same reason: it must win over the
+	   unconditional base rule defined earlier at this same
+	   specificity. navbar-brand's ml-3 (1rem) is fixed, so padding-
+	   left: 0 here is what makes its total inset land on the page's
+	   1rem mobile margin; the hamburger button (shown below 992px,
+	   which fully contains this range) has no padding of its own, so
+	   padding-right needs the page's full 1.25rem directly. */
+	.navbar {
+		padding-left: 0 !important;
+		padding-right: 1.25rem !important;
+	}
+}

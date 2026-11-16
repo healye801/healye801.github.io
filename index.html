@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Emma Healy</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="new_custom.css">
+    <!-- <link rel="stylesheet" type="text/js" href="animate.js"> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Yeseva+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rock+3D&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16x16.png">
+    <link rel="manifest" href="Images/site.webmanifest">
+    <link rel="mask-icon" href="Images/safari-pinned-tab.svg" color="#17b890">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#0a2243">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.js"></script>
+</head>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-custom" data-mdb-navbar-init>
+	  <a class="navbar-brand ml-3" href="index.html">Emma Healy</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav">
+	  <li class="nav-item">
+			<a class="nav-link px-3" href="#results">Results</a>
+		  </li>
+		  <li class="nav-item" id="projects-nav-item">
+			<a class="nav-link px-3" href="#work">Projects</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link px-3" href="#experience">Experience</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link px-3" href="#about">About</a>
+		  </li>
+		</ul>
+	  </div>
+	</nav>
+</header>
+<main id="main-content" tabindex="-1" style="background-color: #0a2243">
+<div style="color: rgb(10, 30, 62);" class="content-wrap">
+	<!-- No leading spacer here -- storiedcolors' own hero starts flush
+	     at the page top with zero lead-in space before it; its nav
+	     lives inside the hero itself rather than in a separate fixed
+	     bar pushing content down, which is why ours needs this removed
+	     to get a comparably tight nav-to-content gap. -->
+	<!-- Not wrapped in .row (Bootstrap's row is display:flex, which
+	     breaks the full-bleed negative-margin trick .hero-container
+	     relies on) -- a plain block sibling of .content-wrap's other
+	     .row children instead. -->
+	<div class="hero-container whitetext">
+		<div class="hero-container-name ornamentation">
+			<p><span id="hero-wordmark-text">emma healy</span><span class="hero-wordmark-cursor" aria-hidden="true"></span></p>
+		</div>
+		<div class="hero-container-meta" data-aos="fade-up" data-aos-once="true">
+			<div class="meta-strip-field hero-year-field">
+				<span class="meta-strip-label">Role</span>
+				<span class="meta-strip-value">UX Conversational Designer</span>
+			</div>
+            <div class="meta-strip-field hero-year-field">
+                <span class="meta-strip-label">Company</span>
+				<span class="meta-strip-value">Nationwide</span>
+			</div>
+            <div class="meta-strip-field hero-year-field">
+				<span class="meta-strip-label">Contact</span>
+				<span class="meta-strip-value"><a href="mailto:emmahealy2021@u.northwestern.edu">Email<i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a></span>
+			</div>
+            <div class="meta-strip-field hero-year-field">
+				<span class="meta-strip-label">Connect</span>
+				<span class="meta-strip-value"><a href="https://www.linkedin.com/in/emma-g-healy/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span><i class="bi bi-arrow-up-right-square ml-1" style="color: #b7e6e1; font-size: 1rem" data-aos="fade-up" data-aos-once="true" aria-hidden="true"></i></a></span>
+			</div>
+		</div>
+	</div>
+	<div class="hero-divider" role="separator" data-aos="fade-up" data-aos-once="true"></div>
+	<!--specimen-style filler info strip, storiedcolors "Plate No. 018" row-->
+	<div class="meta-strip">
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Specialization</span>
+			<span class="meta-strip-value">Chatbots, enterprise tools, and accessibility.</span>
+		</div>
+		<div class="meta-strip-field">
+			<span class="meta-strip-label">Strengths</span>
+			<span class="meta-strip-value">Conversation design. Product strategy for 0-to-1 MVP apps. Complex requirements. Regulated industries.</span>
+		</div>
+	</div>
+	<div class="hero-divider" role="separator"></div>
+	<!--white space-->
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
+	<!--results-->
+	<div class="results-label-row" id="results">
+		<h1 class="section-label">Results</h1>
+	</div>
+	<div class="results-stats-wrap" data-aos="fade-up" data-aos-once="true">
+			<div class="results-stats">
+				<div class="results-stats-item">
+					<div class="results-stats-label">Expedited Time-to-Launch</div>
+					<div class="results-stats-number">6<span class="results-stats-unit">+ months</span></div>
+					<p class="results-stats-desc">Reduced MVP launch by at least six months through strategic descoping.</p>
+					<p class="results-stats-footnote">Descoped features were added to the backlog and took 6+ months to develop post-MVP launch.</p>
+				</div>
+				<div class="results-stats-item">
+					<div class="results-stats-label">UMUX-Lite Score &mdash; MVP Pilot</div>
+					<div class="results-stats-number">72.5<span class="results-stats-unit">/100</span></div>
+					<p class="results-stats-desc">Achieved a 72.5 UMUX-Lite score with MVP pilot users despite descoping.</p>
+					<p class="results-stats-footnote">Survey with pilot users after 4 weeks using the new MVP.</p>
+				</div>
+				<div class="results-stats-item">
+					<div class="results-stats-label">Increased Feature Adoption</div>
+					<div class="results-stats-number">800<span class="results-stats-unit">%</span></div>
+					<p class="results-stats-desc">Drove 800% adoption increase with onboarding features.</p>
+					<p class="results-stats-footnote">Matomo analytics, adoption measured two months before and after the introduction of onboarding features.</p>
+				</div>
+				<div class="results-stats-item">
+					<div class="results-stats-label">Reduced Profile Lookup Time</div>
+					<div class="results-stats-number">40<span class="results-stats-unit">%</span></div>
+					<p class="results-stats-desc">Reduced profile lookup time by 40% with new search filters.</p>
+				</div>
+			</div>
+	</div>
+	<div class="col-12 vspace3em"></div>
+	<!--projects section-->
+	<div id="projects-section">
+	<!--projects heading-->
+	<div class="three-col-grid" id="work">
+		<h1 class="section-label">Projects</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
+			<div class="project-intro">
+				<span class="project-asterisk" aria-hidden="true">*</span>
+				<p class="whitetext">Much of my recent work is confidential, so feel free to reach out if you'd like to hear more about it.</p>
+			</div>
+		</div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
+	</div>
+	<!--white space-->
+	<div class="row mx-4">
+		<div class="col-12 vspace2em"></div>
+	</div>
+	<!--category filter-->
+	<div class="row mx-4">
+		<div class="filter-bar" role="group" aria-label="Filter projects by category">
+			<button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+			<button type="button" class="filter-btn" data-filter="strategy" aria-pressed="false">Strategy</button>
+			<button type="button" class="filter-btn" data-filter="research" aria-pressed="false">Research</button>
+			<button type="button" class="filter-btn" data-filter="ux" aria-pressed="false">UX</button>
+			<button type="button" class="filter-btn" data-filter="usability-testing" aria-pressed="false">Usability Testing</button>
+			<button type="button" class="filter-btn" data-filter="ui" aria-pressed="false">UI</button>
+			<button type="button" class="filter-btn" data-filter="data-visualization" aria-pressed="false">Data Visualization</button>
+			<button type="button" class="filter-btn" data-filter="conversation-design" aria-pressed="false">Conversation Design</button>
+			<button type="button" class="filter-btn" data-filter="ai-tools" aria-pressed="false">AI Tools</button>
+		</div>
+	</div>
+	<!--white space-->
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+		<div class="d-xs-block d-md-none col-xs-12 vspace3em"></div>
+	</div>
+	<!--invesco - hidden from home page-->
+	<div class="mx-4" data-project="Invesco-Cloud-Dashboard" data-categories="ui,data-visualization">
+		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
+			<a href="Invesco-Cloud-Dashboard.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/invesco-cloud-thumbnail.png" alt="An Invesco cloud usage dashboard interface"></a>
+			<div class="project-text-inner">
+				<div class="resume-subheading">INVESCO</div>
+				<h4 type="link-primary" class=link-primary>
+					<a href="Invesco-Cloud-Dashboard.html">Cloud Usage Dashboard</a>
+				</h4>
+				<div class="vspacehalfem"></div>
+				<p class="whitetext">Led UI design for executive dashboard pitched directly to Invesco CFO. Created interactive prototype to visualize complex cloud spending data.</p>
+				<div class="tag-list">
+					<button type="button" class="tag-pill" data-filter="ui">UI</button>
+					<button type="button" class="tag-pill" data-filter="data-visualization">Data Visualization</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--walmart-->
+	<div class="mx-4" data-project="Walmart-Celebrity-Shopping-Carts">
+		<div class="project-compact" data-aos="fade-up" data-aos-once="true">
+			<a href="Walmart-Celebrity-Shopping-Carts.html" class="thumb-link"><img class="rounded-lg thumb-square" src="Images/walmart-celebrity-carts-thumbnail.png" alt="Graphic displaying Walmart Celebrity collaboration photos of Patrick Mahomes, Barbie, and Becky G"></a>
+			<div class="project-text-inner">
+				<div class="resume-subheading">WALMART</div>
+				<h4 type="link-primary" class=link-primary>
+					<a href="Walmart-Celebrity-Shopping-Carts.html">Celebrity Shopping Carts</a>
+				</h4>
+				<div class="vspacehalfem"></div>
+				<p class="whitetext">Delivered themed e-commerce assets for Walmart's Q3 celebrity collaborations. Balanced multiple brand identities while maintaining Walmart's design standards.</p>
+				<div class="tag-list">
+					<button type="button" class="tag-pill" data-filter="graphic-design">Graphic Design</button>
+					<button type="button" class="tag-pill" data-filter="ui">UI</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mx-4">
+		<div class="col-12 vspace8em"></div>
+	</div>
+	</div>
+	<div class="hero-divider" role="separator"></div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
+	<!--experience-->
+	<div class="three-col-grid" id="experience">
+		<h1 class="section-label">Experience</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
+			<div>
+				<div class="resume-subheading">Work</div>
+				<div class="exp-row">
+					<span class="role whitetext">Conversation Designer</span>
+					<span class="exp-dates">2026&ndash;Present</span>
+				</div>
+				<div class="vspace1em col-12"></div>
+				<div class="exp-row">
+					<span class="role whitetext">Senior Product Designer</span>
+					<span class="exp-dates">2023&ndash;2026</span>
+				</div>
+                <div class="exp-row">
+                    <span class="exp-dates">Case Management Systems, Product Management, Research</span>
+				</div>
+				<div class="vspace1em col-12"></div>
+				<div class="exp-row">
+					<span class="role whitetext">Product Designer</span>
+                    <span class="exp-dates">2021&ndash;2023</span>
+				</div>
+				<div class="exp-row">
+					<span class="exp-dates">Dashboard design, QA testing, Accessibility</span>
+                </div>
+				<!-- Skills section temporarily hidden
+				<div class="vspace2em col-12"></div>
+				<div class="resume-subheading">Skills</div>
+				<p class="sr-only">Skills: Usability Testing, Web Accessibility, High-Fidelity Prototyping, Defining Complex Requirements, Facilitating Stakeholder Workshops, Backlog Management, Writing, Communication, and more.</p>
+				<div class="write-cycle" aria-hidden="true" data-final-word="...too many to list :)" data-words='["Usability Testing, Web Accessibility, High-Fidelity Prototyping, Defining Complex Requirements, Facilitating Stakeholder Workshops, Backlog Management, Writing, Communication"]'>
+					<span class="write-cycle-text"></span>
+				</div>
+				<div class="vspace2em col-12"></div>
+				<div class="resume-subheading">Tools</div>
+				<p class="sr-only">Tools: Figma, Sierra, Claude Code, ChatGPT.</p>
+				<div class="write-cycle" aria-hidden="true" data-words='["Figma, Sierra, Claude Code, ChatGPT."]'>
+					<span class="write-cycle-text"></span>
+				</div>-->
+				<div class="vspace2em col-12"></div>
+				<div class="resume-subheading">Certifications</div>
+				<div class="exp-row">
+					<span class="role whitetext">Web Accessibility</span>
+				</div>
+				<div class="vspace2em col-12"></div>
+				<div class="resume-subheading">Education</div>
+				<div class="exp-row">
+					<span class="role whitetext">Northwestern University</span>
+					<span class="exp-dates">2021</span>
+				</div>
+				<div class="exp-row">
+					<span class="exp-dates">B.S. in Communication Studies, Design, and Marketing</span>
+                </div>
+			</div>
+		</div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
+	</div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
+	<div class="hero-divider" role="separator"></div>
+	<div class="row mx-4">
+		<div class="col-12 vspace3em"></div>
+	</div>
+	<!--about-->
+	<div class="three-col-grid" id="about">
+		<h1 class="section-label">About</h1>
+		<div class="three-col-grid-middle" data-aos="fade-up" data-aos-once="true">
+			<div>
+	            <p class="whitetext">I'm a Senior Product Designer based in the New York metro, currently working on chatbots for Nationwide.</p>
+				<div class="vspace1em col-12"></div>
+				<p class="whitetext">I've been a product design consultant for five years. I started at Publicis Sapient in Chicago, where my clients included Walmart, Invesco, and the Federal Home Loan Bank of New York. I have started new teams, pitched and designed 0-to-1 MVP applications based on my own research insights, and taken on leadership roles. I've been a Product Manager and an accessibility specialist.</p>
+				<div class="vspace1em col-12"></div>
+				<p class="whitetext">That's me! Thanks for stopping by.</p>
+			</div>
+		</div>
+		<div class="three-col-grid-right" aria-hidden="true"></div>
+	</div>
+	<div class="row mx-4">
+		<div class="col-12 vspace8em"></div>
+	</div>
+    <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="project-visibility.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        (function () {
+            var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var TYPE_SPEED = 85;
+            var ERASE_SPEED = 45;
+            var HOLD_TIME = 1000;
+            var PAUSE_TIME = 350;
+            var STATIC_HOLD = 1600;
+            var WORD_TYPE_SPEED = 35;
+            var COMMA_PAUSE = 180;
+
+            var FINAL_WORD = "Learning new tools is my favorite part of the job. If you're looking for something specific, don't hesitate to reach out.";
+
+            function runCycle(el, onComplete) {
+                var words;
+                try {
+                    words = JSON.parse(el.getAttribute('data-words'));
+                } catch (e) {
+                    if (onComplete) onComplete();
+                    return;
+                }
+                var textEl = el.querySelector('.write-cycle-text');
+                if (!textEl || !words || !words.length) {
+                    if (onComplete) onComplete();
+                    return;
+                }
+                var finalWord = el.getAttribute('data-final-word') || FINAL_WORD;
+                var cursorHTML = '<span class="write-cycle-cursor"></span>';
+
+                function render(lines) {
+                    textEl.innerHTML = lines.join('<br>') + cursorHTML;
+                }
+
+                if (reduced) {
+                    render(words);
+                    setTimeout(function () {
+                        render([finalWord]);
+                        if (onComplete) onComplete();
+                    }, STATIC_HOLD);
+                    return;
+                }
+
+                function typeWord(idx, cb) {
+                    var word = words[idx];
+                    var priorLines = words.slice(0, idx);
+                    var charIdx = 0;
+                    (function step() {
+                        render(priorLines.concat([word.slice(0, charIdx)]));
+                        if (charIdx < word.length) {
+                            var lastChar = charIdx > 0 ? word[charIdx - 1] : '';
+                            charIdx++;
+                            setTimeout(step, lastChar === ',' ? COMMA_PAUSE : WORD_TYPE_SPEED);
+                        } else {
+                            cb();
+                        }
+                    })();
+                }
+
+                function typeAll(idx) {
+                    if (idx >= words.length) {
+                        setTimeout(collapseToFinal, HOLD_TIME);
+                        return;
+                    }
+                    typeWord(idx, function () {
+                        setTimeout(function () { typeAll(idx + 1); }, PAUSE_TIME);
+                    });
+                }
+
+                function eraseWord(idx, cb) {
+                    if (idx < 0) { cb(); return; }
+                    var word = words[idx];
+                    var priorLines = words.slice(0, idx);
+                    var charIdx = word.length;
+                    (function step() {
+                        render(priorLines.concat(charIdx > 0 ? [word.slice(0, charIdx)] : []));
+                        if (charIdx > 0) {
+                            charIdx--;
+                            setTimeout(step, ERASE_SPEED);
+                        } else {
+                            eraseWord(idx - 1, cb);
+                        }
+                    })();
+                }
+
+                function typeFinal() {
+                    var charIdx = 0;
+                    (function step() {
+                        render([finalWord.slice(0, charIdx)]);
+                        if (charIdx < finalWord.length) {
+                            charIdx++;
+                            setTimeout(step, WORD_TYPE_SPEED);
+                        } else {
+                            finishCursor();
+                        }
+                    })();
+                }
+
+                function finishCursor() {
+                    var cursor = textEl.querySelector('.write-cycle-cursor');
+                    if (!cursor || reduced) {
+                        if (cursor) cursor.remove();
+                        if (onComplete) onComplete();
+                        return;
+                    }
+                    cursor.classList.add('write-cycle-cursor-end');
+                    cursor.addEventListener('animationend', function handler() {
+                        cursor.removeEventListener('animationend', handler);
+                        cursor.remove();
+                        if (onComplete) onComplete();
+                    });
+                }
+
+                function collapseToFinal() {
+                    eraseWord(words.length - 1, typeFinal);
+                }
+
+                typeAll(0);
+            }
+
+            var cycleEls = Array.prototype.slice.call(document.querySelectorAll('.write-cycle'));
+            (function startNext(idx) {
+                if (idx >= cycleEls.length) return;
+                runCycle(cycleEls[idx], function () { startNext(idx + 1); });
+            })(0);
+
+            var wordmarkText = document.getElementById('hero-wordmark-text');
+            var wordmarkCursor = document.querySelector('.hero-wordmark-cursor');
+            if (wordmarkText) {
+                var fullName = wordmarkText.textContent;
+                if (reduced) {
+                    if (wordmarkCursor) wordmarkCursor.style.visibility = 'hidden';
+                } else {
+                    wordmarkText.textContent = '';
+                    (function typeName(idx) {
+                        wordmarkText.textContent = fullName.slice(0, idx);
+                        if (idx < fullName.length) {
+                            setTimeout(function () { typeName(idx + 1); }, TYPE_SPEED);
+                        } else if (wordmarkCursor) {
+                            setTimeout(function () { wordmarkCursor.style.visibility = 'hidden'; }, 1200);
+                        }
+                    })(0);
+                }
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            var hiddenProjects = window.HIDDEN_PROJECTS || [];
+            var projectEls = document.querySelectorAll('[data-project]');
+            projectEls.forEach(function (el) {
+                el.classList.toggle('hidden-project', hiddenProjects.indexOf(el.getAttribute('data-project')) !== -1);
+            });
+
+            var anyProjectVisible = Array.prototype.some.call(projectEls, function (el) {
+                return !el.classList.contains('hidden-project');
+            });
+            var projectsSection = document.getElementById('projects-section');
+            var projectsNavItem = document.getElementById('projects-nav-item');
+            if (projectsSection) {
+                projectsSection.style.display = anyProjectVisible ? '' : 'none';
+            }
+            if (projectsNavItem) {
+                projectsNavItem.style.display = anyProjectVisible ? '' : 'none';
+            }
+
+            var filterButtons = document.querySelectorAll('.filter-btn');
+            var tagPills = document.querySelectorAll('.tag-pill');
+            var projects = document.querySelectorAll('[data-categories]');
+            var filterBar = document.querySelector('.filter-bar');
+
+            var visibleProjectCount = Array.prototype.reduce.call(projectEls, function (count, el) {
+                return count + (el.classList.contains('hidden-project') ? 0 : 1);
+            }, 0);
+            if (filterBar) {
+                filterBar.style.display = visibleProjectCount >= 3 ? '' : 'none';
+            }
+
+            var visibleCategories = new Set();
+            projects.forEach(function (project) {
+                if (project.classList.contains('hidden-project')) return;
+                project.getAttribute('data-categories').split(',').forEach(function (c) {
+                    visibleCategories.add(c.trim());
+                });
+            });
+            filterButtons.forEach(function (b) {
+                var f = b.getAttribute('data-filter');
+                if (f !== 'all' && !visibleCategories.has(f)) {
+                    b.style.display = 'none';
+                }
+            });
+
+            function applyFilter(filter) {
+                filterButtons.forEach(function (b) {
+                    var isActive = b.getAttribute('data-filter') === filter;
+                    b.classList.toggle('active', isActive);
+                    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+                projects.forEach(function (project) {
+                    var categories = project.getAttribute('data-categories').split(',');
+                    var matches = filter === 'all' || categories.indexOf(filter) !== -1;
+                    if (matches) {
+                        project.style.removeProperty('display');
+                    } else {
+                        project.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }
+
+            filterButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    applyFilter(btn.getAttribute('data-filter'));
+                });
+            });
+
+            tagPills.forEach(function (tag) {
+                tag.addEventListener('click', function () {
+                    applyFilter(tag.getAttribute('data-filter'));
+                    if (filterBar) {
+                        filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            var navBrand = document.querySelector('.navbar-brand');
+            var heroWordmark = document.querySelector('.ornamentation');
+            if (!navBrand || !heroWordmark) return;
+
+            navBrand.classList.add('navbar-brand-hidden');
+
+            function updateNavBrand() {
+                var rect = heroWordmark.getBoundingClientRect();
+                var scrolledPast = rect.bottom < 0;
+                navBrand.classList.toggle('navbar-brand-hidden', !scrolledPast);
+            }
+
+            window.addEventListener('scroll', updateNavBrand, { passive: true });
+            updateNavBrand();
+        })();
+    </script>
+    <script>
+        (function () {
+            var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            var sections = [];
+            navLinks.forEach(function (link) {
+                var hash = (link.getAttribute('href') || '').split('#')[1];
+                var el = hash ? document.getElementById(hash) : null;
+                var navItem = link.closest('.nav-item');
+                if (el && navItem) {
+                    sections.push({ el: el, navItem: navItem, navLink: link });
+                }
+            });
+            if (!sections.length) return;
+
+            function updateActiveNav() {
+                var scrollPos = window.scrollY + 120;
+                var visibleSections = sections.filter(function (s) {
+                    return s.navItem.offsetParent !== null;
+                });
+                if (!visibleSections.length) return;
+                var current = visibleSections[0];
+                var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+                if (atBottom) {
+                    current = visibleSections[visibleSections.length - 1];
+                } else {
+                    visibleSections.forEach(function (s) {
+                        if (s.el.offsetTop <= scrollPos) {
+                            current = s;
+                        }
+                    });
+                }
+                sections.forEach(function (s) {
+                    var isCurrent = s === current;
+                    s.navItem.classList.toggle('active', isCurrent);
+                    if (isCurrent) {
+                        s.navLink.setAttribute('aria-current', 'true');
+                    } else {
+                        s.navLink.removeAttribute('aria-current');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
+        })();
+    </script>
+</div>
+</main>
+<footer class="container-fluid">
+	<div class="row mx-4">
+        <div class="col-12 footerhighlight">
+            <div class="vspace1em"></div>
+			<div class="vspacehalfem"></div>
+            <p>emma healy</p>
+        </div>
+		<div class="col-12 footertext">
+			<p>&copy; Emma Healy 2026</p>
+			<div class="vspacehalfem"></div>
+        </div>
+    </div>
+</footer>
+</html>
